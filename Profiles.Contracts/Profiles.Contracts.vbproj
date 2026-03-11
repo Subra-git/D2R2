@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6319A445-4296-4D9F-ACDB-2EC882AA090F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Profiles.Contracts</RootNamespace>
+    <AssemblyName>Profiles.Contracts</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 2-tier|AnyCPU'">
+    <OutputPath>bin\Local 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 3-tier|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Local 3-tier\</OutputPath>
+    <DocumentationFile>Profiles.Contracts.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 3-tier|AnyCPU'">
+    <OutputPath>bin\UAT 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 2-tier|AnyCPU'">
+    <OutputPath>bin\UAT 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 2-tier|AnyCPU'">
+    <OutputPath>bin\Live 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 3-tier|AnyCPU'">
+    <OutputPath>bin\Live 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT Azure|AnyCPU'">
+    <OutputPath>bin\UAT Azure\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live Azure|AnyCPU'">
+    <OutputPath>bin\Live Azure\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net35\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net35\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.4.9.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataContracts\BespokeReportTemplate\BespokeReportTemplateRequest.vb" />
+    <Compile Include="DataContracts\BespokeReportTemplate\BespokeReportTemplateResponse.vb" />
+    <Compile Include="DataContracts\DiseaseFilter\DiseaseFilterNameValues.vb" />
+    <Compile Include="DataContracts\DiseaseFilter\DiseaseRankingValues.vb" />
+    <Compile Include="DataContracts\DiseaseReviews\DiseaseReviewsData.vb" />
+    <Compile Include="DataContracts\DiseaseReviews\GetProfileDiseaseReviewsReportRequest.vb" />
+    <Compile Include="DataContracts\ErrorLogService\ErrorLogEntry.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationGuidanceData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\RankData\RankProfileData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\CommonAnswerData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\CommonQuestionData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\PrioritisationAnswerData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\PrioritisationCategoryData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\PrioritisationQuestionData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\PrioritisationScoreData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\ProfileData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\ProfiledSpeciesData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\ProfileVersionData.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ScoreData\ScoreData.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\AffectedSpecies.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\AffectedSpeciesDelete.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\AffectedSpeciesInsert.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\CreateProfileRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\CreateProfileResponse.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\DeleteProfileVersionRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\DeleteProfileVersionResponse.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\GetAffectedSpeciesRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\GetProfileAttributesRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\GetNewProfileDefaultsRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\NewProfileDefaults.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\NewProfileVersionRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\NewProfileVersionResponse.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\ProfileAttributes.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\ProfileStatusType.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\SetProfileVersionPublicAccessRequest.vb" />
+    <Compile Include="DataContracts\PrioritisationService\CriterionUpdate.vb" />
+    <Compile Include="DataContracts\PrioritisationService\CriterionValueUpdate.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritiseProfilesRequest.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ProfileVersionIdRequest.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationBase\PrioritisationCategory.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationCategoryScore.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationChangeResult.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationChangeSet.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationBase\PrioritisationCriterion.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationBase\PrioritisationCriterionValue.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationBase\PrioritisationMetadata.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisationCriterionScore.vb" />
+    <Compile Include="DataContracts\PrioritisationService\PrioritisedSpecies.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ProfilePrioritisation\ProfilePrioritisationCategory.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ProfilePrioritisation\ProfilePrioritisationCriterion.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ProfilePrioritisation\ProfilePrioritisationCriterionValue.vb" />
+    <Compile Include="DataContracts\PrioritisationService\ProfilePrioritisation\ProfilePrioritisationMetadata.vb" />
+    <Compile Include="DataContracts\PrioritisationService\SpeciesPrioritisation\SpeciesPrioritisationCategory.vb" />
+    <Compile Include="DataContracts\PrioritisationService\SpeciesPrioritisation\SpeciesPrioritisationCriterion.vb" />
+    <Compile Include="DataContracts\PrioritisationService\SpeciesPrioritisation\SpeciesPrioritisationCriterionValue.vb" />
+    <Compile Include="DataContracts\PrioritisationService\SpeciesPrioritisation\SpeciesPrioritisationMetadata.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\UpdateProfileAttributesRequest.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\UpdateProfileAttributesResponse.vb" />
+    <Compile Include="DataContracts\ProfileManagementService\UpdateProfileStatusRequest.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\GetProfileNotesBySectionRequest.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\GetProfileNotesByVersionRequest.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\QuestionReference.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\GetProfileQuestionReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\GetProfileQuestionInfoListRequest.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\ProfileGuidanceReportData.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\ProfileQuestionInfo.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\ProfileGuidanceReportType.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfileRankingReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfileRankingRFIReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfileVersionBespokeReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfileVersionComparisonReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetSummaryProfileReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ProfileVersionBespokeReportData.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ProfileRankingReportData.vb" />
+    <Compile Include="DataContracts\ProfileReportService\SummaryProfileReportData.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileNote.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileAnswer.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileAnswerDataChangeResult.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileAnswerDataChangeSet.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileFieldValueUpdate.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\QuestionRowDelete.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\SectionReviewFrequency\SectionReviewFrequency.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\SectionReviewStatusType\SectionReviewStatusType.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\GetReferenceTableAuditTrailRequest.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\GetReferenceTableRequest.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\GetReferenceValueDetailRequest.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\GetProfileQuestionRequest.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\ProfileQuestionData.vb" />
+    <Compile Include="DataContracts\ProfileQuestionService\UpdateProfileQuestionRequest.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\GetReferenceValuesRequest.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\GetLookupValuesRequest.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\LookupValue.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\ReferenceTableAuditTrailEntry.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\ReferenceTable.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\ReferenceValue.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\ReferenceValueChange.vb" />
+    <Compile Include="DataContracts\ReferenceValueService\ReferenceValueDetail.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ContributionsData\GetContributionsRequest.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ContributionsData\ProfileContributionData.vb" />
+    <Compile Include="DataContracts\BespokeReportTemplate\BespokeReportTemplateDataResponse.vb" />
+    <Compile Include="DataContracts\BespokeReportTemplate\BespokeReportTemplateDataRequest.vb" />
+    <Compile Include="DataContracts\ReviewEmailService\ProfileSectionResponse.vb" />
+    <Compile Include="DataContracts\ReviewEmailService\ProfileVersionResponse.vb" />
+    <Compile Include="DataContracts\ReviewEmailService\UsersDueReviewEmailRequest.vb" />
+    <Compile Include="DataContracts\ReviewEmailService\UserDueReviewEmailResponse.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\AnswerDataBase\AnswerDataChangeResult.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\AnswerDataBase\AnswerDataChangeSet.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\AnswerDataBase\FieldValueUpdate.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\SpeciesAnswerDataChangeResult.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\SpeciesAnswerDataChangeSet.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\SpeciesFieldValueUpdate.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\DeleteAllReviewCommentsRequest.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\ChangeSpeciesPositionRequest.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\GetSpeciesDetailRequest.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\GetSpeciesValidParentsRequest.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\SpeciesAuditTrailEntry.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\SpeciesChange.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\SpeciesDetail.vb" />
+    <Compile Include="DataContracts\SpeciesMaintenanceService\SpeciesValidParent.vb" />
+    <Compile Include="DataContracts\SpellCheckService\CustomWord.vb" />
+    <Compile Include="DataContracts\SpellCheckService\CustomWordChangeset.vb" />
+    <Compile Include="DataContracts\SpellCheckService\CustomWordDelete.vb" />
+    <Compile Include="DataContracts\SpellCheckService\CustomWordInsert.vb" />
+    <Compile Include="DataContracts\SpellCheckService\CustomWordUpdate.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\GetReviewCommentsRequest.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\ReviewCommentChangeset.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\ReviewCommentData.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\ReviewCommentDelete.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\ReviewCommentInsert.vb" />
+    <Compile Include="DataContracts\ReviewCommentService\ReviewCommentUpdate.vb" />
+    <Compile Include="DataContracts\StaticReportService\UploadStaticReportRequest.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\GlobalUserMaintenance\GetGlobalUserRequest.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileContributorMaintenance\GetProfileContributorRequest.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileContributorMaintenance\GetProfileContributorsRequest.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\GlobalUserMaintenance\GlobalUser.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\GlobalUserMaintenance\GlobalUserChangeset.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\GlobalUserMaintenance\GlobalUserInsert.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\GlobalUserMaintenance\GlobalUserUpdate.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileContributorMaintenance\ProfileContributor.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileContributorMaintenance\ProfileContributorChangeset.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileContributorMaintenance\ProfileContributorDelete.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileContributorMaintenance\ProfileContributorInsert.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\ProfileUserRole.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserChangeset.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserMaintenance.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoProfile.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserDetailDelete.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUser.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserUpdate.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserProfile.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserProfileDelete.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserProfileInsert.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserMaintenance\SsoUserProfileUpdate.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\SsoUserDetailUpdate.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\UserVerification.vb" />
+    <Compile Include="DataContracts\UserMaintenanceService\VerifyDatabaseUserRequest.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\ProfileNote.vb" />
+    <Compile Include="DataContracts\ChangeResult.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\ProfileNoteChangeset.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\ProfileNoteDelete.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\ProfileNoteInsert.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\ProfileNoteType.vb" />
+    <Compile Include="DataContracts\ProfileNoteService\ProfileNoteUpdate.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ContributionsReportData.vb" />
+    <Compile Include="DataContracts\ProfileReportService\CreateProfileReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetContributionsReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfilePrintVersionRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfileReportDataRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetProfileVersionReportsRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\GetSummaryPrioritisationReportRequest.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ProfilePrintVersionData.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ProfileReportData.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ProfileVersionReport.vb" />
+    <Compile Include="DataContracts\ProfileReportService\ProfileVersionComparisonReportData.vb" />
+    <Compile Include="DataContracts\ProfileReportService\SummaryPrioritisationReportData.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\GetCurrentPublicWhatIfScenarioRequest.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\GetPublicProfileHistoryRequest.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\GetPublishedProfileHistoryRequest.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\GetDraftProfileHistoryRequest.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\GetProfileVersionRequest.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileAffectedSpecies.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\GetAllProfilesRequest.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileInfo.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileScenarioInfo.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileVersionInfo.vb" />
+    <Compile Include="DataContracts\ProfileSearchService\ProfileSearchProfileVersionSummaryInfo.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\GetProfilesAnswerDataRequest.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\GetProfilesAnswerDataSingleSectionRequest.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileAnswerData.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileAnswerDataSingleSection.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileFieldValue.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfiledSpecies.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\ProfileVersionSection.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\QuestionName.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\QuestionRow.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileAnswerData\RevisionDates.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\MetadataBase\FieldMetadata.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\MetadataBase\QuestionMetadata.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\MetadataBase\SectionMetadata.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileMetadata\ProfileFieldGroupMetadata.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileMetadata\ProfileFieldMetadata.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileMetadata\ProfileSectionMetadata.vb" />
+    <Compile Include="DataContracts\ProfileVersionDataService\ProfileMetadata\ProfileQuestionMetadata.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\GetSpeciesAnswerDataRequest.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\SpeciesAnswerData.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\AnswerDataBase\FieldValue.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\SpeciesFieldValue.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesAnswerData\SpeciesSection.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesMetadata\SpeciesFieldMetadata.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesMetadata\SpeciesQuestionMetadata.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesMetadata\SpeciesSectionMetadata.vb" />
+    <Compile Include="DataContracts\SpeciesDataService\SpeciesData.vb" />
+    <Compile Include="DataContracts\StaticReportService\DeleteStaticReportVersionRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\GetCurrentPublicStaticReportsRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\GetCurrentStaticReportsRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\GetStaticReportDataRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\GetStaticReportHistoryRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\GetStaticReportPublicHistoryRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\SetStaticReportPublicAccessRequest.vb" />
+    <Compile Include="DataContracts\StaticReportService\StaticReportData.vb" />
+    <Compile Include="DataContracts\StaticReportService\StaticReportVersion.vb" />
+    <Compile Include="DataContracts\UserAuthenticationService\GetUserIdentityRequest.vb" />
+    <Compile Include="DataContracts\UserAuthenticationService\ProfileRoleData.vb" />
+    <Compile Include="DataContracts\UserAuthenticationService\UserIdentityData.vb" />
+    <Compile Include="DataFactory.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ServiceContracts\IDiseaseRankingService.vb" />
+    <Compile Include="ServiceContracts\IErrorLogService.vb" />
+    <Compile Include="ServiceContracts\IProfileManagementService.vb" />
+    <Compile Include="ServiceContracts\IPrioritisationService.vb" />
+    <Compile Include="ServiceContracts\IProfileNoteService.vb" />
+    <Compile Include="ServiceContracts\IProfileQuestionService.vb" />
+    <Compile Include="ServiceContracts\IProfileReportService.vb" />
+    <Compile Include="ServiceContracts\IProfileSearchService.vb" />
+    <Compile Include="ServiceContracts\IProfileVersionDataService.vb" />
+    <Compile Include="ServiceContracts\IReferenceValueService.vb" />
+    <Compile Include="ServiceContracts\IReviewCommentService.vb" />
+    <Compile Include="ServiceContracts\IReviewEmailService.vb" />
+    <Compile Include="ServiceContracts\ISpeciesDataService.vb" />
+    <Compile Include="ServiceContracts\ISpeciesMaintenanceService.vb" />
+    <Compile Include="ServiceContracts\ISpellCheckService.vb" />
+    <Compile Include="ServiceContracts\IStaticReportService.vb" />
+    <Compile Include="ServiceContracts\IUserAuthenticationService.vb" />
+    <Compile Include="ServiceContracts\IUserMaintenanceService.vb" />
+    <Compile Include="StringExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Profiles.Infrastructure\Profiles.Infrastructure.csproj">
+      <Project>{9ae09297-f86a-464a-8c8d-2a96a1a902bf}</Project>
+      <Name>Profiles.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ServiceContracts\IBespokeReportTemplateService.vb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

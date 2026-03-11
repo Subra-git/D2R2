@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeGenList>
+  <Option Name="Profile tables SQL script" DataSource="spgProfileMetadata" Transform="ProfilesMetadata.xslt"/>
+  <Option Name="Baseline data SQL script" DataSource="spgaBaseReferenceData" Transform="ProfilesReferenceData.xslt"/>
+  <Option Name="Profile stored procedures SQL script" DataSource="spgProfileMetadata" Transform="ProfilesStoredProcs.xslt"/>
+  <Option Name="Prioritisation Calculation SQL script" DataSource="spgPrioritisationMetadata" Transform="PrioritisationCalculation.xslt"/>
+  <Option Name="Profile tables migration script" DataSource="spgProfileMetadata" Transform="ProfilesP2R3Migration.xslt"/>
+</CodeGenList>

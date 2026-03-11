@@ -1,0 +1,40 @@
+<%@ Page Language="VB" MasterPageFile="~/ProfilesTemplate.master" AutoEventWireup="false" CodeFile="NewProfileVersion.aspx.vb" Inherits="NewProfileVersion" title="Create new draft profile version" %>
+
+<%@ Register Src="NavigationLinks.ascx" TagName="NavigationLinks" TagPrefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphNavigation" Runat="Server">
+    <uc1:NavigationLinks ID="NavigationLinks1" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphMain" Runat="Server">
+
+           
+           <div style="width:100%;float:left">
+               <table>
+                   <tr>
+                       <td>Profile title:
+                       </td>
+                       <td><asp:Label ID="lblProfileTitle" runat="server"></asp:Label></td>
+                       
+                   </tr>
+                   <tr>
+                       <td>
+                           Latest published version:
+                       </td>
+                       <td>
+                           <asp:Label ID="lblProfilePublishedVersion" runat="server"></asp:Label></td>
+                       
+                   </tr>
+                  <tr>
+                       <td>
+                           Latest draft version:
+                       </td>
+                       <td>
+                           <asp:Label ID="lblProfileDraftVersion" runat="server"></asp:Label></td>
+                       
+                   </tr> 
+                   <tr><td>&nbsp;</td><td align="right"><div align="right"><asp:Button ID="btnCreate" runat="server" Text="Create new draft version " /><act:ConfirmButtonExtender ID="cbeCreate" runat="server" TargetControlID="btnCreate" ConfirmText="Are you sure you want to create a new profile version?" /></div></td></tr>
+               </table>
+              <asp:Label ID="lblError" runat="server" CssClass="ErrorLabel"></asp:Label>
+            
+           </div> 
+</asp:Content>
+

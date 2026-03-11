@@ -1,0 +1,107 @@
+BODY {
+	BACKGROUND-COLOR: #cccc99
+}
+#title {
+	BACKGROUND-COLOR: #666600
+}
+#title {
+	BORDER-LEFT-COLOR: #cccc99; BORDER-BOTTOM-COLOR: #cccc99; BORDER-TOP-COLOR: #cccc99; BORDER-RIGHT-COLOR: #cccc99
+}
+#title {
+	COLOR: #ffffff
+}
+#title A:link {
+	COLOR: #ffffff
+}
+#title A:visited {
+	COLOR: #ffffff
+}
+#title A:hover {
+	COLOR: #cccc99
+}
+#topnav {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#navigation A:link {
+	COLOR: #999933
+}
+#navigation A:visited {
+	COLOR: #999933
+}
+#navigation A:hover {
+	COLOR: #cccc99
+}
+#navigation UL UL {
+	BORDER-LEFT-COLOR: #666600
+}
+#rightnav A:hover {
+	COLOR: #999933
+}
+#rightnav H1 {
+	COLOR: #666600
+}
+#rightnav H2 {
+	COLOR: #666600
+}
+#rightnav H3 {
+	COLOR: #666600
+}
+#rightnav H4 {
+	COLOR: #666600
+}
+#rightnav H5 {
+	COLOR: #666600
+}
+#rightnav H6 {
+	COLOR: #666600
+}
+#footer {
+	BORDER-TOP-COLOR: #cccc99
+}
+#footer IMG {
+	BACKGROUND-COLOR: #cccc99
+}
+#footer A:hover {
+	COLOR: #999933
+}
+#footer A:hover IMG {
+	BACKGROUND-COLOR: #999933
+}
+/*
+#main A:hover {
+	COLOR: #999933
+}
+#main FIELDSET {
+	BORDER-LEFT-COLOR: #666600; BORDER-BOTTOM-COLOR: #666600; BORDER-TOP-COLOR: #666600; BORDER-RIGHT-COLOR: #666600
+}
+#main HR {
+	COLOR: #666600
+}
+#main TABLE TD {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#main TABLE TH {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#special TABLE TD {
+	BACKGROUND-COLOR: #ffffff
+}
+#special TABLE TH {
+	BACKGROUND-COLOR: #ffffff
+}
+*/
+#console #go {
+	BACKGROUND-COLOR: #999933
+}
+#console #go {
+	COLOR: #ffffff
+}
+#console FORM {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#console #searchbox {
+	BORDER-LEFT-COLOR: #cccc99; BORDER-BOTTOM-COLOR: #cccc99; BORDER-TOP-COLOR: #cccc99; BORDER-RIGHT-COLOR: #cccc99
+}
+#console #go {
+	BORDER-LEFT-COLOR: #cccc99; BORDER-BOTTOM-COLOR: #cccc99; BORDER-TOP-COLOR: #cccc99; BORDER-RIGHT-COLOR: #cccc99
+}

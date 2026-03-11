@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{40B269EC-A2F0-4C88-97CB-19F2B7C93166}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Profiles.Business</RootNamespace>
+    <AssemblyName>Profiles.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 2-tier|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Local 2-tier\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 3-tier|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Local 3-tier\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 3-tier|AnyCPU'">
+    <OutputPath>bin\UAT 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 2-tier|AnyCPU'">
+    <OutputPath>bin\UAT 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 2-tier|AnyCPU'">
+    <OutputPath>bin\Live 2-tier\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 3-tier|AnyCPU'">
+    <OutputPath>bin\Live 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT Azure|AnyCPU'">
+    <OutputPath>bin\UAT Azure\</OutputPath>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live Azure|AnyCPU'">
+    <OutputPath>bin\Live Azure\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\ProfilesLibrary\Csla\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.4.9.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BespokeReport\BespokeReportTemplateService.cs" />
+    <Compile Include="EmailBusiness\EmailBusiness.cs" />
+    <Compile Include="EmailBusiness\HtmlTagHelper.cs" />
+    <Compile Include="EmailBusiness\IEmailBusiness.cs" />
+    <Compile Include="EmailBusiness\Review\ReviewEmail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Profiles.Contracts\Profiles.Contracts.vbproj">
+      <Project>{6319a445-4296-4d9f-acdb-2ec882aa090f}</Project>
+      <Name>Profiles.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Profiles.DataAccess.NPoco\Profiles.DataAccess.NPoco.csproj">
+      <Project>{8d06850c-4931-439e-9206-270ddc872b4e}</Project>
+      <Name>Profiles.DataAccess.NPoco</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Profiles.DataModels\Profiles.DataModels.csproj">
+      <Project>{1c86cb47-d461-491a-ac50-3d0b2e6023c0}</Project>
+      <Name>Profiles.DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Profiles.EmailService\Profiles.EmailService.csproj">
+      <Project>{ce03bca3-f05c-4e22-961e-a09b4019a29b}</Project>
+      <Name>Profiles.EmailService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Profiles.Infrastructure\Profiles.Infrastructure.csproj">
+      <Project>{9ae09297-f86a-464a-8c8d-2a96a1a902bf}</Project>
+      <Name>Profiles.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProfilesLibrary\ProfilesLibrary.vbproj">
+      <Project>{17fd4164-5f42-4520-8a0f-dd30f0dbf90b}</Project>
+      <Name>ProfilesLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B598C41B-D6A4-4723-8306-1268055FEE77}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VLA.Profiles.Database</RootNamespace>
+    <AssemblyName>VLA.Profiles.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 2-tier|AnyCPU'">
+    <OutputPath>bin\Local 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 3-tier|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Local 3-tier\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 3-tier|AnyCPU'">
+    <OutputPath>bin\UAT 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 2-tier|AnyCPU'">
+    <OutputPath>bin\UAT 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 2-tier|AnyCPU'">
+    <OutputPath>bin\Live 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 3-tier|AnyCPU'">
+    <OutputPath>bin\Live 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT Azure|AnyCPU'">
+    <OutputPath>bin\UAT Azure\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live Azure|AnyCPU'">
+    <OutputPath>bin\Live Azure\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="scripts\Everytime\0001-CreateInternalAdmin.sql" />
+    <Content Include="scripts\TestData\AnonymiseData.sql" />
+    <Content Include="scripts\Update\0014-AddSubscribedToReviewEmailsColumn.sql" />
+    <Content Include="scripts\Update\0011-ChangeReviewDateRangesForReviewEmailUsers.sql" />
+    <Content Include="scripts\Update\0012-ChangeReviewDateRangesForReviewEmailProfiles.sql" />
+    <Content Include="scripts\Update\0013-ChangeReviewDateRangesForReviewEmailProfileSections.sql" />
+    <Content Include="scripts\Update\0008-CreateSpgaDiseaseReviews.sql" />
+    <Content Include="scripts\Create\0001-CreateLogin.sql" />
+    <Content Include="scripts\Create\0002-CreateDatabase.sql" />
+    <Content Include="scripts\Update\0007-ChangeReviewDateRangesForReviewEmailProfileSections.sql" />
+    <Content Include="scripts\Update\0006-ChangeReviewDateRangesForReviewEmailProfiles.sql" />
+    <Content Include="scripts\Update\0005-ChangeReviewDateRangesForReviewEmailUsers.sql" />
+    <Content Include="scripts\Update\0004-UpdateViewPermissions.sql" />
+    <Content Include="scripts\Update\0003-CreateReviewEmailProfileSectionsView.sql" />
+    <Content Include="scripts\Update\0002-CreateReviewEmailProfilesView.sql" />
+    <Content Include="scripts\Update\0001-CreateReviewEmailUsersView.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
+    <Content Include="scripts\AliaSQL.exe" />
+    <Content Include="scripts\Create\placeholder.txt" />
+    <Content Include="scripts\Everytime\placeholder.txt" />
+    <Content Include="scripts\TestData\placeholder.txt" />
+    <Content Include="scripts\Update\0009-UpdateSpgaDiseaseReviewsPermissions.sql" />
+    <Content Include="scripts\Update\0010-UpdateSelectPermissionsOnDataModelsObjects.sql" />
+    <Content Include="scripts\Update\0015-UpdateInsertGlobalUserSpg.sql" />
+    <Content Include="scripts\Update\0016-UpdateGetAllGlobalUsersSpg.sql" />
+    <Content Include="scripts\Update\0017-UpdateGetUserSpg.sql" />
+    <Content Include="scripts\Update\0018-UpdateInsertSsoUser.sql" />
+    <Content Include="scripts\Update\0019-UpdateGetAllUserMaintenance.sql" />
+    <Content Include="scripts\Update\0020-UpdateReviewEmailProfileSectionsView.sql" />
+    <Content Include="scripts\Update\0021-UpdateReviewEmailProfilesView.sql" />
+    <Content Include="scripts\Update\0022-UpdateReviewEmailUsersView.sql" />
+    <Content Include="scripts\Update\0031-UpdateSpgaDiseaseReviews.sql" />
+    <Content Include="scripts\Update\0030-UpdateSpgaDiseaseReviews.sql" />
+    <Content Include="scripts\Update\0029-UpdateSpgProfileContributorsByProfileId.sql" />
+    <Content Include="scripts\Update\0028-DropReviewEmailColumnFromProfileSectionUser.sql" />
+    <Content Include="scripts\Update\0027-UpdateReviewEmailProfileSectionsView.sql" />
+    <Content Include="scripts\Update\0026-UpdateReviewEmailProfilesView.sql" />
+    <Content Include="scripts\Update\0025-UpdateReviewEmailUsersView.sql" />
+    <Content Include="scripts\Update\0024-DeleteSpuProfileSectionUser.sql" />
+    <Content Include="scripts\Update\0023-UpdateDiseaseReviewsSpga.sql" />
+    <Content Include="scripts\Update\0033-InsertSsoSubscriptionServiceUser.sql" />
+    <Content Include="scripts\Update\0032-UpdateSpgaSsoUserMaintenance.sql" />
+    <Content Include="scripts\Update\0034-UpdateSpgaProfile.sql" />
+    <Content Include="scripts\Update\0039-AddEditorFieldTypeToSpeciesField.sql" />
+    <Content Include="scripts\Update\0036-UpdateSpgaProfileSectionMetadata.sql" />
+    <Content Include="scripts\Update\0035-AddEditorFieldType.sql" />
+    <Content Include="scripts\Update\0037-UpdateEditorTypesForProfileFields.sql" />
+    <Content Include="scripts\Update\0040-UpdateEditorTypesForSpeciesFields.sql" />
+    <Content Include="scripts\Update\0038-UpdateSingleLineFieldsToTinyMCE.sql" />
+    <Content Include="scripts\Update\0041-UpdateSpgaSpeciesSectionMetadata.sql" />
+    <Content Include="scripts\Update\0046-UpdatesSpgaSsoUserMaintenance.sql" />
+    <Content Include="scripts\Update\0045-CreateBespokeReportTemplateCheckedItems.sql" />
+    <Content Include="scripts\Update\0044-CreateBespokeReportTemplateTable.sql" />
+    <Content Include="scripts\Update\0042-UpdateSpgSpeciesById.sql" />
+    <Content Include="scripts\Update\0043-APHA_D2R2_v2_Questions_Update_Script.sql" />
+    <Content Include="scripts\Update\0047-AddSplitWordsFunction.sql" />
+    <Content Include="scripts\Update\0048-AddReferenceTypeToNoteType.sql" />
+    <Content Include="scripts\Update\0049-CreateSectionSelectionTableType.sql" />
+    <Content Include="scripts\Update\0050-UpdateSearchProfileStoredProcedure.sql" />
+    <Content Include="scripts\Update\0051-Warning_Text_Removal_Data_Migration.sql" />
+    <Content Include="scripts\Update\0052-UpdateSpgProfileVersionInfoById.sql" />
+    <Content Include="scripts\Update\0054-UpdateDatabaseTableFieldSizes.sql" />
+    <Content Include="scripts\Update\0053-UpdateSpgaFilterRankProfileData.sql" />
+    <Content Include="scripts\Update\placeholder.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

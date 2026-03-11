@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="Home.aspx" title="D2R2 Home"  description="D2R2 Home">
+		<siteMapNode url="~/StaticReports.aspx" title="General Reports"  description="General Reports" />
+		<siteMapNode url="~/EditUserGuidance.aspx" title="Questions and guidance"  description="Questions and guidance" />
+		<siteMapNode url="~/DiseaseRanking.aspx" title="Disease ranking"  description="Disease ranking" >
+			<siteMapNode url="~/EditDiseaseRankingFilters.aspx" title="Edit disease ranking filters"  description="Edit disease ranking filters" />
+		</siteMapNode>
+		<siteMapNode url="~/DiseaseReviews.aspx" title="Review timings"  description="review timings" />
+		<siteMapNode url="~/ProfileProperties.aspx" title="Create disease profile"  description="Create disease profile" />
+		<siteMapNode url="~/Search.aspx" title="Search disease profiles"  description="Search disease profiles">
+			<siteMapNode  url="~/EditProfileTitle.aspx" title="Edit title"  description="Edit title" />
+			<siteMapNode  url="~/ManageProfile.aspx" title="Manage"  description="Manage" />
+			<siteMapNode  url="~/EditProfileQuestions.aspx" title="Browse profile"  description="Browse profile" />
+			<siteMapNode url="~/EditProfileReferences.aspx" title="Edit Profile References" description="Edit Profile References" />
+			<siteMapNode url="~/EditProfileFurtherInformation.aspx" title="Edit profile Further Information" description="=Edit profile Further Information"/>
+			<siteMapNode url="~/EditProfileReviewComments.aspx" title="Edit Profile Review Comments" description="Edit Profile Review Comments"/>
+			<siteMapNode url="~/EditProfileAllRevisionDates.aspx" title="Edit Profile Revision Dates" description="Edit Profile Revision Dates"/>
+			<siteMapNode url="~/EditProfileContributions.aspx" title="Edit Profile Contributions" description="Edit Profile Contributions"/>
+			<siteMapNode url="~/Notes.aspx" title="Profile References" description="Profile References"/>
+			<siteMapNode  url="~/ProfileReports.aspx" title="Profile reports"  description="Profile reports">
+				<siteMapNode url="~/CreateBespokeReport.aspx" title="Create bespoke report"  description="Create bespoke report" />
+			</siteMapNode>
+			<!--<siteMapNode  url="./ProfileProperties.aspx" title="Clone profile"  description="Clone profile" />
+      <siteMapNode  url="./Css/./ProfileProperties.aspx" title="Clone scenario"  description="Clone scenario" />-->
+		</siteMapNode>
+		<siteMapNode url="~/CompareProfileVersions.aspx" title="Compare profile versions"  description="Compare profile versions" />
+		<siteMapNode url="~/ViewSpeciesData.aspx" title="View species data"  description="View species data">
+			<siteMapNode url="~/EditSpecies.aspx" title="View specific species"  description="View specific species" />
+		</siteMapNode>
+		<siteMapNode url="~/MaintainSpeciesData.aspx" title="Maintain species data"  description="Maintain species data" />
+	</siteMapNode>
+</siteMap>

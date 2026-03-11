@@ -1,0 +1,1968 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="text"/>
+  <xsl:template match="root">
+
+    <!-- delete stored procedures -->
+
+	  IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spiProfileVersion]') AND type in (N'P', N'PC'))
+	  DROP PROCEDURE [dbo].[spiProfileVersion]
+	  GO
+
+	  IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spiProfileVersionSpecies]') AND type in (N'P', N'PC'))
+	  DROP PROCEDURE [dbo].[spiProfileVersionSpecies]
+	  GO
+
+	  IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spuProfileVersionSpeciesTradeData]') AND type in (N'P', N'PC'))
+	  DROP PROCEDURE [dbo].[spuProfileVersionSpeciesTradeData]
+	  GO
+
+	  IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spdProfileVersionSpecies]') AND type in (N'P', N'PC'))
+	  DROP PROCEDURE [dbo].[spdProfileVersionSpecies]
+	  GO
+
+	  IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spdProfileVersion]') AND type in (N'P', N'PC'))
+	  DROP PROCEDURE [dbo].[spdProfileVersion]
+	  GO
+
+	  <!-- stored procedures for each lookup list -->
+    <xsl:for-each select="ReferenceTable[@IsMaintainable = 0]">
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spgalu<xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spgalu<xsl:value-of select="@Name"/>]
+      GO
+    </xsl:for-each>
+
+    <xsl:for-each select="ReferenceTable[@IsMaintainable = 1]">
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spgalu<xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spgalu<xsl:value-of select="@Name"/>]
+      GO
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spglu<xsl:value-of select="@Name"/>Value]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spglu<xsl:value-of select="@Name"/>Value]
+      GO
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spilu<xsl:value-of select="@Name"/>Value]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spilu<xsl:value-of select="@Name"/>Value]
+      GO
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spdlu<xsl:value-of select="@Name"/>Value]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spdlu<xsl:value-of select="@Name"/>Value]
+      GO
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spulu<xsl:value-of select="@Name"/>Value]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spulu<xsl:value-of select="@Name"/>Value]
+      GO
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spplu<xsl:value-of select="@Name"/>Value]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spplu<xsl:value-of select="@Name"/>Value]
+      GO
+
+    </xsl:for-each>
+    
+      <xsl:for-each select="Section/Question">
+
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spg<xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spg<xsl:value-of select="@Name"/>]
+      GO
+
+        <xsl:if test="@IsRepeating = 1">
+          IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spi<xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+          DROP PROCEDURE [dbo].[spi<xsl:value-of select="@Name"/>]
+          GO
+
+          IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spd<xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+          DROP PROCEDURE [dbo].[spd<xsl:value-of select="@Name"/>]
+          GO
+        </xsl:if>
+        
+      IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spu<xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+      DROP PROCEDURE [dbo].[spu<xsl:value-of select="@Name"/>]
+      GO
+
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+        IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spi<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+        DROP PROCEDURE [dbo].[spi<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>]
+        GO
+
+        IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[spd<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>]') AND type in (N'P', N'PC'))
+        DROP PROCEDURE [dbo].[spd<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>]
+        GO
+        
+      </xsl:for-each>
+    </xsl:for-each>
+
+  <!-- stored procedure to create a profile -->
+    SET ANSI_NULLS ON
+    GO
+    SET QUOTED_IDENTIFIER ON
+    GO
+    -- =============================================
+    --  This stored procedure was autogenerated by the Profiles
+    --  CodeGen application on <xsl:value-of select="@datetime"/> .
+	  -- =============================================
+	  CREATE PROCEDURE spiProfileVersion
+	  @ProfileVersionId uniqueidentifier,
+	  @ProfileId uniqueidentifier,
+	  @Title varchar(255),
+	  @ScenarioTitle varchar(255) = NULL,
+	  @VersionMajor tinyint,
+	  @VersionMinor tinyint,
+	  @State varchar(50),
+	  @EffectiveDateFrom smalldatetime,
+	  @CloneProfileVersionId uniqueidentifier = NULL
+	  AS
+	  BEGIN
+	  -- SET NOCOUNT ON added to prevent extra result sets from
+	  -- interfering with SELECT statements.
+	  SET NOCOUNT ON;
+
+	  DECLARE @ProfileVersionStateId uniqueidentifier
+
+	  SELECT
+	  @ProfileVersionStateId = [Id]
+	  FROM
+	  [luProfileVersionState]
+	  WHERE
+	  [Name] = @State
+
+	  IF EXISTS (
+	  SELECT
+	  [Id]
+	  FROM
+	  [ProfileVersion]
+	  WHERE
+	  [ProfileId] = @ProfileId AND
+	  [VersionMajor] = @VersionMajor AND
+	  [VersionMinor] = @VersionMinor
+	  ) BEGIN
+	  RAISERROR('There is already a profile version for this profile with the specified version number. The profile may have been altered by another user.',16,1)
+	  RETURN
+	  END
+
+	  INSERT INTO [ProfileVersion]
+	  (
+	  [Id],
+	  [ProfileId],
+	  [Title],
+	  [ScenarioTitle],
+	  [VersionMajor],
+	  [VersionMinor],
+	  [ProfileVersionStateId],
+	  [EffectiveDateFrom]
+	  )
+	  VALUES
+	  (
+	  @ProfileVersionId,
+	  @ProfileId,
+	  @Title,
+	  @ScenarioTitle,
+	  @VersionMajor,
+	  @VersionMinor,
+	  @ProfileVersionStateId,
+	  @EffectiveDateFrom
+	  )
+
+	  IF @CloneProfileVersionId IS NULL BEGIN
+
+	  INSERT INTO [ProfileVersionSection]
+	  (
+	  [ProfileVersionId],
+	  [ProfileSectionId]
+	  )
+	  SELECT
+	  @ProfileVersionId,
+	  [ProfileSection].[Id]
+	  FROM
+	  [ProfileSection]
+
+	  END ELSE BEGIN
+
+	  INSERT INTO [ProfileVersionSection]
+	  (
+	  [ProfileVersionId],
+	  [ProfileSectionId],
+	  [TechnicalReviewFrequency],
+	  [PolicyReviewFrequency],
+	  [NextTechnicalReview],
+	  [NextPolicyReview]
+	  )
+	  SELECT
+	  @ProfileVersionId,
+	  [ProfileSectionId],
+	  [TechnicalReviewFrequency],
+	  [PolicyReviewFrequency],
+	  [NextTechnicalReview],
+	  [NextPolicyReview]
+	  FROM
+	  [ProfileVersionSection]
+	  WHERE
+	  [ProfileVersionId] = @CloneProfileVersionId
+
+	  DECLARE @IdTable TABLE
+	  (
+	  [Id] uniqueidentifier,
+	  [NewId] uniqueidentifier
+	  )
+
+	  INSERT INTO @IdTable ([Id], [NewId])
+	  SELECT
+	  [Id],
+	  NEWID()
+	  FROM
+	  [ProfileVersionNote]
+	  WHERE
+	  [ProfileVersionId] = @CloneProfileVersionId
+
+	  INSERT INTO [ProfileVersionNote]
+	  (
+	  [Id],
+	  [ProfileVersionId],
+	  [ProfileSectionId],
+	  [ProfileNoteTypeId],
+	  [NoteText]
+	  )
+	  SELECT
+	  Idt.[NewId],
+	  @ProfileVersionId,
+	  [ProfileVersionNote].[ProfileSectionId],
+	  [ProfileVersionNote].[ProfileNoteTypeId],
+	  [ProfileVersionNote].[NoteText]
+	  FROM
+	  [ProfileVersionNote] INNER JOIN
+	  @IdTable Idt ON [ProfileVersionNote].[Id] = Idt.[Id]
+	  WHERE
+	  [ProfileVersionNote].[ProfileVersionId] = @CloneProfileVersionId
+
+	  INSERT INTO [ProfileVersionNoteQuestion]
+	  (
+	  [ProfileVersionNoteId],
+	  [ProfileQuestionId]
+	  )
+	  SELECT
+	  Idt.[NewId],
+	  [ProfileVersionNoteQuestion].[ProfileQuestionId]
+	  FROM
+	  [ProfileVersionNote] INNER JOIN
+	  [ProfileVersionNoteQuestion] ON [ProfileVersionNote].[Id] = [ProfileVersionNoteQuestion].[ProfileVersionNoteId] INNER JOIN
+	  @IdTable Idt ON [ProfileVersionNote].[Id] = Idt.[Id]
+	  WHERE
+	  [ProfileVersionNote].[ProfileVersionId] = @CloneProfileVersionId;
+
+	  WITH [ReviewCommentList] (
+	  [Id],
+	  [NewId],
+	  [ProfileSectionId],
+	  [CommentDate],
+	  [Subject],
+	  [CommentReference],
+	  [Comment],
+	  [UserId],
+	  [ParentId],
+	  [NewParentId]
+	  ) AS
+	  (
+
+	  SELECT
+	  [ReviewComment].[Id],
+	  NEWID() AS [NewId],
+	  [ReviewComment].[ProfileSectionId],
+	  [ReviewComment].[CommentDate],
+	  [ReviewComment].[Subject],
+	  [ReviewComment].[CommentReference],
+	  [ReviewComment].[Comment],
+	  [ReviewComment].[UserId],
+	  [ReviewComment].[ParentId],
+	  CAST(NULL AS uniqueidentifier) AS [NewParentId]
+	  FROM
+	  [ReviewComment]
+	  WHERE
+	  [ReviewComment].[ProfileVersionId] = @CloneProfileVersionId AND
+	  [ReviewComment].[ParentId] IS NULL
+
+	  UNION ALL
+
+	  SELECT
+	  [ReviewComment].[Id],
+	  NEWID() AS [NewId],
+	  [ReviewComment].[ProfileSectionId],
+	  [ReviewComment].[CommentDate],
+	  [ReviewComment].[Subject],
+	  [ReviewComment].[CommentReference],
+	  [ReviewComment].[Comment],
+	  [ReviewComment].[UserId],
+	  [ReviewComment].[ParentId],
+	  [ReviewCommentList].[NewId] AS [NewParentId]
+	  FROM
+	  [ReviewComment] INNER JOIN [ReviewCommentList] ON [ReviewComment].[ParentId] = [ReviewCommentList].[Id]
+	  WHERE
+	  [ReviewComment].[ProfileVersionId] = @CloneProfileVersionId
+	  )
+
+	  INSERT INTO [ReviewComment]
+	  (
+	  [Id],
+	  [ProfileVersionId],
+	  [ProfileSectionId],
+	  [CommentDate],
+	  [Subject],
+	  [CommentReference],
+	  [Comment],
+	  [UserId],
+	  [ParentId]
+	  )
+	  SELECT
+	  [NewId],
+	  @ProfileVersionId,
+	  [ProfileSectionId],
+	  [CommentDate],
+	  [Subject],
+	  [CommentReference],
+	  [Comment],
+	  [UserId],
+	  [NewParentId]
+	  FROM
+	  [ReviewCommentList]
+
+	  END
+
+	  <xsl:for-each select="Section[count(Question[@IsPerSpecies = 0]) > 0]">
+    <xsl:if test="count(Question/Field[../@IsPerSpecies = 0 and ../@IsRepeating = 0 and @IsMultiValue = 0]) > 0">
+
+      IF @CloneProfileVersionId IS NULL BEGIN
+
+      INSERT INTO [<xsl:value-of select="@Name"/>]
+		(
+		[ProfileVersionId]
+		<xsl:for-each select="Question/Field[../@IsPerSpecies = 0 and ../@IsRepeating = 0 and @IsMultiValue = 0 and @DefaultValue]">
+			, [<xsl:value-of select="@Name"/>]
+		</xsl:for-each>
+		)
+		VALUES
+		(
+		@ProfileVersionId
+		<xsl:for-each select="Question/Field[../@IsPerSpecies = 0 and ../@IsRepeating = 0 and @IsMultiValue = 0 and @DefaultValue]">
+			, <xsl:value-of select="@DefaultValue"/>
+		</xsl:for-each>
+      )
+
+      END ELSE BEGIN
+
+      INSERT INTO [<xsl:value-of select="@Name"/>]
+      (
+      [ProfileVersionId]
+      <xsl:for-each select="Question/Field[../@IsPerSpecies = 0 and ../@IsRepeating = 0 and @IsMultiValue = 0]">
+        , [<xsl:value-of select="@Name"/>]
+      </xsl:for-each>
+      )
+      SELECT
+      @ProfileVersionId
+      <xsl:for-each select="Question/Field[../@IsPerSpecies = 0 and ../@IsRepeating = 0 and @IsMultiValue = 0]">
+        , [<xsl:value-of select="@Name"/>]
+      </xsl:for-each>
+      FROM
+      [<xsl:value-of select="@Name"/>]
+      WHERE
+      [ProfileVersionId] = @CloneProfileVersionId
+
+      END
+    </xsl:if>
+
+    <xsl:for-each select="Question/Field[../@IsPerSpecies = 0 and ../@IsRepeating = 0 and @IsMultiValue = 1]">
+      IF @CloneProfileVersionId IS NOT NULL BEGIN
+
+      INSERT INTO [<xsl:value-of select="@Name"/>]
+      (
+      [Id],
+      [ProfileVersionId],
+      [<xsl:value-of select="@ReferenceTable"/>Id]
+      )
+      SELECT
+      NEWID(),
+      @ProfileVersionId,
+      [<xsl:value-of select="@ReferenceTable"/>Id]
+      FROM
+      [<xsl:value-of select="@Name"/>]
+      WHERE
+      [ProfileVersionId] = @CloneProfileVersionId
+
+      END
+    </xsl:for-each>
+
+      <xsl:for-each select="Question[@IsPerSpecies = 0 and @IsRepeating = 1]">
+
+        IF @CloneProfileVersionId IS NOT NULL BEGIN
+
+        DECLARE @Temp<xsl:value-of select="@Name"/> TABLE
+        (
+        [OldId] uniqueidentifier,
+        [NewId] uniqueidentifier
+        )
+
+        INSERT INTO @Temp<xsl:value-of select="@Name"/>
+        SELECT
+        [Id],
+        NEWID()
+        FROM
+        [<xsl:value-of select="@Name"/>]
+        WHERE
+        [ProfileVersionId] = @CloneProfileVersionId
+        
+        INSERT INTO [<xsl:value-of select="@Name"/>]
+        (
+        [Id],
+        [ProfileVersionId]
+        <xsl:for-each select="Field[@IsMultiValue = 0]">
+        , [<xsl:value-of select="@Name"/>]
+      </xsl:for-each>
+        )
+        SELECT
+          [NewId],
+          @ProfileVersionId
+          <xsl:for-each select="Field[@IsMultiValue = 0]">
+        , [<xsl:value-of select="@Name"/>]
+      </xsl:for-each>
+        FROM
+        [<xsl:value-of select="@Name"/>] INNER JOIN @Temp<xsl:value-of select="@Name"/> tmp ON [<xsl:value-of select="@Name"/>].[Id] = tmp.[OldId]
+        WHERE
+        [ProfileVersionId] = @CloneProfileVersionId
+
+        <xsl:for-each select="Field[@IsMultiValue = 1]">
+            
+              INSERT INTO [<xsl:value-of select="@Name"/>]
+              (
+              [Id],
+              [<xsl:value-of select="../@Name"/>Id],
+              [<xsl:value-of select="@ReferenceTable"/>Id]
+          )
+          SELECT
+            NEWID(),
+            tmp.[NewId]
+            [<xsl:value-of select="@ReferenceTable"/>Id]
+          FROM
+            [<xsl:value-of select="@Name"/>] INNER JOIN @Temp<xsl:value-of select="../@Name"/> tmp ON [<xsl:value-of select="@Name"/>].[<xsl:value-of select="../@Name"/>]Id] = tmp.[OldId]
+          WHERE
+            [ProfileVersionId] = @CloneProfileVersionId
+
+        </xsl:for-each>
+
+        END
+        
+      </xsl:for-each>
+      
+    </xsl:for-each>
+
+	  END
+	  GO
+
+	  GRANT EXECUTE ON [dbo].[spiProfileVersion] TO [VLAProfilesUser]
+	  GO
+
+	  <!-- stored procedure to add an affected species to a profile -->
+    SET ANSI_NULLS ON
+    GO
+    SET QUOTED_IDENTIFIER ON
+    GO
+    -- =============================================
+    --  This stored procedure was autogenerated by the Profiles
+    --  CodeGen application on <xsl:value-of select="@datetime"/> .
+    -- =============================================
+    CREATE PROCEDURE spiProfileVersionSpecies
+    @ProfileVersionId uniqueidentifier,
+    @SpeciesId uniqueidentifier,
+    @CloneProfileVersionId uniqueidentifier = NULL,
+	@AffectedSpeciesTypeName varchar(50)
+
+    AS
+    BEGIN
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON;
+
+    DECLARE @ParentSpeciesCount int
+    DECLARE @ChildSpeciesCount int
+    DECLARE @SpeciesIsActive bit
+    DECLARE @AffectedSpeciesTypeId uniqueidentifier
+	
+    -- if this species doesn't exist (or isn't profiled) in the profile being cloned, treat as if we are not cloning
+    IF NOT EXISTS
+    (
+    SELECT * 
+	FROM
+		[ProfileVersionSpecies] INNER JOIN [luAffectedSpeciesType] ON [ProfileVersionSpecies].[AffectedSpeciesTypeId] = [luAffectedSpeciesType].[Id]
+	WHERE
+		[ProfileVersionId] = @CloneProfileVersionId AND 
+		[SpeciesId] = @SpeciesId AND
+		[luAffectedSpeciesType].[Name] = 'Profiled'
+    ) BEGIN
+    SET @CloneProfileVersionId = NULL
+    END
+
+    SELECT
+    @ChildSpeciesCount = MAX(CAST(dbo.IsAncestorSpecies([SpeciesId], @SpeciesId) AS int)),
+    @ParentSpeciesCount = MAX(CAST(dbo.IsAncestorSpecies(@SpeciesId, [SpeciesId]) AS int))
+    FROM
+    [ProfileVersionSpecies]
+    WHERE
+    [ProfileVersionId] = @ProfileVersionId
+
+    IF @ParentSpeciesCount > 0 BEGIN
+    RAISERROR('You cannot add this species to the profile version because it is an ancestor of an existing affected species', 16, 1)
+    RETURN
+    END
+
+    IF @ChildSpeciesCount > 0 BEGIN
+    RAISERROR('You cannot add this species to the profile version because it is a descendant of an existing affected species', 16, 1)
+    RETURN
+    END
+
+    SELECT
+    @SpeciesIsActive = CAST(CASE WHEN [EffectiveDateTo] IS NULL THEN 1 WHEN GETDATE() BETWEEN [EffectiveDateFrom] AND [EffectiveDateTo] THEN 1 ELSE 0 END AS bit)
+    FROM
+    [Species]
+    WHERE
+    [Id] = @SpeciesId
+
+    IF @SpeciesIsActive = 0 BEGIN
+    RAISERROR('You cannot add an inactive species to a profile version', 16, 1)
+    RETURN
+    END
+
+	SELECT
+		@AffectedSpeciesTypeId = [Id]
+	FROM
+		[luAffectedSpeciesType]
+	WHERE
+		[Name] = @AffectedSpeciesTypeName
+	
+	IF @AffectedSpeciesTypeId IS NULL BEGIN
+		RAISERROR('The specified affected species type name does not exist in the database.', 16, 1)
+		RETURN
+	END
+	
+    --create the row in the link table to indicate that this species is affected for this profile version
+    INSERT INTO [ProfileVersionSpecies]
+    (
+    ProfileVersionId,
+    SpeciesId,
+	AffectedSpeciesTypeId
+    )
+    VALUES
+    (
+    @ProfileVersionId,
+    @SpeciesId,
+	@AffectedSpeciesTypeId
+    )
+
+	IF @AffectedSpeciesTypeName = 'Profiled' BEGIN
+	
+    -- create rows in all the profile version section tables for per species questions
+    <xsl:for-each select="Section[count(Question[@IsPerSpecies = 1]) > 0]">
+      <xsl:if test="count(Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 0]) > 0">
+        
+        IF @CloneProfileVersionId IS NULL BEGIN
+        
+        INSERT INTO [<xsl:value-of select="@Name"/>Species]
+		  (
+		  [ProfileVersionId],
+		  [SpeciesId]
+		  <xsl:for-each select="Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 0 and @DefaultValue]">
+			  , [<xsl:value-of select="@Name"/>]
+		  </xsl:for-each>
+		  )
+		  VALUES
+		  (
+		  @ProfileVersionId,
+		  @SpeciesId
+		  <xsl:for-each select="Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 0 and @DefaultValue]">
+			  , [<xsl:value-of select="@DefaultValue"/>]
+		  </xsl:for-each>
+        )
+
+        END ELSE BEGIN
+
+        INSERT INTO [<xsl:value-of select="@Name"/>Species]
+        (
+        [ProfileVersionId],
+        [SpeciesId]
+        <xsl:for-each select="Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 0]">
+          , [<xsl:value-of select="@Name"/>]
+        </xsl:for-each>
+        )
+        SELECT
+        @ProfileVersionId,
+        @SpeciesId
+        <xsl:for-each select="Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 0]">
+          , [<xsl:value-of select="@Name"/>]
+        </xsl:for-each>
+        FROM
+        [<xsl:value-of select="@Name"/>Species]
+        WHERE
+        [ProfileVersionId] = @CloneProfileVersionId AND
+        [SpeciesId] = @SpeciesId
+
+        END
+      </xsl:if>
+
+      <xsl:for-each select="Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 1]">
+        IF @CloneProfileVersionId IS NOT NULL BEGIN
+
+        INSERT INTO [<xsl:value-of select="@Name"/>]
+        (
+        [Id],
+        [ProfileVersionId],
+        [SpeciesId],
+        [<xsl:value-of select="@ReferenceTable"/>Id]
+        )
+        SELECT
+        NEWID(),
+        @ProfileVersionId,
+        @SpeciesId,
+        [<xsl:value-of select="@ReferenceTable"/>Id]
+        FROM
+        [<xsl:value-of select="@Name"/>]
+        WHERE
+        [ProfileVersionId] = @CloneProfileVersionId AND
+        [SpeciesId] = @SpeciesId
+
+        END
+      </xsl:for-each>
+
+      <xsl:for-each select="Question[@IsPerSpecies = 1 and @IsRepeating = 1]">
+
+        IF @CloneProfileVersionId IS NOT NULL BEGIN
+
+        DECLARE @Temp<xsl:value-of select="@Name"/>Species TABLE
+        (
+        [OldId] uniqueidentifier,
+        [NewId] uniqueidentifier
+        )
+
+        INSERT INTO @Temp<xsl:value-of select="@Name"/>Species
+        SELECT
+        [Id],
+        NEWID()
+        FROM
+        [<xsl:value-of select="@Name"/>Species]
+        WHERE
+        [ProfileVersionId] = @CloneProfileVersionId AND
+        [SpeciesId] = @SpeciesId
+
+        INSERT INTO [<xsl:value-of select="@Name"/>Species]
+        (
+        [Id],
+        [ProfileVersionId],
+        [SpeciesId]
+        <xsl:for-each select="Field[@IsMultiValue = 0]">
+          , [<xsl:value-of select="@Name"/>]
+        </xsl:for-each>
+        )
+        SELECT
+        [NewId],
+        @ProfileVersionId,
+        @SpeciesId
+        <xsl:for-each select="Field[@IsMultiValue = 0]">
+          , [<xsl:value-of select="@Name"/>]
+        </xsl:for-each>
+        FROM
+        [<xsl:value-of select="@Name"/>Species] INNER JOIN @Temp<xsl:value-of select="@Name"/>Species tmp ON [<xsl:value-of select="@Name"/>Species].[Id] = tmp.[OldId]
+        WHERE
+        [ProfileVersionId] = @CloneProfileVersionId AND
+        [SpeciesId] = @SpeciesId
+
+        <xsl:for-each select="Field[@IsMultiValue = 1]">
+
+          INSERT INTO [<xsl:value-of select="@Name"/>]
+          (
+          [Id],
+          [<xsl:value-of select="../@Name"/>SpeciesId],
+          [<xsl:value-of select="@ReferenceTable"/>Id]
+          )
+          SELECT
+          NEWID(),
+          tmp.[NewId]
+          [<xsl:value-of select="@ReferenceTable"/>Id]
+          FROM
+          [<xsl:value-of select="@Name"/>] INNER JOIN @Temp<xsl:value-of select="../@Name"/>Species tmp ON [<xsl:value-of select="@Name"/>].[<xsl:value-of select="../@Name"/>Species]Id] = tmp.[OldId]
+          WHERE
+          [ProfileVersionId] = @CloneProfileVersionId AND
+          [SpeciesId] = @SpeciesId
+
+        </xsl:for-each>
+
+        END
+
+      </xsl:for-each>
+      
+    </xsl:for-each>
+
+		END
+		
+  	  END
+	  GO
+
+	  GRANT EXECUTE ON [dbo].[spiProfileVersionSpecies] TO [VLAProfilesUser]
+	  GO
+
+<!-- stored procedure to update a profile version with species trade data -->
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  -- =============================================
+  --  This stored procedure was autogenerated by the Profiles
+  --  CodeGen application on <xsl:value-of select="@datetime"/> .
+	  -- =============================================
+	  CREATE PROCEDURE spuProfileVersionSpeciesTradeData
+	  @ProfileVersionId uniqueidentifier,
+	  @SpeciesId uniqueidentifier
+
+	  AS
+	  BEGIN
+	  -- SET NOCOUNT ON added to prevent extra result sets from
+	  -- interfering with SELECT statements.
+	  SET NOCOUNT ON;
+
+	  -- copy the data that is held at the species level to the profile version
+	  <xsl:for-each select="SpeciesField">
+		  <xsl:variable name="SpeciesFieldName" select="@Name"/>
+		  <xsl:if test="$SpeciesFieldName != 'Description'">
+			  <xsl:for-each select="../Section/Question/Field[@Name = $SpeciesFieldName]">
+				  UPDATE
+				  [<xsl:value-of select="../../@Name"/>Species]
+				  SET
+				  [<xsl:value-of select="@Name"/>] = [Species].[<xsl:value-of select="@Name"/>]
+				  FROM
+				  [<xsl:value-of select="../../@Name"/>Species] INNER JOIN [Species] ON [<xsl:value-of select="../../@Name"/>Species].[SpeciesId] = [Species].[Id]
+				  WHERE
+				  [Species].[Id] = @SpeciesId AND
+				  [<xsl:value-of select="../../@Name"/>Species].[ProfileVersionId] = @ProfileVersionId
+			  </xsl:for-each>
+		  </xsl:if>
+	  </xsl:for-each>
+
+	  END
+	  GO
+
+	  GRANT EXECUTE ON [dbo].[spuProfileVersionSpeciesTradeData] TO [VLAProfilesUser]
+	  GO
+
+	  <!-- stored procedure to remove an affected species from a profile -->
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  -- =============================================
+  --  This stored procedure was autogenerated by the Profiles
+  --  CodeGen application on <xsl:value-of select="@datetime"/> .
+  -- =============================================
+  CREATE PROCEDURE spdProfileVersionSpecies
+  @ProfileVersionId uniqueidentifier,
+  @SpeciesId uniqueidentifier
+
+  AS
+  BEGIN
+  -- SET NOCOUNT ON added to prevent extra result sets from
+  -- interfering with SELECT statements.
+  SET NOCOUNT ON;
+
+  <!-- delete data from each of the per-species Section tables  -->
+  <xsl:for-each select="Section[count(./Question[@IsPerSpecies = 1]) > 0]">
+
+    <xsl:for-each select="Question[@IsPerSpecies = 1 and @IsRepeating = 1]">    
+      
+      --Delete from any link tables that are linked to <xsl:value-of select="@Name"/>Species
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+        DELETE FROM
+          [<xsl:value-of select="@Name"/>]
+        WHERE
+        [ProfileVersionId] = @ProfileVersionId AND
+        [SpeciesId] = @SpeciesId
+      </xsl:for-each>
+
+      DELETE FROM
+      [<xsl:value-of select="@Name"/>Species]
+      WHERE
+      [ProfileVersionId] = @ProfileVersionId AND
+      [SpeciesId] = @SpeciesId
+
+    </xsl:for-each>
+
+    -- Delete from any link tables that are linked to <xsl:value-of select="@Name"/>Species
+     <xsl:for-each select="Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 1]">
+    DELETE FROM
+      [<xsl:value-of select="@Name"/>]
+    WHERE
+      [ProfileVersionId] = @ProfileVersionId AND
+      [SpeciesId] = @SpeciesId
+  </xsl:for-each>
+
+    <xsl:if test="count(Question/Field[../@IsPerSpecies = 1 and ../@IsRepeating = 0 and @IsMultiValue = 0]) > 0">
+      -- Delete from table <xsl:value-of select="@Name"/>Species
+      DELETE FROM
+      [<xsl:value-of select="@Name"/>Species]
+      WHERE
+      [ProfileVersionId] = @ProfileVersionId AND
+      [SpeciesId] = @SpeciesId
+    </xsl:if>
+    
+  </xsl:for-each>
+
+	  --delete from prioritisation tables
+	  DELETE
+	  [ProfileVersionSpeciesPrioritisation]
+	  FROM
+	  [ProfileVersionSpeciesPrioritisation] INNER JOIN [ProfileVersionPrioritisedSpecies] ON [ProfileVersionSpeciesPrioritisation].[ProfileVersionId] = [ProfileVersionPrioritisedSpecies].[ProfileVersionId] AND [ProfileVersionSpeciesPrioritisation].[SpeciesId] = [ProfileVersionPrioritisedSpecies].[SpeciesId]
+	  WHERE
+	  [ProfileVersionSpeciesPrioritisation].[ProfileVersionId] = @ProfileVersionId AND
+	  [ProfileVersionPrioritisedSpecies].[AffectedSpeciesId] = @SpeciesId
+
+	  DELETE FROM
+	  [ProfileVersionPrioritisedSpecies]
+	  WHERE
+	  [ProfileVersionPrioritisedSpecies].[ProfileVersionId] = @ProfileVersionId AND
+	  [ProfileVersionPrioritisedSpecies].[AffectedSpeciesId] = @SpeciesId
+	  
+	  --delete the row in the link table to indicate that this species is affected for this profile version
+	  DELETE FROM
+	  [ProfileVersionSpecies]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId AND
+	  [SpeciesId] = @SpeciesId
+
+	  END
+	  GO
+
+	  GRANT EXECUTE ON [dbo].[spdProfileVersionSpecies] TO [VLAProfilesUser]
+	  GO
+
+	  <!-- stored procedure to remove a profile version -->
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  -- =============================================
+  --  This stored procedure was autogenerated by the Profiles
+  --  CodeGen application on <xsl:value-of select="@datetime"/> .
+	  -- =============================================
+	  CREATE PROCEDURE spdProfileVersion
+	  @ProfileVersionId uniqueidentifier,
+	  @NextLatestProfileVersionId uniqueidentifier OUTPUT,
+	  @ProfileDeleted bit OUTPUT
+
+	  AS
+	  BEGIN
+	  -- SET NOCOUNT ON added to prevent extra result sets from
+	  -- interfering with SELECT statements.
+	  SET NOCOUNT ON;
+
+	  DECLARE @ProfileId uniqueidentifier
+	  DECLARE @VersionMajor tinyint
+	  DECLARE @EffectiveDateTo smalldatetime
+	  DECLARE @StateName varchar(50)
+	  DECLARE @ProfileVersionCount int
+	  DECLARE @ParentProfileCount int
+
+	  SELECT
+	  @ProfileId = [ProfileVersion].[ProfileId],
+	  @VersionMajor = [ProfileVersion].[VersionMajor],
+	  @EffectiveDateTo = [ProfileVersion].[EffectiveDateTo],
+	  @StateName = [luProfileVersionState].[Name]
+	  FROM
+	  [ProfileVersion] INNER JOIN [luProfileVersionState] ON [ProfileVersion].[ProfileVersionStateId] = [luProfileVersionState].[Id]
+	  WHERE
+	  [ProfileVersion].[Id] = @ProfileVersionId
+
+	  IF @EffectiveDateTo IS NOT NULL BEGIN
+	  RAISERROR('You cannot delete this profile version because it is not current', 16, 1)
+	  RETURN
+	  END
+
+	  IF @StateName != 'Draft' BEGIN
+	  RAISERROR('You cannot delete this profile version because it is not draft', 16, 1)
+	  RETURN
+	  END
+
+	  -- check that we are not trying to delete the last profile version of a profile that has scenarios
+	  SELECT
+	  @ProfileVersionCount = COUNT(*)
+	  FROM
+	  [ProfileVersion]
+	  WHERE
+	  [ProfileId] = @ProfileId
+
+	  SELECT
+	  @ParentProfileCount = COUNT(*)
+	  FROM
+	  [Profile]
+	  WHERE
+	  [ParentId] = @ProfileId
+
+	  IF @ProfileVersionCount = 1 AND @ParentProfileCount > 0 BEGIN
+	  RAISERROR('You cannot delete this profile because it has associated "what-if" scenarios. Delete them before deleting this profile.', 16, 1)
+	  RETURN
+	  END
+
+	  -- Get the ID of the next latest profile version
+	  SELECT
+	  @NextLatestProfileVersionId = [ProfileVersion].[Id]
+	  FROM
+	  [ProfileVersion] INNER JOIN [luProfileVersionState] ON [ProfileVersion].[ProfileVersionStateId] = [luProfileVersionState].[Id]
+	  WHERE
+	  [luProfileVersionState].[Name] = 'Draft' AND
+	  [ProfileVersion].[ProfileId] = @ProfileId AND
+	  [ProfileVersion].[VersionMajor] = @VersionMajor AND
+	  [ProfileVersion].[VersionMinor] = (
+	  SELECT
+	  MAX([VersionMinor])
+	  FROM
+	  [ProfileVersion] INNER JOIN [luProfileVersionState] ON [ProfileVersion].[ProfileVersionStateId] = [luProfileVersionState].[Id]
+	  WHERE
+	  [luProfileVersionState].[Name] = 'Draft' AND
+	  [ProfileId] = @ProfileId AND
+	  [VersionMajor] = @VersionMajor AND
+	  [EffectiveDateTo] IS NOT NULL
+	  )
+
+	  <!-- delete data from each of Section tables  -->
+<xsl:for-each select="Section[count(./Question[@IsPerSpecies = 0]) > 0]">
+
+  <xsl:for-each select="Question[@IsRepeating = 1]">
+
+    --Delete from any link tables that are linked to <xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+        DELETE FROM
+        [<xsl:value-of select="@Name"/>]
+        WHERE
+        [ProfileVersionId] = @ProfileVersionId 
+      </xsl:for-each>
+
+    -- Delete from <xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>
+      DELETE FROM
+      [<xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+      WHERE
+      [ProfileVersionId] = @ProfileVersionId 
+
+    </xsl:for-each>
+
+    -- Delete from any link tables that are linked to <xsl:value-of select="@Name"/>
+    <xsl:for-each select="Question/Field[../@IsRepeating = 0 and @IsMultiValue = 1]">
+      DELETE FROM
+      [<xsl:value-of select="@Name"/>]
+      WHERE
+      [ProfileVersionId] = @ProfileVersionId
+    </xsl:for-each>
+
+    <xsl:if test="count(Question/Field[../@IsRepeating = 0 and @IsMultiValue = 0]) > 0">
+      -- Delete from table <xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>
+    DELETE FROM
+    [<xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+      WHERE
+      [ProfileVersionId] = @ProfileVersionId 
+    </xsl:if>
+
+  </xsl:for-each>
+
+
+	  DELETE FROM
+	  [ProfileVersionNoteQuestion]
+	  WHERE
+	  [ProfileVersionNoteQuestion].[ProfileVersionNoteId] IN
+	  (
+	  SELECT
+	  [Id]
+	  FROM
+	  [ProfileVersionNote]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+	  )
+
+	  DELETE FROM
+	  [ProfileVersionNote]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  DELETE FROM
+	  [ReviewComment]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  DELETE FROM
+	  [ProfileVersionSectionUser]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  DELETE FROM
+	  [ProfileVersionSection]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  --delete prioritisation scores for this profile version
+	  DELETE FROM
+	  [PrioritisationScore]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  --delete profile reports for this profile version
+	  DELETE FROM
+	  [ProfileVersionReport]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  --delete the rows in the link table for the affected species in this profile version
+	  DELETE FROM
+	  [ProfileVersionSpecies]
+	  WHERE
+	  [ProfileVersionId] = @ProfileVersionId
+
+	  --delete the row in the profile version table
+	  DELETE FROM
+	  [ProfileVersion]
+	  WHERE
+	  [Id] = @ProfileVersionId
+
+
+	  -- change the current draft version
+
+	  IF @NextLatestProfileVersionId IS NOT NULL BEGIN
+	  UPDATE
+	  [ProfileVersion]
+	  SET
+	  [EffectiveDateTo] = NULL
+	  WHERE
+	  [Id] = @NextLatestProfileVersionId
+	  END
+
+	  SET @ProfileDeleted = 0
+
+	  -- if there are no profile versions left in this profile, remove the profile
+	  IF NOT EXISTS (SELECT * FROM [ProfileVersion] WHERE [ProfileId] = @ProfileId) BEGIN
+
+	  DELETE FROM
+	  [ProfileSectionUser]
+	  WHERE
+	  [ProfileId] = @ProfileId
+
+	  DELETE FROM
+	  [ProfileUser]
+	  WHERE
+	  [ProfileId] = @ProfileId
+
+	  DELETE FROM
+	  [Profile]
+	  WHERE
+	  [Id] = @ProfileId
+
+	  SET @ProfileDeleted = 1
+	  END
+
+	  END
+	  GO
+
+	  GRANT EXECUTE ON [dbo].[spdProfileVersion] TO [VLAProfilesUser]
+	  GO
+
+	  <!-- stored procedures for each reference table -->
+    <xsl:for-each select="ReferenceTable[@IsMaintainable = 1]">
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spgalu<xsl:value-of select="@Name"/>
+
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      <xsl:variable name="ReferenceTableName" select="@Name"/>
+
+      DECLARE @DateNow As SmallDateTime
+      SET @DateNow = DateAdd(mi, 1, GETDATE())
+
+      SELECT
+            [lu<xsl:value-of select="@Name"/>].[Id],
+            [lu<xsl:value-of select="@Name"/>].[LookupValue],
+            [lu<xsl:value-of select="@Name"/>].[EffectiveDateFrom],
+            [lu<xsl:value-of select="@Name"/>].[EffectiveDateTo],
+            <xsl:choose>
+              <xsl:when test="count(../Section/Question/Field[@ReferenceTable = $ReferenceTableName]) = 1">
+                
+                CAST(CASE WHEN
+
+                <xsl:for-each select="../Section/Question/Field[@ReferenceTable = $ReferenceTableName]">
+
+                   <xsl:variable name="ForeignKeyColumn" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@ReferenceTable"/>Id</xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="@Name"/></xsl:otherwise></xsl:choose></xsl:variable>
+                  
+                  <xsl:variable name="TableName" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:choose xml:space="default"><xsl:when test="../@IsRepeating = 1" xml:space="default"><xsl:value-of select="../@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="../../@Name"/></xsl:otherwise></xsl:choose><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if></xsl:otherwise></xsl:choose></xsl:variable>
+
+                [tmp<xsl:value-of select="$TableName"/>].[<xsl:value-of select="$ForeignKeyColumn"/>]
+
+                IS NULL THEN 0 ELSE 1 END AS bit) AS [IsInUse],
+              </xsl:for-each>
+                
+                </xsl:when>
+              <xsl:when test="count(../Section/Question/Field[@ReferenceTable = $ReferenceTableName]) > 1">
+                
+                CAST(CASE WHEN COALESCE(
+
+                <xsl:for-each select="../Section/Question/Field[@ReferenceTable = $ReferenceTableName]">
+
+                     <xsl:variable name="ForeignKeyColumn" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@ReferenceTable"/>Id</xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="@Name"/></xsl:otherwise></xsl:choose></xsl:variable>
+
+                    <xsl:variable name="TableName" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:choose xml:space="default"><xsl:when test="../@IsRepeating = 1" xml:space="default"><xsl:value-of select="../@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="../../@Name"/></xsl:otherwise></xsl:choose><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if></xsl:otherwise></xsl:choose></xsl:variable>
+
+
+                  [tmp<xsl:value-of select="$TableName"/>].[<xsl:value-of select="$ForeignKeyColumn"/>]
+                  <xsl:if test="position() != last()">, </xsl:if>
+                </xsl:for-each>
+
+                ) IS NULL THEN 0 ELSE 1 END AS bit) AS [IsInUse],
+              </xsl:when>
+              <xsl:otherwise>
+                CAST(0 AS bit) AS [IsInUse],
+              </xsl:otherwise>
+            </xsl:choose>
+
+      CAST(CASE WHEN [lu<xsl:value-of select="@Name"/>].[EffectiveDateTo] IS NULL THEN 1 WHEN @DateNow BETWEEN [lu<xsl:value-of select="@Name"/>].[EffectiveDateFrom] AND [lu<xsl:value-of select="@Name"/>].[EffectiveDateTo] THEN 1 ELSE 0 END AS bit) AS [IsActive]
+      FROM
+      [lu<xsl:value-of select="@Name"/>] LEFT JOIN [ReferenceValue] ON [lu<xsl:value-of select="@Name"/>].[Id] = [ReferenceValue].[Id]
+
+            <xsl:variable name="LookupTable">lu<xsl:value-of select="@Name"/></xsl:variable>
+      
+            <xsl:for-each select="../Section/Question/Field[@ReferenceTable = $ReferenceTableName]">
+              
+                <xsl:variable name="ForeignKeyColumn" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@ReferenceTable"/>Id</xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="@Name"/></xsl:otherwise></xsl:choose></xsl:variable>
+
+<xsl:variable name="TableName" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:choose xml:space="default"><xsl:when test="../@IsRepeating = 1" xml:space="default"><xsl:value-of select="../@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="../../@Name"/></xsl:otherwise></xsl:choose><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if></xsl:otherwise></xsl:choose></xsl:variable>
+
+              LEFT JOIN
+              (
+              SELECT
+              [<xsl:value-of select="$ForeignKeyColumn"/>]
+              FROM
+              [<xsl:value-of select="$TableName"/>]
+              GROUP BY
+              [<xsl:value-of select="$ForeignKeyColumn"/>]
+              ) tmp<xsl:value-of select="$TableName"/> ON [<xsl:value-of select="$LookupTable"/>].[Id] = [tmp<xsl:value-of select="$TableName"/>].[<xsl:value-of select="$ForeignKeyColumn"/>]
+            </xsl:for-each>
+      ORDER BY
+      ISNULL([ReferenceValue].[SequenceNumber], 255),
+      [lu<xsl:value-of select="@Name"/>].[EffectiveDateFrom]
+
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spgalu<xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+      GO
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spglu<xsl:value-of select="@Name"/>Value
+      @ValueId uniqueidentifier
+
+      AS
+      BEGIN
+
+      SELECT
+      [lu<xsl:value-of select="@Name"/>].[LookupValue],
+      <xsl:choose>
+      <xsl:when test="count(../Section/Question/Field[@ReferenceTable = $ReferenceTableName]) = 1">
+
+        CAST(CASE WHEN
+
+        <xsl:for-each select="../Section/Question/Field[@ReferenceTable = $ReferenceTableName]">
+
+          <xsl:variable name="ForeignKeyColumn" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@ReferenceTable"/>Id</xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="@Name"/></xsl:otherwise></xsl:choose></xsl:variable>
+
+          <xsl:variable name="TableName" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:choose xml:space="default"><xsl:when test="../@IsRepeating = 1" xml:space="default"><xsl:value-of select="../@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="../../@Name"/></xsl:otherwise></xsl:choose><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if></xsl:otherwise></xsl:choose></xsl:variable>
+
+          [tmp<xsl:value-of select="$TableName"/>].[<xsl:value-of select="$ForeignKeyColumn"/>]
+
+          IS NULL THEN 0 ELSE 1 END AS bit) AS [IsInUse],
+        </xsl:for-each>
+
+      </xsl:when>
+      <xsl:when test="count(../Section/Question/Field[@ReferenceTable = $ReferenceTableName]) > 1">
+       
+        CAST(CASE WHEN COALESCE(
+
+        <xsl:for-each select="../Section/Question/Field[@ReferenceTable = $ReferenceTableName]">
+
+          <xsl:variable name="ForeignKeyColumn" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@ReferenceTable"/>Id</xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="@Name"/></xsl:otherwise></xsl:choose></xsl:variable>
+
+          <xsl:variable name="TableName" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:choose xml:space="default"><xsl:when test="../@IsRepeating = 1" xml:space="default"><xsl:value-of select="../@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="../../@Name"/></xsl:otherwise></xsl:choose><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if></xsl:otherwise></xsl:choose></xsl:variable>
+
+
+          [tmp<xsl:value-of select="$TableName"/>].[<xsl:value-of select="$ForeignKeyColumn"/>]
+          <xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+
+        ) IS NULL THEN 0 ELSE 1 END AS bit) AS [IsInUse],
+      </xsl:when>
+        <xsl:otherwise>
+          CAST(0 AS bit) AS [IsInUse],
+        </xsl:otherwise>
+    </xsl:choose>
+       [lu<xsl:value-of select="@Name"/>].[EffectiveDateTo],
+      [lu<xsl:value-of select="@Name"/>].[EffectiveDateFrom],
+      [lu<xsl:value-of select="@Name"/>].[LastUpdated]
+
+      FROM
+      [lu<xsl:value-of select="@Name"/>] LEFT JOIN [ReferenceValue] ON [lu<xsl:value-of select="@Name"/>].[Id] = [ReferenceValue].[Id]
+
+      <xsl:variable name="LookupTableName">lu<xsl:value-of select="@Name"/></xsl:variable>
+
+      <xsl:for-each select="../Section/Question/Field[@ReferenceTable = $ReferenceTableName]">
+
+        <xsl:variable name="ForeignKeyColumn" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@ReferenceTable"/>Id</xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="@Name"/></xsl:otherwise></xsl:choose></xsl:variable>
+
+        <xsl:variable name="TableName" xml:space="default"><xsl:choose xml:space="default"><xsl:when test="@IsMultiValue = 1" xml:space="default"><xsl:value-of select="@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:choose xml:space="default"><xsl:when test="../@IsRepeating = 1" xml:space="default"><xsl:value-of select="../@Name"/></xsl:when><xsl:otherwise xml:space="default"><xsl:value-of select="../../@Name"/></xsl:otherwise></xsl:choose><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if></xsl:otherwise></xsl:choose></xsl:variable>
+
+        LEFT JOIN
+        (
+        SELECT
+        [<xsl:value-of select="$ForeignKeyColumn"/>]
+        FROM
+        [<xsl:value-of select="$TableName"/>]
+        GROUP BY
+        [<xsl:value-of select="$ForeignKeyColumn"/>]
+        ) tmp<xsl:value-of select="$TableName"/> ON [<xsl:value-of select="$LookupTableName"/>].[Id] = [tmp<xsl:value-of select="$TableName"/>].[<xsl:value-of select="$ForeignKeyColumn"/>]
+      </xsl:for-each>
+
+      WHERE
+      [lu<xsl:value-of select="@Name"/>].[Id] = @ValueId
+
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spglu<xsl:value-of select="@Name"/>Value] TO [VLAProfilesUser]
+      GO
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spilu<xsl:value-of select="@Name"/>Value
+      @ValueId uniqueidentifier,
+      @NewLookupValue varchar(50),
+      @UserId uniqueidentifier,
+      @Reason varchar(255)
+
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      DECLARE @EffectiveDate smalldatetime
+      SET @EffectiveDate = GetDate()
+
+      IF EXISTS
+      (
+      SELECT
+      [Id]
+      FROM
+      [lu<xsl:value-of select="@Name"/>]
+      WHERE
+      [LookupValue] = @NewLookupValue
+      ) BEGIN
+      RAISERROR(' there is already a reference value with this name', 16, 1)
+      END
+
+      INSERT INTO [ReferenceTableAuditLog]
+      (
+      [Id],
+      [ReferenceTableId],
+      [ReferenceValueId],
+      [OldLookupValue],
+      [NewLookupValue],
+      [UserId],
+      [EffectiveDate],
+      [LogDate],
+      [Reason]
+      )
+      VALUES
+      (
+      newid(),
+      '<xsl:value-of select="@Id"/>',
+      @ValueId,
+      '- new entry -',
+      @NewLookupValue,
+      @UserId,
+      @EffectiveDate,
+      @EffectiveDate,
+      @Reason
+      )
+
+      INSERT INTO [lu<xsl:value-of select="@Name"/>]
+    (
+    [Id],
+    [LookupValue],
+    [EffectiveDateFrom],
+    [EffectiveDateTo]
+    )
+    VALUES
+    (
+    @ValueId,
+    @NewLookupValue,
+    @EffectiveDate,
+    NULL
+    )
+
+    END
+    GO
+
+    GRANT EXECUTE ON [dbo].[spilu<xsl:value-of select="@Name"/>Value] TO [VLAProfilesUser]
+      GO
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spdlu<xsl:value-of select="@Name"/>Value
+      @ValueId uniqueidentifier,
+      @OldLookupValue varchar(50),
+      @UserId uniqueidentifier,
+      @Reason varchar(255),
+      @LastUpdated timestamp
+
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      DECLARE @EffectiveDate smalldatetime
+      SET @EffectiveDate = GetDate()
+
+      IF NOT EXISTS (
+      SELECT
+      [Id]
+      FROM
+      [lu<xsl:value-of select="@Name"/>]
+      WHERE
+      [Id] = @ValueId AND
+      [LastUpdated] = @LastUpdated
+      ) BEGIN
+      RAISERROR('The <xsl:value-of select="@Name"/> Value cannot be deleted because it has been edited by another user',16,1)
+      RETURN
+      END
+
+      INSERT INTO [ReferenceTableAuditLog]
+      (
+      [Id],
+      [ReferenceTableId],
+      [ReferenceValueId],
+      [OldLookupValue],
+      [NewLookupValue],
+      [UserId],
+      [EffectiveDate],
+      [LogDate],
+      [Reason]
+      )
+      VALUES
+      (
+      newid(),
+      '<xsl:value-of select="@Id"/>',
+      @ValueId,
+      @OldLookupValue,
+      '- to be deleted -',
+      @UserId,
+      @EffectiveDate,
+      @EffectiveDate,
+      @Reason
+      )
+
+
+
+      DELETE FROM
+      [lu<xsl:value-of select="@Name"/>]
+
+      WHERE
+      (
+      [Id] = @ValueId
+      )
+
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spdlu<xsl:value-of select="@Name"/>Value] TO [VLAProfilesUser]
+      GO
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spulu<xsl:value-of select="@Name"/>Value
+      @ValueId uniqueidentifier,
+      @NewLookupValue varchar(50),
+      @UserId uniqueidentifier,
+      @Reason varchar(255),
+      @LastUpdated timestamp
+
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      DECLARE @EffectiveDate smalldatetime
+      SET @EffectiveDate = GetDate()
+
+      IF EXISTS
+      (
+      SELECT
+      [Id]
+      FROM
+      [lu<xsl:value-of select="@Name"/>]
+      WHERE
+      [LookupValue] = @NewLookupValue
+      ) BEGIN
+      RAISERROR(' there is already a reference value with this name', 16, 1)
+      END
+
+
+      IF NOT EXISTS (
+      SELECT
+      [Id]
+      FROM
+      [lu<xsl:value-of select="@Name"/>]
+      WHERE
+    [Id] = @ValueId AND
+    [LastUpdated] = @LastUpdated
+    ) BEGIN
+    RAISERROR('The <xsl:value-of select="@Name"/> Value cannot be updated because it has been edited by another user',16,1)
+      RETURN
+      END
+
+
+      --Get the current Value
+      DECLARE @OldLookupValue varchar(50)
+
+      SELECT
+      @OldLookupValue = [LookupValue]
+      FROM
+      [lu<xsl:value-of select="@Name"/>]
+      WHERE
+      [Id] = @ValueId
+
+
+
+      INSERT INTO [ReferenceTableAuditLog]
+      (
+      [Id],
+      [ReferenceTableId],
+      [ReferenceValueId],
+      [OldLookupValue],
+      [NewLookupValue],
+      [UserId],
+      [EffectiveDate],
+      [LogDate],
+      [Reason]
+      )
+      VALUES
+      (
+      newid(),
+      '<xsl:value-of select="@Id"/>',
+      @ValueId,
+      @OldLookupValue,
+      @NewLookupValue,
+      @UserId,
+      @EffectiveDate,
+      @EffectiveDate,
+      @Reason
+      )
+
+
+      UPDATE
+      [lu<xsl:value-of select="@Name"/>]
+      SET
+      [LookupValue] = @NewLookupValue
+
+      WHERE
+      [Id] = @ValueId
+
+
+    END
+    GO
+
+    GRANT EXECUTE ON [dbo].[spulu<xsl:value-of select="@Name"/>Value] TO [VLAProfilesUser]
+      GO
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spplu<xsl:value-of select="@Name"/>Value
+      @ValueId uniqueidentifier,
+      @UserId uniqueidentifier,
+      @Reason varchar(255),
+      @LastUpdated timestamp
+
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      DECLARE @EffectiveDate smalldatetime
+      SET @EffectiveDate = GetDate()
+
+      IF NOT EXISTS (
+      SELECT
+      [Id]
+      FROM
+      [lu<xsl:value-of select="@Name"/>]
+      WHERE
+      [Id] = @ValueId AND
+      [LastUpdated] = @LastUpdated
+      ) BEGIN
+      RAISERROR('The <xsl:value-of select="@Name"/> Value cannot be invalidated because it has been edited by another user',16,1)
+    RETURN
+    END
+
+
+    --Get the current Value
+    DECLARE @OldLookupValue varchar(50)
+
+    SELECT
+    @OldLookupValue = [LookupValue]
+    FROM
+    [lu<xsl:value-of select="@Name"/>]
+      WHERE
+      [Id] = @ValueId
+
+
+
+      INSERT INTO [ReferenceTableAuditLog]
+      (
+      [Id],
+      [ReferenceTableId],
+      [ReferenceValueId],
+      [OldLookupValue],
+      [NewLookupValue],
+      [UserId],
+      [EffectiveDate],
+      [LogDate],
+      [Reason]
+      )
+      VALUES
+      (
+      newid(),
+      '<xsl:value-of select="@Id"/>',
+      @ValueId,
+      @OldLookupValue,
+      '- to be invalidated -',
+      @UserId,
+      @EffectiveDate,
+      @EffectiveDate,
+      @Reason
+      )
+
+
+      UPDATE
+      [lu<xsl:value-of select="@Name"/>]
+    SET
+    [EffectiveDateTo] = @EffectiveDate
+
+    WHERE
+    [Id] = @ValueId
+
+
+    END
+    GO
+
+    GRANT EXECUTE ON [dbo].[spplu<xsl:value-of select="@Name"/>Value] TO [VLAProfilesUser]
+      GO
+      
+    </xsl:for-each>
+
+    <!-- stored procedures for each lookup list -->
+    <xsl:for-each select="ReferenceTable[@IsMaintainable = 0]">
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spgalu<xsl:value-of select="@Name"/>
+
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+          SELECT
+          [Id],
+          [LookupValue]
+          FROM
+          [lu<xsl:value-of select="@Name"/>]
+          ORDER BY
+          [SequenceNumber]
+        
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spgalu<xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+      GO
+
+    </xsl:for-each>
+    
+    <!-- stored procedures for each question -->
+    <xsl:for-each select="Section/Question">
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spg<xsl:value-of select="@Name"/>
+      @ProfileVersionId uniqueidentifier
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      SELECT
+      <xsl:if test="@IsPerSpecies = 1">[SpeciesId],</xsl:if>
+        <xsl:if test="@IsRepeating = 1"> [Id]<xsl:if test="count(Field[@IsMultiValue = 0]) > 0">,</xsl:if></xsl:if>
+        <xsl:for-each select="Field[@IsMultiValue = 0]">
+        [<xsl:value-of select="@Name"/>]<xsl:if test="position() != last()">, </xsl:if>
+        </xsl:for-each>
+      FROM
+        <xsl:choose>
+          <xsl:when test="@IsRepeating = 0">
+      [<xsl:value-of select="../@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+          </xsl:when>
+          <xsl:otherwise>
+      [<xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+          </xsl:otherwise>
+        </xsl:choose>
+      WHERE
+      [ProfileVersionId] = @ProfileVersionId
+      
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+        SELECT
+        <xsl:if test="../@IsPerSpecies = 1">[SpeciesId],</xsl:if>                   
+            <xsl:if test="../@IsRepeating = 1">
+              [<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id],
+            </xsl:if>
+        [<xsl:value-of select="@ReferenceTable"/>Id]
+        FROM
+        [<xsl:value-of select="@Name"/>]
+        <xsl:if test="../@IsRepeating = 1 and ../@IsPerSpecies = 1">
+          INNER JOIN
+          [<xsl:value-of select="../@Name"/>Species] ON  [<xsl:value-of select="@Name"/>].[<xsl:value-of select="../@Name"/>SpeciesId] = [<xsl:value-of select="../@Name"/>Species].[Id]
+        </xsl:if>
+      WHERE
+        [ProfileVersionId] = @ProfileVersionId
+          </xsl:for-each>
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spg<xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+      GO
+
+<xsl:if test="@IsRepeating = 1">
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spi<xsl:value-of select="@Name"/>
+      @Id uniqueidentifier
+      , @ProfileVersionId uniqueidentifier
+      <xsl:if test="@IsPerSpecies = 1">, @SpeciesId uniqueidentifier</xsl:if>
+      <xsl:for-each select="Field[@IsMultiValue = 0]">
+        , @<xsl:value-of select="@Name"/><xsl:text> </xsl:text><xsl:value-of select="@Type"/>
+      </xsl:for-each>
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      INSERT INTO [<xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+      (
+      [Id]
+      , [ProfileVersionId]
+      <xsl:if test="@IsPerSpecies = 1">, [SpeciesId]</xsl:if>
+      <xsl:for-each select="Field[@IsMultiValue = 0]">
+       , [<xsl:value-of select="@Name"/>]
+      </xsl:for-each>
+      )
+      VALUES
+      (
+      @Id
+      , @ProfileVersionId
+      <xsl:if test="@IsPerSpecies = 1">, @SpeciesId</xsl:if>
+      <xsl:for-each select="Field[@IsMultiValue = 0]">
+        , @<xsl:value-of select="@Name"/>
+      </xsl:for-each>
+      )
+      
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spi<xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+      GO
+
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spd<xsl:value-of select="@Name"/>
+      @Id uniqueidentifier
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+        DELETE FROM
+          [<xsl:value-of select="@Name"/>]
+        WHERE
+          [<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id] = @Id
+      </xsl:for-each>
+  
+      DELETE FROM
+        [<xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+      WHERE
+        [Id] = @Id
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spd<xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+      GO
+</xsl:if>
+      
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../../@datetime"/> .
+    -- =============================================
+    CREATE PROCEDURE spu<xsl:value-of select="@Name"/>
+      <xsl:choose>
+        <xsl:when test="@IsRepeating = 1">
+          @Id uniqueidentifier
+        </xsl:when>
+        <xsl:otherwise>
+          @ProfileVersionId uniqueidentifier
+          <xsl:if test="@IsPerSpecies = 1">, @SpeciesId uniqueidentifier</xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>
+
+      <xsl:for-each select="Field[@IsMultiValue = 0]">
+        , @<xsl:value-of select="@Name"/><xsl:text> </xsl:text><xsl:value-of select="@Type"/>
+      </xsl:for-each>
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      UPDATE
+      <xsl:choose>
+        <xsl:when test="@IsRepeating = 1">
+          [<xsl:value-of select="@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+        </xsl:when>
+        <xsl:otherwise>
+          [<xsl:value-of select="../@Name"/><xsl:if test="@IsPerSpecies = 1">Species</xsl:if>]
+        </xsl:otherwise>
+    </xsl:choose>
+      SET
+      <xsl:for-each select="Field[@IsMultiValue = 0]">
+        [<xsl:value-of select="@Name"/>] = @<xsl:value-of select="@Name"/><xsl:if test="position() != last()">, </xsl:if>
+      </xsl:for-each>
+      WHERE
+      <xsl:choose>
+        <xsl:when test="@IsRepeating = 1">
+          [Id] = @Id
+        </xsl:when>
+        <xsl:otherwise>
+          [ProfileVersionId] = @ProfileVersionId <xsl:if test="@IsPerSpecies = 1">
+            AND
+            [SpeciesId] = @SpeciesId
+          </xsl:if>
+        </xsl:otherwise>
+      </xsl:choose>
+
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+        DELETE FROM
+        [<xsl:value-of select="@Name"/>]
+        WHERE
+        <xsl:choose>
+          <xsl:when test="@IsRepeating = 1">
+            [<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id] = @Id
+          </xsl:when>
+          <xsl:otherwise>
+              [ProfileVersionId] = @ProfileVersionId
+              <xsl:if test="../@IsPerSpecies = 1"> AND [SpeciesId] = @SpeciesId</xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+      END
+      GO
+
+      GRANT EXECUTE ON [dbo].[spu<xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+      GO
+
+      <xsl:for-each select="Field[@IsMultiValue = 1]">
+      SET ANSI_NULLS ON
+      GO
+      SET QUOTED_IDENTIFIER ON
+      GO
+      -- =============================================
+      --  This stored procedure was autogenerated by the Profiles
+      --  CodeGen application on <xsl:value-of select="../../../@datetime"/> .
+      -- =============================================
+      CREATE PROCEDURE spi<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>
+        <xsl:choose>
+          <xsl:when test="../@IsRepeating = 1">
+            @<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id uniqueidentifier,
+          </xsl:when>
+          <xsl:otherwise>
+            @ProfileVersionId uniqueidentifier,
+            <xsl:if test="../@IsPerSpecies = 1">@SpeciesId uniqueidentifier,</xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+        @<xsl:value-of select="@ReferenceTable"/>Id<xsl:text> </xsl:text><xsl:value-of select="@Type"/>
+      AS
+      BEGIN
+      -- SET NOCOUNT ON added to prevent extra result sets from
+      -- interfering with SELECT statements.
+      SET NOCOUNT ON;
+
+      INSERT INTO
+      [<xsl:value-of select="../@Name"/>]
+        (
+        [Id],
+        <xsl:choose>
+          <xsl:when test="../@IsRepeating = 1">
+            [<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id],
+          </xsl:when>
+          <xsl:otherwise>
+            [ProfileVersionId],
+            <xsl:if test="../@IsPerSpecies = 1">[SpeciesId],</xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+        [<xsl:value-of select="@ReferenceTable"/>Id]
+        )
+        VALUES
+        (
+        NEWID(),
+        <xsl:choose>
+          <xsl:when test="../@IsRepeating = 1">
+            @<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id,
+          </xsl:when>
+          <xsl:otherwise>
+            @ProfileVersionId,
+            <xsl:if test="../@IsPerSpecies = 1">@SpeciesId,</xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+        @<xsl:value-of select="@ReferenceTable"/>Id
+        )
+        END
+        GO
+
+        GRANT EXECUTE ON [dbo].[spi<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+        GO
+
+        SET ANSI_NULLS ON
+        GO
+        SET QUOTED_IDENTIFIER ON
+        GO
+        -- =============================================
+        --  This stored procedure was autogenerated by the Profiles
+        --  CodeGen application on <xsl:value-of select="../../../@datetime"/> .
+        -- =============================================
+        CREATE PROCEDURE spd<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>
+        <xsl:choose>
+          <xsl:when test="../@IsRepeating = 1">
+            @<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id uniqueidentifier
+          </xsl:when>
+          <xsl:otherwise>
+            @ProfileVersionId uniqueidentifier
+            <xsl:if test="../@IsPerSpecies = 1">, @SpeciesId uniqueidentifier</xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+        AS
+        BEGIN
+        -- SET NOCOUNT ON added to prevent extra result sets from
+        -- interfering with SELECT statements.
+        SET NOCOUNT ON;
+
+        DELETE FROM
+        [<xsl:value-of select="../@Name"/>]
+        WHERE
+        <xsl:choose>
+          <xsl:when test="../@IsRepeating = 1">
+            [<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id] = @<xsl:value-of select="../@Name"/><xsl:if test="../@IsPerSpecies = 1">Species</xsl:if>Id
+          </xsl:when>
+          <xsl:otherwise>
+            [ProfileVersionId] = @ProfileVersionId
+            <xsl:if test="../@IsPerSpecies = 1">AND [SpeciesId] = @SpeciesId</xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+        END
+        GO
+
+        GRANT EXECUTE ON [dbo].[spd<xsl:value-of select="../@Name"/><xsl:value-of select="@Name"/>] TO [VLAProfilesUser]
+        GO
+        
+      </xsl:for-each>
+      
+    </xsl:for-each>
+    
+  </xsl:template>
+</xsl:stylesheet>
+

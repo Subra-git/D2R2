@@ -1,0 +1,1 @@
+This mis is needed for new build virtual machines to install the old Microsoft AJAX component that is only distributable via a legacy msi. 

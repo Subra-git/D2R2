@@ -1,0 +1,230 @@
+/*@charset "ISO-8859-1";*/
+#wrapperz, #container {min-width: 795px; position: relative;}
+/*#wrapperz, #container {min-width: 760px; width: expression(document.body.clientWidth < 760? "750px": "100%"); position: relative;}*/
+html {min-width:795px;}
+body {font-family: arial, helvetica, sans-serif; font-size:small; font-weight: normal; text-decoration: none; color: #000; background-color: #FFF; margin: 0px 0px 30px 0px; padding: 0px; border: 0px; min-width: 795px;}
+body, p, ol, ul, li, dt, dd, dl, th, tr, td {font-family: Arial, Helvetica, sans-serif; color: black; }
+body, body p, body ol, body li, body dt, body dd, body dl, body th, body tr, body td, body td {  font-size: x-small;  voice-family: "\"}\"";  voice-family: inherit;  font-size: small;}
+html>body, html>body p, html>body ol, html>body li, html>body dt, html>body dd, html>body dl, html>body th, html>body tr, html>body td 
+html>body,
+html>body td,
+html>body th
+html>body p { font-size: small; }  
+img {border: 0px;}
+h2 {font-weight: bold; margin: 0px; padding-bottom: .5em; font-family: arial, helvetica, sans-serif;}
+h3 {font-weight: normal; margin: 0px;}
+h4 {font-weight: bold; margin: 10px 0px 10px 0px;}
+h5 {font-weight: bold; margin: 10px 0px 10px 0px;}
+h6 {font-weight: bold; margin: 10px 0px 10px 0px;}
+.skiplink { display: none;}
+.smalltext { font:85%/115% Arial, Helvetica, sans-serif; margin-bottom:0px }
+form { margin: 0px; font-family: arial, helvetica, sans-serif;}
+.greenborder {border-style: solid; border-width: 1px; border-color: #660;}
+/*table td {vertical-align: top; padding: 10px;}
+table td {vertical-align: top; padding: 10px;}*/
+#content table { margin: 10px 0px 10px 0px;}
+#content table td {vertical-align: top; padding-top: 10px; padding-bottom: 10px;}
+#content table td p{vertical-align: top; padding-left: 10px; padding-right: 10px;padding-bottom: 0px;}
+#content table td ul {vertical-align: top; padding-left: 10px; padding-right: 10px;padding-bottom: 10px;}
+.lightgreenborder {border-style: solid; border-width: 2px; border-color: #CC9; padding: 5px; margin: 10px; background-color: #f2f3e5;}
+#content table.lightgreenborder td img{vertical-align: top; padding-left: 10px; padding-right: 10px;}
+#content table.lightgreenborder td h3 {font-weight: bold;  margin-top: 0px; padding-left: 10px; padding-right: 10px; padding-bottom: .5em;}
+#content table.lightgreenborder td h4 {margin-top: 0px;  padding-left: 10px; padding-right: 10px;}
+.lightgreenbox {border: solid; border-width: 1px; border-color: #CC9; background-color: #CC9;}
+.fullgreen {border: solid; border-width: 1px; border-color: #660; background-color: #660;}
+.navbar {border: solid; border-width: 1px; border-color: #660; background-color: #660;}
+.whitenavlinks {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; line-height: 150%; color: #FFF;}
+a.whitenavlinks:link { text-decoration: none;}
+a.whitenavlinks:visited { text-decoration: none;}
+a.whitenavlinks:hover { text-decoration: underline;}
+a.whitenavlinks:active { text-decoration: none;}
+.whitenavlinkshere {font-weight: bold;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #FFF;}
+.whitenavtext {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #FFF;}
+.navbarlinks {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; line-height: 150%; color: #FFF;}
+a.navbarlinks:link { text-decoration: none;}
+a.navbarlinks:visited { text-decoration: none;}
+a.navbarlinks:hover { text-decoration: underline;}
+a.navbarlinks:active { text-decoration: none;}
+.navbarlinkshere {font-weight: bold;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #FFF;}
+.navbartext {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #FFF;}
+.topnavlinks {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; background-color: #FFF; color: #660;}
+a.topnavlinks:link { text-decoration: none;}
+a.topnavlinks:visited { text-decoration: none;}
+a.topnavlinks:hover { text-decoration: underline;}
+a.topnavlinks:active { text-decoration: none;}
+.topnavhere {font-weight: bold;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #660;}
+.topnavtext {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #660;}
+.bottomnavlink {font-weight: normal;  font-family: arial, helvetica, sans-serif; color: #660;}
+a.bottomnavlink:link { text-decoration: none;}
+a.bottomnavlink:visited { text-decoration: none;}
+a.bottomnavlink:hover { text-decoration: underline;}
+a.bottomnavlink:active { text-decoration: none;}
+.bottomnavtext {font-weight: normal;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #660;}
+.leftnavlinks {font-weight: normal;  font-family: arial, helvetica, sans-serif; color: #660;}
+a.leftnavlinks:link { text-decoration: none;}
+a.leftnavlinks:visited { text-decoration: none;}
+a.leftnavlinks:hover { text-decoration: underline;}
+a.leftnavlinks:active { text-decoration: none;}
+.leftnavhere {font-weight: bold;  font-family: arial, helvetica, sans-serif; color: #000; text-decoration: none;}
+.leftnavhead {font-weight: bold;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #c60;}
+/* ------------------ Main Navigation -------------------- */
+#navigation {padding: 0px 20px 0px 12px; vertical-align: top;}
+#navigation ul {margin: 0px; padding-left: 0px;}
+#navigation li {list-style: none; margin-bottom: 5px;}
+#navigation a:hover { text-decoration: underline;}
+#navigation ul ul {/* Sub Navigation of menu item */padding: 0px 2px 0px 10px; font-weight: normal;}
+.leftsubnav { color: #000; text-decoration: none;}
+a.leftsubnav:link,a.leftsubnav:visited,a.leftsubnav:active { text-decoration: none;}
+a.leftsubnav:hover { text-decoration: underline;}
+/* ------------------ Right Hand Navigation -------------------- */
+#rightnav {padding: 0px 12px 5px 10px; vertical-align: top;}
+#rightnav img { border: 0px;}
+#rightnav h1, #rightnav h2, #rightnav h3, #leftnav h3.home, #rightnav h4, #rightnav h5, #rightnav h6 { margin: 0px; padding: 0px  0px 6px 0px; font-weight: bold; font-size:1em; line-height:1em; font-family: arial, helvetica, sans-serif; text-decoration: none; color: #000;}
+#rightnav h3, #rightnav h3.home {font-size:105%; margin: 0px;}
+#rightnav h4 {font-size:105%; margin: 0px;}
+#rightnav .navpad{ margin: 0px; padding-bottom: 15px;}
+/*right nav bodrer control*/
+#rightnav ul {margin: 0px; padding: 0px; list-style: none; border-bottom: 1px solid #660; margin: 0px;}
+#rightnav li {background-image: url(../Images/Resources/aro-redb.gif); background-repeat: no-repeat; background-position: 0px 6px; border-top: 1px solid #CC9; margin: 0px; padding: 3px 0px 3px 10px;}
+/*#rightnav ul li:first-child {border: none; padding-top: 0px; background-image: url(../Images/Resources/aro-redb.gif); background-repeat: no-repeat; background-position: 0px 3px;}*/
+#rightnav a {font-weight: normal; font-family: arial, helvetica, sans-serif; color: #000;}
+#rightnav a:link, #rightnav a:visited { text-decoration: none;}
+#rightnav a:hover {text-decoration: underline; color: #c60;}
+#rightnav {float: right; width: 200px; margin: 0px; padding: 0px;}
+#rightnav hr {width: 100%; margin: 0px 0 .5em 0px; padding: 0px; background-color: #660; height: 1px; color: #660; border: none;}
+/* Left navigation formatting for new style templates - implement by wrapping ALL left nav content in a div tag with ID="leftnav", then use h3, paragraphs, lists and rules normally */
+#leftnav a {font-weight: bold; font-family: arial, helvetica, sans-serif; color: #C60;}
+#leftnav li a { font-weight: normal;}
+#leftnav a:link, #leftnav a:visited, #leftnav a:active {/*  */text-decoration: none;}
+#leftnav a:hover {text-decoration: underline;}
+#leftnav h3 {font-weight: bold;  font-family: arial, helvetica, sans-serif; text-decoration: none; color: #c60; margin-bottom: 10px;}
+#leftnav h3 {font-size:105%; margin: 0px; padding-bottom: .5em; border-bottom:1px solid #660;}
+#leftnav h4 {font-size:105%; margin: .5em 0px .25EM 0px;}
+#leftnav hr {width: 85%; margin: 0px 0 10px 0px;}
+#leftnav ul {margin: 0px; padding: 0px; list-style: none;}
+#leftnav li {background-image: url(../Images/Resources/bul-redb.gif); background-repeat: no-repeat; background-position: 0px .5em; margin: 0px; padding: 3px 0px 3px 10px;}
+#leftnav ul ul li { background-image:none; margin: 0px; padding: 3px 0px 3px 10px;}
+#leftnav ul ul li a, #leftnav ul ul li a:visited{background-image:none; color: #c60;}
+#leftnav li a:visited, #leftnav li a { color: #000;}
+#leftnav li a:hover { color: #C60;}
+#leftnav ul li:first-child {border: none; padding-top: 0px; background-image: url(../Images/Resources/bul-redb.gif); background-repeat: no-repeat; background-position: 0 3px;}
+#leftnav ul ul li:first-child {border: none; padding-top: 0px; background-image:none;}
+#leftnav li li, #leftnav ul ul li { margin-left:0px;  padding-left:0px;   padding-bottom:0px}
+#leftnav p { margin: 0px; padding: 0px; font-weight: bold; color: #000; line-height: 115%;}
+#leftnav table, #leftnav td {margin: 0px; padding: 0px;}
+#leftnav td a:link.leftnavlinks, #leftnav td a:visited.leftnavlinks { margin: 0px 0px 0px 2px; padding: 3px 0px 3px 5px; color:#000; font-weight:normal; display:block;}
+#leftnav td a:hover,#leftnav td a:hover.leftnavlinks { color:#C60; text-decoration:underline;}
+#leftnav hr {width: 100%; margin: 0 0 6px 0px; padding: 0px; background-color: #660; height: 1px; color: #993; border: none;}
+#leftnav {float: left; width: 180px; margin: 0px; padding: 3em 0px 1em 0px;}
+#content table th.greenheadercell, #content table th{ background-color:#CC9}
+#content table td.greencellborder{ border:1px #000 solid;}
+#content h1, #content h2, #content h3, #content h4, #content h5 {color: #660; background-color: transparent;}
+#content td p {margin-top: 0px; padding-top: 0px;}
+#content h3 {font-size:150%; font-weight:bold; line-height:normal; margin-bottom:1em; }
+#content h3 img{ float:right; margin: 0px 0px 15px 15px}
+#content h4 {font-size:130%; font-weight:bold; line-height:normal;}
+#content h5 {font-size:115%; font-weight:bold; line-height:normal;}
+#content h6 {font-size:100%; font-weight:bold; line-height:normal;} /* Added 21/08/07 SAE */
+.fleft{float:left; border:none;}
+.fright{float:right; border:none;}
+#content div.lightgreenborder, #content div.coldivleft {overflow:auto;}
+#content div.coldivleft img.fleft {margin-right: 10px; margin-bottom: 5px;border:none;}
+#content div.coldivleft img.fright {margin-left: 10px; margin-bottom: 5px;border:none;}
+.lightgreenborder {border-style: solid; border-width: 2px; border-color: #CC9; padding: 10px; margin: 10px 0px; background-color: #f2f3e5;}
+#content div.lightgreenborder img.fleft {margin-right: 10px; margin-bottom: 5px;border:none;}
+#content div.lightgreenborder img.fright {margin-left: 10px; margin-bottom: 5px;border:none;}
+#content div.lightgreenborder h4 {margin-top: 0px;  padding-left: 10px; padding-right: 10px;}
+#content div.lightgreenborder p { margin-bottom: 0; padding-bottom: 0;}
+#header {height: 98px; background: #C60 url(../Images/Logos/defra-symbol-red.gif) 97% 10% no-repeat; color: #fff;}
+#header a {color: #FFF; background-color: transparent; text-decoration: none;}
+#header a:hover { text-decoration: underline;}
+#header ul, #header li {list-style-type: none; margin: 0px; padding: 0px;}
+div#headwrap {float: left; height: 67px; width: 400px; border: 0px; padding: 0px; margin: 0px; cursor: pointer;}
+/*nav base colours*/
+a {color: #C60; text-decoration: none;}
+a:hover {color: #C60; text-decoration: underline;}
+/*
+main site logos/strap in banner*/
+#header div.screenlogo {height: 87px; width: 269px; background: bottom right url(../Images/Logos/defra-keylogo-red.gif); background-repeat: no-repeat; float: left; position: relative;}
+#header img {position: absolute; left: -900em; height: 1em;text-indent: -9000em;}
+#header a.printlogo {position: absolute; top: 15px; left: 15px; height: 77px; width: 254px; float: left; z-index: 4; background-image: none; background-color: transparent;}
+.access {position: absolute; left: -900em;text-indent: -9000em;}
+#logo {width: 254px; float: left;}
+#logoz {padding-top: 15px; margin: 0px; position: absolute; left: 15px; top: 2px; z-index: 1000;}
+#stitle { color:#FFF;text-align:right; position: absolute; top: 25px; right: 15px; height: 40px; width: 65%; z-index: 1001; background-image: none; background-color: transparent;}
+#stitle h2 { margin:0px; padding:0px;}
+#topmenu {position: absolute; right: 15px; top: 72px; z-index: 1005; width: 85%; height:30px;}
+#topmenu ul {list-style-type: none; float: right; display: inline; margin: 0px 0px 10px 0px;}
+#topmenu li {background: none; margin: 0px; padding: 0px 5px; list-style-type: none; float: left; border-left: 1px #fff solid; display:inline;}
+#topmenu li.bordernone, #topmenu li:first-child {border: none; padding-left: 0px;}
+#topmenu li#first { border-left: 0px;}
+#topmenu a { float: left; display: inline; line-height: 1em; margin: 0px;}
+#topmenu li#first a { margin: 0px;}
+#mainmenu {background-color: #d68533; margin: 0px; padding: 0px; text-align: center;}
+#mainmenu li {background: none; margin: 0px; padding: 0px; list-style-type: none; display: inline;}
+#mainmenu ul {margin: 0px; padding: 8px 5px; text-align: center; line-height: 1.4em;}
+#mainmenu a { border-left: 1px #FFF solid; padding: 0 6px 0 5px; color: #fff; text-decoration: none;}
+#mainmenu li a.bordernone, #mainmenu li:first-child a { border: none;}
+#mainmenu a:hover {color: #fff; text-decoration: underline;}
+#content .txtcenter { text-align:center;}
+/*footer*/
+#container { margin: 0px; background-color: #fff; color: #333; line-height: 130%;}
+#marg, #top { margin: 0px 20px 0px 20px;}
+#top { padding: 1em 1em 1em 0px;}
+#content {margin-left: 195px; margin-right: 215px; padding: 0px; }
+/* no right navigation
+*/
+/*#nonavr #content { margin-right: 70px; padding: 0px;} amended as below to remove wide boundary on 2 col pages SAE 15/5/2007 */
+#nonavr #content { margin-right: 0px; padding: 0px;}
+/* no right or left navigation
+*/
+#nonavl #content {margin-left: 0px; margin-right: 70px; padding: 0px;}
+#leftnav p, #rightnav p { margin: .5em 0px .5em 0px;}
+#content h2 { margin: 0px 0px .4em 0px;}
+#content p img.right { float:right; padding-left:10px;}
+#content p img.left { float:left; padding-right:10px;}
+#footera { margin: 0px; padding: .5em 0px; color: #000; background-color: #fff; clear: both;}
+#footera a{  color: #000;}
+#footerb {  margin: 0px; padding: .5em 0px .5em 0px; color: #000; background-color: #fff; border-top: 1px solid #c60; position: relative;}
+#footcopy {position: absolute; left: 0px; top: 10px; z-index: 1003; width: 62%;}
+#footstrap {position: absolute; right: 0px; top: 10px; z-index: 1004; width: 37%;}
+#footstrap p {font-size:85%; margin: 0px; padding: 0px; text-align: right;}
+#footerb li {font-size:85%; font-family: Arial, Helvetica, sans-serif; display: inline; list-style: none; padding: 0 3px 0 5px; margin: 0px; border-left: #000 solid 1px;}
+#footerb li.bordernone,#footerb li:first-child {border: none; padding-left: 0px; margin-left: 0px;}
+#footerb li a {text-decoration: none; margin: 0px; padding: 0px; background-color: transparent; color: #000;}
+#footerb li a:hover {background-color: transparent; text-decoration: underline; color: #C60;}
+#footerb ul {padding: 0px; margin: 0px;}
+.bordernone { border: none;}
+.first { border: none;}
+.last { }
+/* Expanded list code - experiment to see how easy it is to provide list options using CSS - SAE 28/2/2006 */
+#content ol li { background-image:none; margin: 0px; padding: 0px; list-style-type: lower-roman;}
+#content ol {margin-left: 26px; padding: 0px;}
+#content ul {margin: 0px; padding: 0px; list-style: none;}
+#content li {/*list-style-image: url(../Images/Resources/bul-redb.gif);*/background: url(../Images/Resources/bul-redb.gif) no-repeat 0em .4em; margin: 0px; padding: 0px 0px 0px 12px;}
+.listexpand li,#content ul.listexpand li,#content ol.listexpand li { margin-bottom: 10px;}
+.listnobullet {list-style-type: none; background-image: none;}
+#leftnav td+td a.leftnavlinks { background-image: none;}
+#container #leftnav table td+td a.leftnavlinks { background-image: none; margin-left:0; padding-left:0;margin-top:0; padding-top:0; font-weight:normal;}
+.clearboth  {clear: both;}
+.clearleft  {clear:left;}
+.clearright {clear:right;}
+div#bread a.breadcrumblinks, .breadcrumbhere { font-family: arial, helvetica, sans-serif;}
+.breadcrumbhere { font-weight: bold;}
+#bread { padding: 0px; }
+#bread h3 { display: inline;  padding: 0px 6px 6px 0px; font-size:1em; font-size: 105%; font-weight: bold; color: #000;}
+#bread ul { display: inline; padding-left: 0; margin-left: 0; }
+#bread ul li {font-weight: bold; display: inline; }
+#bread ul li a:link,  #bread ul li a:active, #bread ul li a:visited { padding: 0px 12px 0px 0px; margin-right:2px; background-image: url(../Images/Resources/aro-black.gif); background-repeat: no-repeat; background-position: 100% 40%; font-weight: normal;}
+#bread a:hover { text-decoration: underline;}
+/*IE workaround*/
+/*All IE browsers*/
+/*Win IE browsers - hide from Mac IE\*/
+ * html #container, * html #content, * html #marg, * html #top, * html #searchindex, * html #footerb, * html .bgrad, * html #search  { height: 1%;}
+/*End hide*/
+/*Mac IE 5*/
+#searchindex  { min-height:4.5em;}
+blockquote {clear:inherit} /* experimentally added by Simon to cure heading formatting problem - 10 April 2007 */
+
+/* hides full description of the link from CSS-supporting browsers while allowing older devices and screen readers to receive the entire content - MA 21/05/08 */
+#content .more {position: absolute; left: -1000px; width: 900px;}

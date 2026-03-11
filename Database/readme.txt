@@ -1,0 +1,1 @@
+This is an initial database backup from MAS development VM. Restore this into a new SQL server for development and testing purposes.

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2348E938-9B09-41EF-9F1F-8DFFC2F3DC70}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Profiles.WebControls</RootNamespace>
+    <AssemblyName>Profiles.WebControls</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>On</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 2-tier|AnyCPU'">
+    <OutputPath>bin\Local 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 3-tier|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Local 3-tier\</OutputPath>
+    <DocumentationFile>Profiles.WebControls.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 3-tier|AnyCPU'">
+    <OutputPath>bin\UAT 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 2-tier|AnyCPU'">
+    <OutputPath>bin\UAT 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 2-tier|AnyCPU'">
+    <OutputPath>bin\Live 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 3-tier|AnyCPU'">
+    <OutputPath>bin\Live 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT Azure|AnyCPU'">
+    <OutputPath>bin\UAT Azure\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live Azure|AnyCPU'">
+    <OutputPath>bin\Live Azure\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\35\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Csla">
+      <HintPath>..\lib\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="RadSpell.NET2">
+      <HintPath>..\lib\RadSpell.NET2.dll</HintPath>
+    </Reference>
+    <Reference Include="SanitizerProviders, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\35\SanitizerProviders\SanitizerProviders.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.UI, Version=2024.4.1114.462, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Telerik UI for ASP.NET AJAX 2024 Q4 1114 Dev hotfix\Bin462\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Validators">
+      <HintPath>..\lib\Validators.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnswerControls\FieldValueListRenderer.vb" />
+    <Compile Include="AnswerControls\IRenderer.vb" />
+    <Compile Include="AnswerControls\ListFieldValueRenderer.vb" />
+    <Compile Include="AnswerControls\NoteListRenderer.vb" />
+    <Compile Include="AnswerControls\QuestionRenderer.vb" />
+    <Compile Include="AnswerControls\QuestionRowListRenderer.vb" />
+    <Compile Include="AnswerControls\QuestionSpeciesListRenderer.vb" />
+    <Compile Include="AnswerControls\SectionNoteListRenderer.vb" />
+    <Compile Include="AnswerControls\SectionPanel.vb" />
+    <Compile Include="AnswerControls\TextFieldValueRenderer.vb" />
+    <Compile Include="Breadcrumb.vb" />
+    <Compile Include="CollapsiblePanel.vb" />
+    <Compile Include="CommonTree.vb" />
+    <Compile Include="CommonUI.vb" />
+    <Compile Include="CommonUtils.vb" />
+    <Compile Include="CustomWordSource.vb" />
+    <Compile Include="DateValidator.vb" />
+    <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="GridViewExternalPaging.vb" />
+    <Compile Include="GridView.vb" />
+    <Compile Include="InvalidReasonList.vb" />
+    <Compile Include="IProfileField.vb" />
+    <Compile Include="IProfileQuestion.vb" />
+    <Compile Include="LongTextProfileField.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PageSelector.vb" />
+    <Compile Include="PersistentScrollPosition.vb" />
+    <Compile Include="ProfileControls\BooleanProfileField.vb" />
+    <Compile Include="ProfileControls\CheckBoxListProfileField.vb" />
+    <Compile Include="ProfileControls\DateProfileField.vb" />
+    <Compile Include="ProfileControls\DecimalProfileField.vb" />
+    <Compile Include="ProfileControls\DropDownListProfileField.vb" />
+    <Compile Include="ProfileControls\FieldGroupPerSpeciesListPanel.vb" />
+    <Compile Include="ProfileControls\FieldGroupProfileField.vb" />
+    <Compile Include="ProfileControls\LongTextProfileField.vb" />
+    <Compile Include="ProfileControls\PerSpeciesListPanel.vb" />
+    <Compile Include="ProfileControls\PerSpeciesProfileQuestion.vb" />
+    <Compile Include="ProfileControls\PickerRow.vb" />
+    <Compile Include="ProfileControls\SelectSpeciesOptionPicker.vb" />
+    <Compile Include="ProfileControls\ProfileFieldListPanel.vb" />
+    <Compile Include="ProfileControls\ProfileRowListPanel.vb" />
+    <Compile Include="ProfileControls\RepeatingProfileQuestion.vb" />
+    <Compile Include="ProfileControls\StandardProfileQuestion.vb" />
+    <Compile Include="ProfileControls\TextProfileField.vb" />
+    <Compile Include="SearchControls\AlphabetSelector.vb" />
+    <Compile Include="SearchControls\ProfileResultListItem.vb" />
+    <Compile Include="SearchControls\ResultListItemBase.vb" />
+    <Compile Include="SearchControls\ScenarioResultListItem.vb" />
+    <Compile Include="SearchControls\SearchResultList.vb" />
+    <Compile Include="SearchControls\StatusResultListItem.vb" />
+    <Compile Include="SearchControls\VersionResultListItem.vb" />
+    <Compile Include="SpellCheck.vb" />
+    <Compile Include="TabStrip.vb" />
+    <Compile Include="ValidatableHiddenField.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PersistentScrollBar.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Profiles.Services\Profiles.Services.vbproj">
+      <Project>{0237e7ab-5417-4ecb-a76d-fc75206da5cc}</Project>
+      <Name>Profiles.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProfilesLibrary\ProfilesLibrary.vbproj">
+      <Project>{17FD4164-5F42-4520-8A0F-DD30F0DBF90B}</Project>
+      <Name>ProfilesLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

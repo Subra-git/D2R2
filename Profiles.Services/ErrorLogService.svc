@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="Profiles.Services.ErrorLogService" CodeBehind="ErrorLogService.svc.vb" %>

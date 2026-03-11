@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProjectName>SAK</SccProjectName>
+    <UpgradedFromDBP>True</UpgradedFromDBP>
+    <Name>dbpProjectName</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{dae862f4-0e5d-4d39-aaf8-1e79cd3f79f7}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProjectName>SAK</SccProjectName>
+    <UpgradedFromDBP>True</UpgradedFromDBP>
+    <RootNamespace>dbpProjectName</RootNamespace>
+    <PostUpgradeAddToSCC>;C:\Users\rzp\SourceControl\Git\surveillance-profiles-vb\ProfilesDatabase\ProfilesDatabase.sqlproj;C:\Users\rzp\SourceControl\Git\surveillance-profiles-vb\ProfilesDatabase\Connections.txt</PostUpgradeAddToSCC>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProjectName>SAK</SccProjectName>
+    <UpgradedFromDBP>True</UpgradedFromDBP>
+    <AssemblyName>dbpProjectName</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Change Scripts" />
+    <Folder Include="Create Scripts" />
+    <Folder Include="Create Scripts\Functions" />
+    <Folder Include="Create Scripts\Stored Procedures" />
+    <Folder Include="Create Scripts\Stored Procedures\spd" />
+    <Folder Include="Create Scripts\Stored Procedures\spg" />
+    <Folder Include="Create Scripts\Stored Procedures\spga" />
+    <Folder Include="Create Scripts\Stored Procedures\spi" />
+    <Folder Include="Create Scripts\Stored Procedures\spp" />
+    <Folder Include="Create Scripts\Stored Procedures\spu" />
+    <Folder Include="Queries" />
+    <Folder Include="References Migration" />
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <NotInBuild Include="Connections.txt" />
+    <NotInBuild Include="Change Scripts\ChangeMainTables.sql" />
+    <NotInBuild Include="Change Scripts\CR26AndPrioritisationChanges040108.sql" />
+    <NotInBuild Include="Change Scripts\CR31Changes250608.sql" />
+    <NotInBuild Include="Change Scripts\CR37Changes210809.sql" />
+    <NotInBuild Include="Change Scripts\CR39Changes221009.sql" />
+    <NotInBuild Include="Change Scripts\CR41Changes280110.sql" />
+    <NotInBuild Include="Change Scripts\CR43Changes021209.sql" />
+    <NotInBuild Include="Change Scripts\CR44Changes250310.sql" />
+    <NotInBuild Include="Change Scripts\CR46Changes300310.sql" />
+    <NotInBuild Include="Change Scripts\CR47Changes250310.sql" />
+    <NotInBuild Include="Change Scripts\CR50Changes060111.sql" />
+    <NotInBuild Include="Change Scripts\CR51Changes250211.sql" />
+    <NotInBuild Include="Change Scripts\CR52Changes220211.sql" />
+    <NotInBuild Include="Change Scripts\CR60Changes130111.sql" />
+    <NotInBuild Include="Change Scripts\CR62Changes010311.sql" />
+    <NotInBuild Include="Change Scripts\CR80Changes140813.sql" />
+    <NotInBuild Include="Change Scripts\CR82Changes050614.sql" />
+    <NotInBuild Include="Change Scripts\CR83Changes050614.sql" />
+    <NotInBuild Include="Change Scripts\GetUserManagementEmailAddresses.sql" />
+    <NotInBuild Include="Change Scripts\MigrationZeroLengthTextBugFix051207.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release1Changes310308.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release2Changes020708.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release2Changes060808.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release2Changes220908.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes020309.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes160409.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes230309.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes240209.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes240309.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes241008.sql" />
+    <NotInBuild Include="Change Scripts\Phase2Release3Changes270109.sql" />
+    <NotInBuild Include="Change Scripts\PrioritisationCriterionValueUpdate041007.sql" />
+    <NotInBuild Include="Change Scripts\ProfileVersionIsValidScript160408.sql" />
+    <NotInBuild Include="Change Scripts\Release2Changes141107.sql" />
+    <NotInBuild Include="Change Scripts\RunPrioritisationCalculation.sql" />
+    <NotInBuild Include="Change Scripts\UATD74Changes010311.sql" />
+    <NotInBuild Include="Change Scripts\UATDeviationsChanges261007.sql" />
+    <NotInBuild Include="Change Scripts\UATRelease2DeviationsChanges060208.sql" />
+    <NotInBuild Include="Create Scripts\CreateMainStoredProcedures.sql" />
+    <NotInBuild Include="Create Scripts\CreateMainTables.sql" />
+    <NotInBuild Include="Create Scripts\CreatePrioritisationStoredProcedures.sql" />
+    <NotInBuild Include="Create Scripts\CreateProfileStoredProcedures.sql" />
+    <NotInBuild Include="Create Scripts\CreateProfileTables.sql" />
+    <NotInBuild Include="Create Scripts\CreateProfileUsers.sql" />
+    <NotInBuild Include="Create Scripts\Functions\GetChildSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Functions\IsAncestorSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\PopulateBaselineData.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdGlobalUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileContributor.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileSectionUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileVersion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileVersionFieldMultiValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileVersionNote.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileVersionNoteQuestion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileVersionQuestionRow.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdProfileVersionSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdReferenceValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdReviewComment.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdReviewCommentsByProfileSection.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdSpeciesFieldMultiValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdSpellCustomWord.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdSsoUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spd\spdStaticReportVersion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgContributor.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgCurrentPublicProfileByParent.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgLookupValueByTable.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgMaintainableReferenceTables.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgPrioritisationCategoryScoreByProfileVersionId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgPrioritisationCriterionScoreByProfileVersionId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgPrioritisationMetadata.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgPrioritisedSpeciesByProfileVersionId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfile.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileContributorsByProfileId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileFieldByQuestion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileHistory.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileMetadata.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileQuestion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileQuestionBySectionId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileSectionIdByProfileVersionNoteId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionInfoById.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionNoteBySectionAndType.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionNoteByType.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionReportByProfileVersionId.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionReportData.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionSection.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgProfileVersionSectionUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgReferenceTableAudit.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgReferenceTableName.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgReferenceValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgReferenceValueByTable.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgReviewCommentByProfileVersionSection.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgSpeciesAnswerData.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgSpeciesById.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgSpeciesNameById.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgSpeciesValidParents.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgStaticReportHistory.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgStaticReportVersionData.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spg\spgUserAuthorisation.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaBaseReferenceData.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaCurrentProfile.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaCurrentStaticReport.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaFilterRankProfileData.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaGlobalUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaluProfileUserRole.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaluSectionReviewFrequency.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaluSectionReviewStatusType.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaPrioritisationGuidanceData.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaPrioritisationScoreData.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaPrioritisationVariables.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfile.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfileFieldValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfileNoteType.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfileSection.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfileSectionMetadata.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfileStatusType.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaProfileVersionSection.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaRankProfileData.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaReviewEmail.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaSpeciesPrioritisationVariables.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaSpeciesSectionMetadata.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaSpeciesTableAuditLog.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaSpellCustomWord.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spga\spgaSsoUserMaintenance.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiDeleteFilterFromFilterList.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiDiseaseFilterValue.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiErrorLog.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiGetDiseaseRankingFilterName.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiGetMaxFilterNumber.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiGlobalUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfile.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileContributor.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileSectionUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileUser.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionFieldMultiValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionNote.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionNoteQuestion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionQuestionRow.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionReportData.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionSectionUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiProfileVersionSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiReferenceValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiReviewComment.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiSpeciesFieldMultiValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiSpellCustomWord.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiSsoUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiStaticReport.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiUpdateDisableDiseaseFilterValue.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spi\spiUpdateDiseaseFilterValue.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spp\sppPrioritisationCalculation.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spp\sppPrioritisationScore.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spp\sppProfileVersionCurrency.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spp\sppReferenceValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spp\sppSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spp\sppSpeciesPrioritisationScore.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuPrioritisationCriterion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuPrioritisationCriterionValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuPrioritisationRankingRange.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfile.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileQuestion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileSectionUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileStatus.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileUser.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileVersionFieldValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileVersionNote.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileVersionPublicFlag.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileVersionQuestionRow.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileVersionSection.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuProfileVersionSpeciesTradeData.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuReferenceValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuReviewComment.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuSpecies.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuSpeciesAnswerData.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuSpeciesFieldValue.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuSpeciesPrioritisationCriterionValue.sql" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuSpeciesSequenceNumber.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuSpellCustomWord.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuStaticReportVersion.SQL" />
+    <NotInBuild Include="Create Scripts\Stored Procedures\spu\spuUser.SQL" />
+    <NotInBuild Include="Install Instructions.txt.sql" />
+    <NotInBuild Include="Queries\CR81-MigrateLiveToUAT.sql" />
+    <NotInBuild Include="Queries\GetAllColumnsOfParticularType.sql" />
+    <NotInBuild Include="References Migration\Export.sql" />
+    <NotInBuild Include="References Migration\Import.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,54 @@
+﻿Imports ProfilesLibrary
+Imports Profiles.WebControls
+
+Partial Class ViewProfileData
+    Inherits System.Web.UI.Page
+
+    
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        ' CR-050 - Prevents public users from "browsing" a profile. 
+        ' This code is commented out and the page is excluded from the project and not deleted 
+        ' in case in the future this browse functionality needs to be restored.          
+        '**********************************************************************************************
+        'Dim currentSection As ProfileVersionSection = Nothing
+
+        'If Request.QueryString("ProfileVersionId") Is Nothing OrElse Not IsValidGuid(Request.QueryString("ProfileVersionId")) Then
+        '    Throw New InvalidOperationException("This page requires the profile version id of a published profile version.")
+        'End If
+
+        'Dim profileVersionId As Guid = New Guid(Request.QueryString("ProfileVersionId"))
+
+        'If Request.QueryString("ProfileSectionId") Is Nothing OrElse Not IsValidGuid(Request.QueryString("ProfileSectionId")) Then
+        '    If Not Request.QueryString("ProfileSection") = "References" Then
+        '        Dim metadata As ProfileSectionMetadataList = ProfileSectionMetadataList.GetProfileSectionMetadataList()
+        '        currentSection = ProfileVersionSection.GetProfileVersionSection(profileVersionId, metadata(0).Id)
+        '        'currentSection = ProfileVersionSectionList.GetProfileVersionSectionList(profileVersionId)(0)
+        '    End If
+        'Else
+        '    currentSection = ProfileVersionSection.GetProfileVersionSection(profileVersionId, New Guid(Request.QueryString("ProfileSectionId")))
+        'End If
+
+        ''Add id to the context object for use by the navigation links
+        'Context.Items.Add("profileVersionId", profileVersionId)
+
+        'If Not Page.IsPostBack Then
+        '    Dim profileVersion As ProfileVersionInfo = ProfileVersionInfo.GetProfileVersionInfo(profileVersionId)
+        '    Dim masterPage As ProfilesPublicTemplate = DirectCast(Master, ProfilesPublicTemplate)
+        '    masterPage.AddBreadCrumb("Home.aspx", "Surveillance profiles")
+        '    masterPage.AddBreadCrumb("ViewProfileData.aspx?VersionId=" & profileVersionId.ToString(), "Profile data for " & profileVersion.Title)
+        '    Page.Title = "Profile data for " & profileVersion.ToString()
+
+        '    pwcSection.Section = currentSection
+        '    pwcSection.ProfileVersionId = profileVersionId
+
+        '    If currentSection Is Nothing Then
+        '        lblSectionName.Text = "References"
+        '    Else
+        '        lblSectionName.Text = currentSection.SectionName
+        '    End If
+        'End If
+
+    End Sub
+
+End Class

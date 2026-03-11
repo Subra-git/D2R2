@@ -1,0 +1,40 @@
+<StructureMap>
+   <!-- 
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IStaticReportService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.StaticReportService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileReportService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ProfileReportService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IUserAuthenticationService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.UserAuthenticationService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileNoteService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ProfileNoteService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileSearchService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ProfileSearchService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IErrorLogService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ErrorLogService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.ISpellCheckService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.SpellCheckService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.ISpeciesDataService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.SpeciesDataService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileVersionDataService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ProfileVersionDataService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IReviewCommentService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ReviewCommentService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IReferenceValueService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ReferenceValueService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileQuestionService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ProfileQuestionService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IUserMaintenanceService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.UserMaintenanceService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.ISpeciesMaintenanceService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.SpeciesMaintenanceService, Profiles.DataAccess.WcfClient"/>
+  <DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IPrioritisationService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.PrioritisationService, Profiles.DataAccess.WcfClient"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileManagementService, Profiles.Contracts" PluggedType="Profiles.DataAccess.WcfClient.ProfileManagementService, Profiles.DataAccess.WcfClient"/>
+  <DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IDiseaseRankingService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.DiseaseRankingService, Profiles.DataAccess.Sql"/>
+ -->
+ 	
+  <DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IStaticReportService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.StaticReportService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileReportService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ProfileReportService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IUserAuthenticationService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.UserAuthenticationService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileNoteService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ProfileNoteService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileSearchService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ProfileSearchService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IErrorLogService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ErrorLogService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.ISpellCheckService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.SpellCheckService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileVersionDataService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ProfileVersionDataService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.ISpeciesDataService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.SpeciesDataService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IReviewCommentService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ReviewCommentService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IReferenceValueService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ReferenceValueService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileQuestionService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ProfileQuestionService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IUserMaintenanceService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.UserMaintenanceService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.ISpeciesMaintenanceService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.SpeciesMaintenanceService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IProfileManagementService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.ProfileManagementService, Profiles.DataAccess.Sql"/>
+	<DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IPrioritisationService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.PrioritisationService, Profiles.DataAccess.Sql"/>
+  <DefaultInstance PluginType="Profiles.Contracts.ServiceContracts.IDiseaseRankingService, Profiles.Contracts" PluggedType="Profiles.DataAccess.Sql.DiseaseRankingService, Profiles.DataAccess.Sql"/>
+ 
+</StructureMap>

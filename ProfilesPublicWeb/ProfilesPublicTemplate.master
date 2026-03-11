@@ -1,0 +1,143 @@
+<%@ Master Language="VB" CodeFile="ProfilesPublicTemplate.master.vb" Inherits="ProfilesPublicTemplate" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server">
+    <title>Defra, UK - Surveillance profiles
+        <%If Page.Title.Length > 0 Then%>
+        -
+        <% = Page.Title %>
+        <%End If%></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <meta name="DC.Title" lang="en" content="Defra, UK - Surveillance Profiles"/>
+    <meta name="DC.Date.created" scheme="W3CDTF" content="2009-05-01"/>
+    <meta name="DC.Date.modified" scheme="W3CDTF" content="2009-05-01"/>
+    <meta name="eGMS.Subject.Category" scheme="GCL" lang="en" content="Animal health"/>
+    <meta name="DC.Creator" lang="en" content="Department for Environment, Food and Rural Affairs (Defra), Communications Directorate, D2R2@defra.gsi.gov.uk"/>
+    <meta name="DC.Subject.keyword" lang="en" content="Animal health"/>
+    <meta name="DC.Description" lang="en" content=" "/>
+    <meta name="DC.Contributor" lang="en" content=" "/>
+    <meta name="DC.Coverage" lang="en" content="UK; United Kingdom"/>
+    <meta name="DC.Identifier" scheme="URI" content=" "/>
+    <meta name="DC.Relation" lang="en" content=" "/>
+    <meta name="DC.Source" lang="en" content=" "/>
+    <meta name="DC.Type" lang="en" content=" "/>
+    <!--Generic Defra DC metadata -->
+    <meta name="DC.Publisher" lang="en" content="Department for Environment, Food and Rural Affairs (Defra), Nobel House, 17 Smith Square, London SW1P 3JR helpline@defra.gsi.gov.uk"/>
+    <meta name="DC.Format" scheme="IMT" content="text/html"/>
+    <meta name="DC.Language" scheme="ISO 639-2/B" content="eng"/>
+    <meta name="DC.Rights.copyright" lang="en" content="Crown Copyright http://www.opsi.gov.uk/advice/index.htm"/>
+    <!--End of Defra DC metadata -->
+    <meta http-equiv="pics-label" content='(pics-1.1 "http://www.icra.org/ratingsv02.html" comment "ICRAonline v2.0" l gen true for "http://www.defra.gov.uk" r (nz 1 vz 1 lz 1 oz 1 cz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.defra.gov.uk" r (n 0 s 0 v 0 l 0))'/>
+    <link href="Css/defra-main.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="Css/defra-print.css" rel="stylesheet" type="text/css" media="print"/>
+</head>
+<body id="nonavr">
+    <div id="wrapperz">
+        <div id="header">
+            <ul class="access">
+                <li><a class="skiplink" href="#content" accesskey="S">Skip navigation to content</a></li>
+            </ul>
+            <div class="screenlogo">
+            </div>
+            <a href="http://www.defra.gov.uk/" accesskey="1" title="Link to home page" class="printlogo">
+                <img src="Images/Logos/defra-printlogo.gif" alt="defra: Department for Environment, Food and Rural Affairs"
+                    width="117" height="72" /></a>
+            <h1 class="access">
+                Defra</h1>
+            <h2 class="access">
+                Department for Environment, Food and Rural Affairs</h2>
+            <div id="topmenu">
+                <h3 class="access">
+                    Main menu</h3>
+                <ul>
+                    <li class="bordernone"><a href="http://www.defra.gov.uk/contact/">Contact&nbsp;us</a></li>
+                    <li><a href="http://www.defra.gov.uk/corporate/policy/opengov/index.htm">Access&nbsp;to&nbsp;information</a></li>
+                    <li><a href="http://www.defra.gov.uk/news/" accesskey="2">News</a></li>
+                    <li><a href="http://www.defra.gov.uk/index/index.htm" accesskey="3">Site&nbsp;A-Z</a></li>
+                    <li><a href="http://www.defra.gov.uk/search/" accesskey="4">Search</a></li>
+                </ul>
+            </div>
+            <div class="clearboth">
+            </div>
+        </div>
+        <div id="mainmenu">
+            <h3 id="global_links" class="access">
+                Global links</h3>
+            <ul>    
+                <li><a href="http://www.defra.gov.uk/environment/index.htm">The&nbsp;Environment</a></li>
+                <li><a href="http://www.defra.gov.uk/foodfarm/index.htm">Food&nbsp;and&nbsp;Farming</a></li>
+                <li><a href="http://www.defra.gov.uk/rural/index.htm">Rural&nbsp;and&nbsp;Countryside</a></li>
+                <li><a href="http://www.defra.gov.uk/wildlife-pets/index.htm" >Wildlife&nbsp;and&nbsp;Pets</a></li>                
+            </ul>
+        </div>
+        <div id="stitle">
+            <h2>
+                Animal health and welfare
+            </h2>
+        </div>
+    </div>
+    <div id="top">
+        <div id="bread">
+            <h3 id="site_navigation">
+                You are here:</h3>
+            <asp:Literal ID="litBreadCrumb" runat="server" />
+            <div class="clearboth">
+            </div>
+        </div>
+        <div class="clearboth">
+        </div>
+    </div>
+    <form id="frmProfiles" runat="server">
+    <div id="container">
+        <div id="marg">
+            <div id="leftnav">
+                <asp:ContentPlaceHolder runat="server" ID="cphNavigation">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="content">
+                <a name="content"></a>
+                <h3>
+                    <% If Page.Title.Length > 0 Then Response.Write(Page.Title) Else Response.Write("Surveillance profiles")%>
+                </h3>
+                <div>
+                    <asp:ContentPlaceHolder ID="cphMain" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <!--Footer-->
+            <div id="footera">
+                <p class="smalltext">
+                    <a href="#header">Top of the page</a></p>
+            </div>
+            <div id="footerb">
+                <div id="footcopy">
+                    <h3 class="access">
+                        Site navigation</h3>
+                    <ul>
+                        <li class="bordernone"><a href="http://www.defra.gov.uk/web/copyright.htm">&copy; Crown
+                            copyright</a> </li>
+                        <li><a href="http://www.defra.gov.uk/web/terms.htm" accesskey="8">Terms &amp; conditions</a></li>
+                        <li><a href="http://www.defra.gov.uk/web/privacy.htm">Privacy</a></li>
+                        <li><a href="http://www.defra.gov.uk/web/accessibility.htm" accesskey="0">Accessibility</a></li>
+                        <li><a href="http://www.defra.gov.uk/web/Help.htm" accesskey="6">Help</a></li>
+                        <li><a href="http://www.defra.gov.uk/corporate/contacts/index.htm" accesskey="9">Feedback</a></li>
+                    </ul>
+                </div>
+                <div id="footstrap">
+                    <p>
+                        Department for Environment, Food and Rural Affairs</p>
+                </div>
+                <div class="clearboth">
+                </div>
+            </div>
+            <div class="clearboth">
+            </div>
+        </div>
+        <div class="clearboth">
+        </div>
+    </div>
+    </form>
+    <!--End Footer-->
+</body>
+</html>

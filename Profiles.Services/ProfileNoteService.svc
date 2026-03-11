@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="Profiles.Services.ProfileNoteService" CodeBehind="ProfileNoteService.svc.vb" %>

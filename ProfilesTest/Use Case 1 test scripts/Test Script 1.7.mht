@@ -1,0 +1,1738 @@
+MIME-Version: 1.0
+Content-Location: file:///C:/275349F7/TestScript1.7.htm
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="us-ascii"
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:o=3D"urn:schemas-microsoft-com:office:office"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+xmlns:x=3D"urn:schemas-microsoft-com:office:excel"
+xmlns:dt=3D"uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+xmlns:st1=3D"urn:schemas-microsoft-com:office:smarttags"
+xmlns=3D"http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dus-ascii">
+<meta name=3DProgId content=3DWord.Document>
+<meta name=3DGenerator content=3D"Microsoft Word 11">
+<meta name=3DOriginator content=3D"Microsoft Word 11">
+<link rel=3DFile-List href=3D"TestScript1.7_files/filelist.xml">
+<title>To do: set description</title>
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"State"/>
+<o:SmartTagType namespaceuri=3D"urn:schemas-microsoft-com:office:smarttags"
+ name=3D"place"/>
+<!--[if gte mso 9]><xml>
+ <o:CustomDocumentProperties>
+  <o:TestType dt:dt=3D"string">Manual Test</o:TestType>
+  <o:TestID dt:dt=3D"string">9040c717-14e1-4a08-90e8-443a4a2a5324</o:TestID>
+  <o:WorkItemIds dt:dt=3D"string"></o:WorkItemIds>
+  <o:CssProjectStructure dt:dt=3D"string"></o:CssProjectStructure>
+  <o:IsGroupable dt:dt=3D"string">True</o:IsGroupable>
+  <o:BodyText dt:dt=3D"string"></o:BodyText>
+  <o:IsRunOnRestart dt:dt=3D"string">False</o:IsRunOnRestart>
+  <o:Enabled dt:dt=3D"string">True</o:Enabled>
+  <o:Priority dt:dt=3D"string">0</o:Priority>
+  <o:IsModified dt:dt=3D"string">False</o:IsModified>
+  <o:CssIteration dt:dt=3D"string"></o:CssIteration>
+  <o:AbortRunOnAgentFailure dt:dt=3D"string">False</o:AbortRunOnAgentFailur=
+e>
+  <o:CreatedByUI dt:dt=3D"string">False</o:CreatedByUI>
+  <o:SourceFileName dt:dt=3D"string"></o:SourceFileName>
+  <o:DeploymentItemsEditable dt:dt=3D"string"></o:DeploymentItemsEditable>
+ </o:CustomDocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState=3D"false" LatentStyleCount=3D"156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid=3D"clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=3Dieooui></objec=
+t>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--table.MSOTABLECLASSIC1FIRSTROW
+	{mso-para-margin-top:auto;
+	mso-para-margin-bottom:auto;}
+
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:10.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-GB;
+	mso-fareast-language:EN-GB;}
+p.Graphic, li.Graphic, div.Graphic
+	{mso-style-name:Graphic;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	mso-pagination:none;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:EN-GB;}
+p.Comment, li.Comment, div.Comment
+	{mso-style-name:Comment;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.TableText, li.TableText, div.TableText
+	{mso-style-name:"Table Text";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	font-size:8.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{mso-style-name:"Table Heading";
+	mso-style-parent:"Table Text";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan lines-together;
+	font-size:8.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+p.NoteWide, li.NoteWide, div.NoteWide
+	{mso-style-name:"Note Wide";
+	margin-top:6.0pt;
+	margin-right:108.0pt;
+	margin-bottom:6.0pt;
+	margin-left:36.0pt;
+	text-indent:-36.0pt;
+	mso-pagination:widow-orphan;
+	background:yellow;
+	mso-shading:windowtext;
+	mso-pattern:solid yellow;
+	border:none;
+	mso-border-alt:solid windowtext 1.5pt;
+	padding:0cm;
+	mso-padding-alt:1.0pt 1.0pt 1.0pt 1.0pt;
+	mso-border-shadow:yes;
+	font-size:10.0pt;
+	font-family:"Book Antiqua";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	display:none;
+	mso-hide:all;}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:951126835;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2051742516 67698689 67698691 67698693 67698689 6769=
+8691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1
+	{mso-list-id:1119837270;
+	mso-list-type:hybrid;
+	mso-list-template-ids:237913106 134807553 134807555 134807557 134807553 13=
+4807555 134807557 134807553 134807555 134807557;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l1:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2
+	{mso-list-id:1872106527;
+	mso-list-type:hybrid;
+	mso-list-template-ids:653432920 134807553 134807567 134807553 -733152678 1=
+34807555 134807557 134807553 134807555 134807557;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level4
+	{mso-level-text:%4-;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l2:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableClassic1
+	{mso-style-name:"Table Classic 1";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid black 1.0pt;
+	mso-padding-alt:5.4pt 5.4pt 5.4pt 5.4pt;
+	mso-border-insideh:1.0pt solid black;
+	mso-border-insidev:1.0pt solid black;
+	mso-tstyle-shading:white;
+	mso-para-margin-top:18.0pt;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:0cm;
+	mso-para-margin-left:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableClassic1FirstRow
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:first-row;
+	mso-tstyle-shading:#C4DB0D;
+	text-align:left;
+	word-break:normal;
+	font-size:11.0pt;
+	mso-ansi-font-size:11.0pt;
+	mso-bidi-font-size:11.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;
+	mso-bidi-font-style:italic;}
+table.MsoTableClassic1LastRow
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:last-row;
+	mso-tstyle-border-top:.75pt solid black;
+	text-align:left;
+	color:windowtext;}
+table.MsoTableClassic1FirstCol
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:first-column;
+	mso-tstyle-border-right:.75pt solid black;
+	mso-tstyle-diagonal-down:0cm none windowtext;
+	mso-tstyle-diagonal-up:0cm none windowtext;}
+table.MsoTableClassic1NECell
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:ne-cell;
+	mso-tstyle-diagonal-down:0cm none windowtext;
+	mso-tstyle-diagonal-up:0cm none windowtext;
+	mso-ansi-font-weight:bold;
+	mso-bidi-font-weight:bold;
+	mso-ansi-font-style:normal;
+	mso-bidi-font-style:normal;}
+table.MsoTableClassic1SWCell
+	{mso-style-name:"Table Classic 1";
+	mso-table-condition:sw-cell;
+	mso-tstyle-diagonal-down:0cm none windowtext;
+	mso-tstyle-diagonal-up:0cm none windowtext;
+	mso-ansi-font-weight:normal;
+	mso-bidi-font-weight:bold;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=3DEN-US link=3Dblue vlink=3Dpurple style=3D'tab-interval:36.0pt'>
+
+<div class=3DSection1>
+
+<div style=3D'mso-element:para-border-div;border:solid windowtext 1.5pt;
+padding:1.0pt 1.0pt 1.0pt 1.0pt;mso-border-shadow:yes;background:yellow;
+mso-shading:windowtext;mso-pattern:solid yellow;margin-left:0cm;margin-righ=
+t:
+108.0pt'>
+
+<p class=3DNoteWide style=3D'margin-top:6.0pt;margin-right:0cm;margin-botto=
+m:6.0pt;
+margin-left:0cm;text-indent:0cm;background:yellow;mso-shading:windowtext;
+mso-pattern:solid yellow'><a name=3DAuthorName><b style=3D'mso-bidi-font-we=
+ight:
+normal'><span style=3D'font-family:"Times New Roman"'>Test Case ID:</span><=
+/b></a><span
+style=3D'mso-bookmark:AuthorName'><span style=3D'font-family:"Times New Rom=
+an"'>
+Unique Test Case ID<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Test Case Name:</b> Test Case Name=
+<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Use Case Scenario:</b> Basic flow =
+or
+basic flow with alternate flows<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Revision History:</b> Each test ca=
+se has
+to have its revision history in order to know when and by whom it is create=
+d or
+modified.<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Objectives:</b> Short sentence or =
+two
+about the aspect of the system is being tested. If this gets too long, break
+the test case up or put more information into the feature descriptions.<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Test Setup:</b> Describe in all de=
+tails
+the state of the application as well as any element of the system environme=
+nt
+that is of importance during the test; e.g., particular HTTP port enabled.<=
+br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Pre-conditions:</b> Assumptions th=
+at
+must be met before the test case can be run. E.g., &quot; User is not alrea=
+dy
+logged in&quot;.<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Test Data: </b>List of variables a=
+nd
+their possible values used in the test case. You can list specific values or
+describe value ranges. <br>
+E.g. usernameOrEmail =3D {testuser, bogususer, testuser@oracle.com, empty},=
+<span
+style=3D'mso-spacerun:yes'>&nbsp; </span><br>
+<span style=3D'mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>password =3D {valid, invalid, empty}<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Test Procedure:</b> Describe in all
+details the steps that the user has to follow. Be very specific, referencing
+the specific buttons or links to click, or input fields to fill.<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Expected Results:</b> Describe the=
+ test
+case's expected output. <br>
+E.g. Message displayed: <i style=3D'mso-bidi-font-style:normal'>This user a=
+lready
+exists. Please enter another user</i>.;<br>
+<span style=3D'mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Login screen appears<br>
+<span style=3D'mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Successful cash withdrawal.<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Comments:</b> Additional comments.=
+<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Actual Results:</b> Pass/Fail - cu=
+rrent
+state of the test case<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Completed:</b> Date<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Signed Out:</b> Name of Tester<br>
+<br>
+<b style=3D'mso-bidi-font-weight:normal'>Test Log:</b> The test log is a re=
+cord
+of the test results. It contains the date, the name of the tester, if the t=
+est
+passed or failed and why it failed (if applicable).<o:p></o:p></span></span=
+></p>
+
+</div>
+
+<p class=3DMsoNormal><span style=3D'mso-bookmark:AuthorName'><o:p>&nbsp;</o=
+:p></span></p>
+
+<table class=3DMsoNormalTable border=3D1 cellspacing=3D0 cellpadding=3D0
+ style=3D'border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+ mso-border-alt:solid windowtext 1.5pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+ mso-border-insideh:.75pt solid windowtext;mso-border-insidev:.75pt solid w=
+indowtext'>
+ <tr style=3D'mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid=
+'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+1.5pt;
+  border-left:1.5pt;border-bottom:1.0pt;border-right:1.0pt;border-color:win=
+dowtext;
+  border-style:solid;mso-border-top-alt:1.5pt;mso-border-left-alt:1.5pt;
+  mso-border-bottom-alt:.75pt;mso-border-right-alt:.75pt;mso-border-color-a=
+lt:
+  windowtext;mso-border-style-alt:solid;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Test Case ID</span></b></span><span style=3D'mso-bookmark:AuthorNa=
+me'><span
+  style=3D'font-family:Arial'><o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D96 valign=3Dtop style=3D'width:72.0pt;border-top:solid window=
+text 1.5pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .75pt;mso-border-alt:solid windowtex=
+t .75pt;
+  mso-border-top-alt:solid windowtext 1.5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'>1.7<o:p></o:p></span></span><=
+/p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D120 valign=3Dtop style=3D'width:90.0pt;border-top:solid windo=
+wtext 1.5pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-left-alt:solid windowtext .75pt;mso-border-alt:solid windowtex=
+t .75pt;
+  mso-border-top-alt:solid windowtext 1.5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Test Case Name</span></b></span><span style=3D'mso-bookmark:Author=
+Name'><span
+  style=3D'font-family:Arial'><o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D264 valign=3Dtop style=3D'width:198.0pt;border-top:solid wind=
+owtext 1.5pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-left-alt:solid windowtext .75pt;mso-border-top-alt:1.5pt;
+  mso-border-left-alt:.75pt;mso-border-bottom-alt:.75pt;mso-border-right-al=
+t:
+  1.5pt;mso-border-color-alt:windowtext;mso-border-style-alt:solid;padding:
+  0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'>Contributor attempts to creat=
+e a
+  new profile<span style=3D'mso-bidi-font-weight:bold'><o:p></o:p></span></=
+span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:1;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Use Case </span></b></span><span style=3D'mso-bookmark:AuthorName'=
+><span
+  style=3D'font-family:Arial'><o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'>Use case 1: Create new profil=
+e <o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:2;page-break-inside:avoid;height:3.0pt;mso-row=
+-margin-left:
+   .4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;border-bottom:soli=
+d windowtext 1.0pt'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   background:#7F7F7F;mso-shading:windowtext;mso-pattern:gray-50 auto;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <tr style=3D'mso-yfti-irow:3;page-break-inside:avoid'>
+  <td width=3D631 colspan=3D5 valign=3Dtop style=3D'width:473.4pt;border-to=
+p:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.5pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-top-alt:.75pt;mso-border-left-alt:1.5pt;mso-border-bottom-alt:
+  .75pt;mso-border-right-alt:1.5pt;mso-border-color-alt:windowtext;mso-bord=
+er-style-alt:
+  solid;background:#C4DB0D;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Revision History<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:4;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>Date<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D96 valign=3Dtop style=3D'width:72.0pt;border-top:none;border-=
+left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>Author<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D120 valign=3Dtop style=3D'width:90.0pt;border-top:none;border=
+-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>Version<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D264 valign=3Dtop style=3D'width:198.0pt;border-top:none;borde=
+r-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>Description<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:5;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>12/06/2007<=
+o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D96 valign=3Dtop style=3D'width:72.0pt;border-top:none;border-=
+left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>NE<o:p></o:=
+p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D120 valign=3Dtop style=3D'width:90.0pt;border-top:none;border=
+-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>1.0<o:p></o=
+:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D264 valign=3Dtop style=3D'width:198.0pt;border-top:none;borde=
+r-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>Test Case
+  created.<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:6;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D96 valign=3Dtop style=3D'width:72.0pt;border-top:none;border-=
+left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><st1:place w:st=3D"on"><st1:State w:st=3D"on"><span style=3D'=
+font-size:
+    9.0pt;font-family:Arial'>AL</span></st1:State></st1:place></span><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'><o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D120 valign=3Dtop style=3D'width:90.0pt;border-top:none;border=
+-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>1.1<o:p></o=
+:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D264 valign=3Dtop style=3D'width:198.0pt;border-top:none;borde=
+r-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>QA<o:p></o:=
+p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:7;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D96 valign=3Dtop style=3D'width:72.0pt;border-top:none;border-=
+left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'><span
+  style=3D'mso-bookmark:AuthorName'></span>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D120 valign=3Dtop style=3D'width:90.0pt;border-top:none;border=
+-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;padding:0cm 5.4pt 0cm 5.4pt'><span
+  style=3D'mso-bookmark:AuthorName'></span>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D264 valign=3Dtop style=3D'width:198.0pt;border-top:none;borde=
+r-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1=
+.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:8;page-break-inside:avoid;height:3.0pt;mso-row=
+-margin-left:
+   .4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;border-bottom:soli=
+d windowtext 1.0pt'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   background:#7F7F7F;mso-shading:windowtext;mso-pattern:gray-50 auto;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <tr style=3D'mso-yfti-irow:9;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Objectives<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'>Contributor attempts to creat=
+e a
+  new profile<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:10;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Pre-conditions<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DMsoNormal style=3D'margin-left:36.0pt;text-indent:-18.0pt;mso-=
+list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><span style=3D'mso-bookmark:AuthorN=
+ame'><![if !supportLists]><span
+  style=3D'font-size:9.0pt;font-family:Symbol;mso-fareast-font-family:Symbo=
+l;
+  mso-bidi-font-family:Symbol'><span style=3D'mso-list:Ignore'>&middot;<span
+  style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style=3D'font-size:9.0pt;font-family=
+:Arial'>User
+  is specified in the database as a contributor to an existing profile<o:p>=
+</o:p></span></span></p>
+  <p class=3DMsoNormal style=3D'margin-left:36.0pt;text-indent:-18.0pt;mso-=
+list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><span style=3D'mso-bookmark:AuthorN=
+ame'><![if !supportLists]><span
+  style=3D'font-size:9.0pt;font-family:Symbol;mso-fareast-font-family:Symbo=
+l;
+  mso-bidi-font-family:Symbol'><span style=3D'mso-list:Ignore'>&middot;<span
+  style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style=3D'font-size:9.0pt;font-family=
+:Arial'>User
+  is not specified as a profile editor<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:11;page-break-inside:avoid;height:3.0pt;mso-ro=
+w-margin-left:
+   .4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;border-bottom:soli=
+d windowtext 1.0pt'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   background:#7F7F7F;mso-shading:windowtext;mso-pattern:gray-50 auto;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <tr style=3D'mso-yfti-irow:12;page-break-inside:avoid'>
+  <td width=3D631 colspan=3D5 valign=3Dtop style=3D'width:473.4pt;border-to=
+p:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.5pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-top-alt:.75pt;mso-border-left-alt:1.5pt;mso-border-bottom-alt:
+  .75pt;mso-border-right-alt:1.5pt;mso-border-color-alt:windowtext;mso-bord=
+er-style-alt:
+  solid;background:#C4DB0D;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Test Data<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:13;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>Variable<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>Values<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:14;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:15;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:16;page-break-inside:avoid;height:3.0pt;mso-ro=
+w-margin-left:
+   .4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;border-bottom:soli=
+d windowtext 1.0pt'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   background:#7F7F7F;mso-shading:windowtext;mso-pattern:gray-50 auto;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <tr style=3D'mso-yfti-irow:17;page-break-inside:avoid'>
+  <td width=3D631 colspan=3D5 valign=3Dtop style=3D'width:473.4pt;border-to=
+p:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.5pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-top-alt:.75pt;mso-border-left-alt:1.5pt;mso-border-bottom-alt:
+  .75pt;mso-border-right-alt:1.5pt;mso-border-color-alt:windowtext;mso-bord=
+er-style-alt:
+  solid;background:#C4DB0D;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Test Procedure <o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:18;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading align=3Dcenter style=3D'text-align:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'>Step <o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableHeading><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'>Step Details<o:p></o:p></span=
+></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:19;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText align=3Dcenter style=3D'margin-bottom:6.0pt;text-ali=
+gn:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'>01<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>Go to </spa=
+n></span><a
+  href=3D"http://vlaprofiletest/profilesweb"><span style=3D'mso-bookmark:Au=
+thorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'>http://vlaprofiletest/profile=
+sweb</span></span><span
+  style=3D'mso-bookmark:AuthorName'></span></a><span style=3D'mso-bookmark:=
+AuthorName'><span
+  style=3D'font-size:9.0pt;font-family:Arial'> to open the Surveillance Pro=
+files
+  system <o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:20;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText align=3Dcenter style=3D'margin-bottom:6.0pt;text-ali=
+gn:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'>02<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'>The &#8216;=
+Create
+  New Profile&#8217; is not available <o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:21;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText align=3Dcenter style=3D'margin-bottom:6.0pt;text-ali=
+gn:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'>03<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:22;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText align=3Dcenter style=3D'margin-bottom:6.0pt;text-ali=
+gn:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'>04<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:23;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText align=3Dcenter style=3D'margin-bottom:6.0pt;text-ali=
+gn:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'>05<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:24;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText align=3Dcenter style=3D'margin-bottom:6.0pt;text-ali=
+gn:center'><span
+  style=3D'mso-bookmark:AuthorName'><span style=3D'font-size:9.0pt;font-fam=
+ily:
+  Arial'><o:p>&nbsp;</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-bottom:6.0pt'><span style=3D'mso-boo=
+kmark:
+  AuthorName'><span style=3D'font-size:9.0pt;font-family:Arial'><o:p>&nbsp;=
+</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:25;page-break-inside:avoid;height:3.0pt;mso-ro=
+w-margin-left:
+   .4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;border-bottom:soli=
+d windowtext 1.0pt'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   background:#7F7F7F;mso-shading:windowtext;mso-pattern:gray-50 auto;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <tr style=3D'mso-yfti-irow:26;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Expected Results<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DMsoNormal style=3D'margin-left:36.0pt;text-indent:-18.0pt;mso-=
+list:
+  l2 level1 lfo4;tab-stops:list 36.0pt'><span style=3D'mso-bookmark:AuthorN=
+ame'><![if !supportLists]><span
+  style=3D'font-size:9.0pt;font-family:Symbol;mso-fareast-font-family:Symbo=
+l;
+  mso-bidi-font-family:Symbol'><span style=3D'mso-list:Ignore'>&middot;<span
+  style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style=3D'font-size:9.0pt;font-family=
+:Arial'>No
+  interface is provided to enable the user to create a new profile<o:p></o:=
+p></span></span></p>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo6;
+  tab-stops:list 36.0pt'><span style=3D'mso-bookmark:AuthorName'><![if !sup=
+portLists]><span
+  style=3D'font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-=
+family:
+  Symbol'><span style=3D'mso-list:Ignore'>&middot;<span style=3D'font:7.0pt=
+ "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span style=3D'font-size:9.0pt;font-family=
+:Arial'>No
+  new profile is created in the database</span></span><span style=3D'mso-bo=
+okmark:
+  AuthorName'><span style=3D'font-family:Arial'><o:p></o:p></span></span></=
+p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:27;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Comments<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'><o:p>&nbsp;</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:28;page-break-inside:avoid;height:3.0pt;mso-ro=
+w-margin-left:
+   .4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;border-bottom:soli=
+d windowtext 1.0pt'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <tr style=3D'mso-yfti-irow:29;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Actual Results<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'>&lt;<b style=3D'mso-bidi-font-weight:normal'>=
+<span
+  style=3D'color:green'>PASS</span></b>/<b style=3D'mso-bidi-font-weight:no=
+rmal'><span
+  style=3D'color:red'>FAIL</span></b>&gt;<o:p></o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:30;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Completed<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'><o:p>&nbsp;</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <tr style=3D'mso-yfti-irow:31;page-break-inside:avoid'>
+  <td width=3D151 colspan=3D2 valign=3Dtop style=3D'width:4.0cm;border-top:=
+none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext .=
+75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtex=
+t 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><b
+  style=3D'mso-bidi-font-weight:normal'><span style=3D'font-size:10.0pt;fon=
+t-family:
+  Arial'>Signed Out<o:p></o:p></span></b></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+  <td width=3D480 colspan=3D3 valign=3Dtop style=3D'width:360.0pt;border-to=
+p:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windo=
+wtext .75pt;
+  mso-border-alt:solid windowtext .75pt;mso-border-right-alt:solid windowte=
+xt 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'><span style=3D'mso-bookmark:AuthorName'></sp=
+an>
+  <p class=3DTableText style=3D'margin-top:6.0pt;margin-right:0cm;margin-bo=
+ttom:
+  6.0pt;margin-left:0cm'><span style=3D'mso-bookmark:AuthorName'><span
+  style=3D'font-family:Arial'><o:p>&nbsp;</o:p></span></span></p>
+  </td>
+  <span style=3D'mso-bookmark:AuthorName'></span>
+ </tr>
+ <thead>
+  <tr style=3D'mso-yfti-irow:32;mso-yfti-lastrow:yes;page-break-inside:avoi=
+d;
+   height:3.0pt;mso-row-margin-left:.4pt'>
+   <td style=3D'mso-cell-special:placeholder;border:none;padding:0cm 0cm 0c=
+m 0cm'
+   width=3D1><p class=3D'MsoNormal'>&nbsp;</td>
+   <td width=3D631 colspan=3D4 valign=3Dtop style=3D'width:473.0pt;border:n=
+one;
+   border-bottom:solid windowtext 1.0pt;mso-border-top-alt:solid windowtext=
+ .75pt;
+   mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid wi=
+ndowtext .75pt;
+   background:#7F7F7F;mso-shading:windowtext;mso-pattern:gray-50 auto;
+   padding:0cm 5.4pt 0cm 5.4pt;height:3.0pt'><span style=3D'mso-bookmark:Au=
+thorName'></span>
+   <p class=3DTableText><span style=3D'mso-bookmark:AuthorName'><span
+   style=3D'font-size:4.0pt;mso-bidi-font-size:10.0pt;font-family:"Times Ne=
+w Roman"'><o:p>&nbsp;</o:p></span></span></p>
+   </td>
+   <span style=3D'mso-bookmark:AuthorName'></span>
+  </tr>
+ </thead>
+ <![if !supportMisalignedColumns]>
+ <tr height=3D0>
+  <td width=3D1 style=3D'border:none'></td>
+  <td width=3D151 style=3D'border:none'></td>
+  <td width=3D96 style=3D'border:none'></td>
+  <td width=3D120 style=3D'border:none'></td>
+  <td width=3D264 style=3D'border:none'></td>
+ </tr>
+ <![endif]>
+</table>
+
+<span style=3D'mso-bookmark:AuthorName'></span>
+
+<p class=3DMsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

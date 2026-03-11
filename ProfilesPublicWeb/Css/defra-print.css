@@ -1,0 +1,42 @@
+html {margin:0px; padding:0px}
+body {margin:0px; padding:0px; width:100%; font-size:12px;}
+
+* img a, * a {border:none;}
+
+.access,#topmenu, #mainmenu, #bread, #leftnav, #footera, #footerb{ display: none;}
+
+#rightnav{ display: none;}
+
+#content { margin:0 1em; padding:0;}
+
+#wrapperz #header img {position:relative; left:0em; height: 72px; display:block; border:0px}
+
+a:link { text-decoration: underline; color:#000}
+a:visited { text-decoration: underline; color:#000}
+a:hover { text-decoration: underline; color:#000}
+a:active { text-decoration: underline; color:#000}
+a:link{ text-decoration: underline;}
+a:visited{ text-decoration: underline;}
+
+#marg{ margin: 0;}
+#marg #content ul,#marg #content ul li,#marg #content ul li a{padding-left: inherit; margin-left: inherit; padding-right:0px; list-style: disc; background-image:none;}
+
+#stitle { color:#660; margin:0 1em 1em; text-align:left; position: relative; background-color: transparent; width:auto; border-bottom:1px solid #660;}
+#stitle h2 { margin:0px 15px; padding:0px; color:#660;text-align:left; font-size:25px;}
+
+div.screenlogo{ display: none;}
+
+#breadcrumb{ display: none;}
+
+
+td.spaceprint{ display: none; width: 0;}
+
+td.navprint{ display: none; width: 0;}
+
+td.mainprint{
+}
+
+.breadcrumbprint{ display: none;}
+
+h1, h2, h3, h4, h5{page-break-after:avoid; page-break-inside:avoid;page-break-before:auto;}
+p {page-break-inside:avoid; }

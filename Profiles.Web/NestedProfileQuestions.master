@@ -1,0 +1,23 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/ProfilesTemplate.master" AutoEventWireup="false" CodeBehind="NestedProfileQuestions.master.vb" Inherits="Profiles.Web.NestedProfileQuestions" %>
+
+<%@ Register Src="ProfileSectionLinks.ascx" TagName="SectionLinks" TagPrefix="sec" %>
+
+<asp:Content ID="mainContent" ContentPlaceHolderID="cphMain" runat="server">
+    <style>
+        .govuk-heading-xl {margin-left: 33%}
+    </style>
+    <div class="col-md-4 float-start">
+         <asp:ContentPlaceHolder ID="SectionLinksContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <sec:SectionLinks ID="ctlSectionLinks" runat="server" />
+    </div>
+    <div class="col-md-8 float-end">
+        <div>
+            <h2 class="govuk-heading-m" runat="server" id="headPageTitle">
+                <asp:Label ID="lblPageTitle" runat="server"></asp:Label></h2>
+        </div>
+
+        <asp:ContentPlaceHolder ID="NestedProfileContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>

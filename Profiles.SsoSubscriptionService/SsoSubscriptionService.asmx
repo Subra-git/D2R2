@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="VB" CodeBehind="SsoSubscriptionService.asmx.vb" Class="Profiles.SsoSubscriptionService.SsoSubscriptionService" %>

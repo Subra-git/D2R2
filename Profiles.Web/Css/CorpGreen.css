@@ -1,0 +1,94 @@
+BODY {
+	BACKGROUND-COLOR: #FFFFFF
+}
+
+#title {
+    COLOR: #000
+}
+#title A:link {
+	COLOR: #000
+}
+#title A:visited {
+	COLOR: #000
+}
+#title A:hover {
+	text-decoration: underline;
+}
+#topnav {
+	BACKGROUND-COLOR: #FFFFFF
+}
+#navigation A:link {
+    COLOR: black;
+}
+#navigation A:visited {
+    COLOR: black;
+}
+#navigation A:hover {
+	text-decoration: underline
+}
+#navigation UL UL {
+	BORDER-LEFT-COLOR: #666600
+}
+#rightnav A:hover {
+    text-decoration: underline
+}
+#rightnav H1 {
+    COLOR: #008938
+}
+#rightnav H2 {
+    COLOR: #008938
+}
+#rightnav H3 {
+    COLOR: #008938
+}
+#rightnav H4 {
+    COLOR: #008938
+}
+#rightnav H5 {
+    COLOR: #008938
+}
+#rightnav H6 {
+    COLOR: #008938
+}
+#footer {
+    BORDER-TOP-COLOR: #005ea5
+}
+
+/*
+#main A:hover {
+	COLOR: #999933
+}
+#main FIELDSET {
+	BORDER-LEFT-COLOR: #666600; BORDER-BOTTOM-COLOR: #666600; BORDER-TOP-COLOR: #666600; BORDER-RIGHT-COLOR: #666600
+}
+#main HR {
+	COLOR: #666600
+}
+#main TABLE TD {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#main TABLE TH {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#special TABLE TD {
+	BACKGROUND-COLOR: #ffffff
+}
+#special TABLE TH {
+	BACKGROUND-COLOR: #ffffff
+}
+*/
+#console #go {
+	BACKGROUND-COLOR: black;
+}
+#console #go {
+	COLOR: #ffffff
+}
+#console FORM {
+	BACKGROUND-COLOR: #f0f0e1
+}
+#console #searchbox {
+	BORDER-LEFT-COLOR: #cccc99; BORDER-BOTTOM-COLOR: #cccc99; BORDER-TOP-COLOR: #cccc99; BORDER-RIGHT-COLOR: #cccc99
+}
+#console #go {
+	BORDER-LEFT-COLOR: #cccc99; BORDER-BOTTOM-COLOR: #cccc99; BORDER-TOP-COLOR: #cccc99; BORDER-RIGHT-COLOR: #cccc99
+}

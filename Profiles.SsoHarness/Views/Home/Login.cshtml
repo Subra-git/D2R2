@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Profiles.SsoHarness.Models.LoginModel
+
+<div class="jumbotron">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SsoUserTokenId)
+            <br/>
+            @Html.ValidationMessageFor(m => m.SsoUserTokenId)
+            @Html.TextBoxFor(m => m.SsoUserTokenId, new { @class = "form-control" })
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Login" />
+    }
+</div>

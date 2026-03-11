@@ -1,0 +1,469 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#container {
+    position: relative;
+    min-height: 100%;
+}
+
+#header {
+    padding: 10px;
+    height: 95px;
+}
+
+#content {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+#footerdiv {
+    position: absolute;
+    bottom: 0px;
+    text-align: left;
+    width: 100%;
+    background-color: white;
+}
+
+#footercontent {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    BACKGROUND-COLOR: #cccc99;
+    FONT-SIZE: 80%;
+}
+
+#userdetails {
+    padding-right: 21px;
+    COLOR: #ffffff;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.gridview {
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    COLOR: #999933;
+}
+
+    .gridview A:link, .gridview A:visited {
+        COLOR: black;
+        text-decoration: none;
+    }
+
+    .gridview A:hover {
+        COLOR: black;
+        text-decoration: underline;
+        background-color: Transparent;
+    }
+
+.gridviewHeader {
+    BORDER-RIGHT: 0px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    PADDING-LEFT: 5px;
+    FONT-WEIGHT: normal;
+    PADDING-BOTTOM: 2px;
+    MARGIN: 0px;
+    BORDER-LEFT: 0px;
+    COLOR: #ffffff;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: 0px;
+    color: Black;
+}
+
+    .gridviewHeader th {
+        /*BACKGROUND-COLOR: #6699cc;*/
+        background-color: #F1EDE9;
+    }
+
+    .gridviewHeader A:link, .gridviewHeader A:visited {
+        COLOR: black;
+        text-decoration: none;
+    }
+
+    .gridviewHeader A:hover {
+        COLOR: black;
+        text-decoration: underline;
+    }
+
+.gridviewRow {
+    BACKGROUND-COLOR: white;
+}
+
+.gridviewAltRow {
+    BACKGROUND-COLOR: #fff7cb;
+    /*background-color:#F3F6F9;*/
+}
+
+.gridviewPage {
+    width: 100%;
+    text-align: right;
+    padding-top: 3px;
+}
+
+.HyperlinkStyle {
+    color: Blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.ContextMenuPanel {
+    border: 1px solid #868686;
+    z-index: 1000;
+    background: url('../images/menu-bg.gif') repeat-y 0 0 #FAFAFA;
+    cursor: default;
+    padding: 1px 1px 0px 1px;
+    font-size: 11px;
+}
+
+.ContextMenuBreak {
+    margin: 1px 1px 1px 32px;
+    padding: 0;
+    height: 1px;
+    overflow: hidden;
+    display: block;
+    border-top: 1px solid #C5C5C5;
+    width: 200px;
+}
+
+.ContextMenuHeader {
+    margin: 1px 0 1px 0;
+    display: block;
+    color: #003399;
+    text-decoration: none;
+    padding: 4px 19px 4px 4px;
+    font-weight: bold;
+    font-style: italic;
+    background-color: #FAFAFA;
+}
+
+a.ContextMenuItem {
+    margin: 1px 0 1px 0;
+    display: block;
+    color: #003399;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 19px 4px 33px;
+}
+
+a.ContextMenuItemWithImg {
+    margin: 1px 0 1px 0;
+    display: block;
+    color: #003399;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 4px 19px 4px 3px;
+}
+
+a.ContextMenuItem-Selected {
+    font-weight: bold;
+}
+
+a.ContextMenuItem:hover {
+    background-color: #FFE6A0;
+    color: #003399;
+    border: 1px solid #D2B47A;
+    padding: 3px 18px 3px 32px;
+    text-decoration: none;
+}
+
+.menulinkdesc {
+    font-size: 9px;
+    font-weight: normal;
+    color: Gray;
+    white-space: normal;
+    display: block;
+}
+
+#mainContent textarea {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 80%;
+}
+
+.collapsePanelHeader {
+    background-color: #666600;
+    color: white;
+    font-weight: bold;
+    border: solid #999933 1px;
+    border-bottom: none;
+    padding: 1px;
+    cursor: pointer;
+}
+
+.collapsePanel {
+    background-color: #f0f0e1;
+    border: dashed #999933 1px;
+    border-top: none;
+    overflow: hidden;
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
+.radiobuttons {
+    display: inline;
+    vertical-align: top;
+}
+
+.SpeciesData td {
+    vertical-align: bottom;
+}
+
+.SpeciesData input {
+    font-size: 80%;
+}
+
+.SpeciesTitle {
+    width: 100px;
+    cursor: pointer;
+}
+
+.SpeciesCopy {
+    font-style: italic;
+}
+
+.CommentsBox {
+    visibility: hidden;
+    border: solid black 1px;
+    padding: 10px;
+    background-color: White;
+    position: absolute;
+    top: 200px;
+    left: 370px;
+    width: 300px;
+}
+
+    .CommentsBox textarea {
+        width: 280px;
+    }
+
+.breadcrumblink {
+    display: inline;
+}
+
+.ErrorLabel {
+    font-size: 80%;
+    color: #ff0000;
+}
+
+.TabBody {
+    background-color: #FFFFFF;
+    border-color: #999999;
+    border-style: none solid solid;
+    border-width: 0px 1px 1px;
+    font-family: verdana,tahoma,helvetica;
+    font-size: 10pt;
+    padding: 8px;
+}
+
+.TabDefault .TabHeader {
+    white-space: nowrap;
+}
+
+.TabDefault .TabOuter {
+    display: inline-block;
+}
+
+.TabDefault .TabInner {
+    display: inline-block;
+}
+
+.TabDefault .Tab {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 4px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.TabXp .TabHeader {
+    background: transparent url(../Images/TabLine.gif) repeat-x scroll center bottom;
+    font-family: verdana,tahoma,helvetica;
+    font-size: 11px;
+}
+
+.TabXp .TabOuter {
+    background: transparent url(../Images/TabRight.gif) no-repeat scroll right center;
+    height: 21px;
+    padding-right: 4px;
+}
+
+.TabXp .TabInner {
+    background: transparent url(../Images/TabLeft.gif) no-repeat scroll 0 0;
+    padding-left: 3px;
+}
+
+.TabXp .Tab {
+    background: transparent url(../Images/Tab.gif) repeat-x scroll 0 0;
+    height: 13px;
+    margin: 0px;
+    padding: 4px;
+}
+
+.TabXp .ActiveTab .TabOuter {
+    background: transparent url(../Images/TabActiveRight.gif) no-repeat scroll right center;
+}
+
+.TabXp .ActiveTab .TabInner {
+    background: transparent url(../Images/TabActiveLeft.gif) no-repeat scroll 0 0;
+}
+
+.TabXp .ActiveTab .Tab {
+    background: transparent url(../Images/TabActive.gif) repeat-x scroll 0 0;
+}
+
+.ProfilesCalendar .ajax__calendar_container {
+    border: 1px solid #646464;
+    background-color: #ffffff;
+    color: #000000;
+    width: 200px;
+}
+
+.ProfilesCalendar .ajax__calendar_header {
+    width: 200px;
+}
+
+.ProfilesCalendar .ajax__calendar_body {
+    width: 200px;
+}
+
+.ProfilesCalendar .ajax__calendar_footer {
+    width: 200px;
+}
+
+.modalBackground {
+    background-color: Gray;
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+}
+
+.modalBackgroundClear {
+    background-color: Gray;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.searchlist {
+    padding: 0px 0px 0px 0px;
+    border-bottom: solid 1px #999933;
+    vertical-align: middle;
+}
+
+.searchlistItem {
+    padding: 0px 0px 0px 0px;
+    vertical-align: middle;
+}
+
+.searchlistProfile {
+    padding: 0px 0px 0px 0px;
+    border-bottom: solid 2px #666600;
+    margin-top: 15px;
+    vertical-align: middle;
+}
+
+.searchlistProfileItem {
+    font-weight: bold;
+    color: #666600;
+    padding: 0px 0px 0px 0px;
+    vertical-align: middle;
+}
+
+.searchlistScenario {
+    padding: 0px 0px 0px 0px;
+    border-bottom: solid 1px black;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+.searchlistScenarioItem {
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    vertical-align: middle;
+}
+
+.searchlistVersionItem {
+    color: #999933;
+    padding: 0px 0px 0px 0px;
+    vertical-align: middle;
+}
+
+.versionNumber {
+    color: #666600;
+    padding-right: 14px;
+    float: right;
+}
+
+    .versionNumber:hover {
+        color: #fff;
+    }
+
+.ui-dialog {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .2em;
+    outline: 0;
+    width: 500px;
+}
+
+    .ui-dialog .ui-dialog-titlebar {
+        padding: .4em 1em;
+        position: relative;
+        font-weight: 100;
+        background-color: #666600;
+        background-image: none;
+        color: white;
+        font-size:small;
+    }
+
+    .ui-dialog .ui-dialog-title {
+        float: left;
+        margin: .1em 0;
+        white-space: nowrap;
+        width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size:small;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close {
+        position: absolute;
+        right: .3em;
+        top: 50%;
+        width: 20px;
+        margin: -10px 0 0 0;
+        padding: 1px;
+        height: 20px;
+        display: none;
+    }
+
+    .ui-dialog .ui-dialog-content {
+        position: relative;
+        border: 0;
+        padding: .5em 1em;
+        background: none;
+        overflow: auto;
+        font-weight: 100;
+        font-size: small;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane {
+        text-align: left;
+        border-width: 1px 0 0 0;
+        background-image: none;
+        background-color: #cccc99;
+        padding: .0em 0em .0em .0em
+    }
+
+        .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+            float: right;
+        }
+
+        .ui-dialog .ui-dialog-buttonpane button {
+            margin: .5em .4em .5em 0;
+            cursor: pointer;
+            font-size: small;
+        }

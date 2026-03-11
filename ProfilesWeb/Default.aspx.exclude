@@ -1,0 +1,62 @@
+<%@ Page Language="VB" MasterPageFile="~/ProfilesTemplate.master" AutoEventWireup="false" CodeFile="Default.aspx.vb" Inherits="_Default" title="Published profiles" %>
+<%@ Register Src="NavigationLinks.ascx" TagName="NavigationLinks" TagPrefix="nav" %>
+
+<asp:Content ID="navContent" ContentPlaceHolderID="cphNavigation" Runat="Server">
+    <nav:NavigationLinks ID="ctlNavigationLinks" runat="server" />
+</asp:Content>
+
+<asp:Content ID="mainContent" ContentPlaceHolderID="cphMain" Runat="Server">
+    <div style="float:left">
+        <asp:Panel ID="pnlPublishedPageText" runat="server" Width="90%" Visible="false">
+        Below is a list of profiles that have been drafted, peer-reviewed and published on the Defra website. 
+        All published profiles have been drafted and independently checked by experts to ensure their accuracy. 
+        Profiles are regularly revised and re-published in order to keep the information as up-to-date as possible.
+        <br /><br />
+        New profiles are constantly being developed and will be added to this published list as soon as they have 
+        been completed and quality assured. If you identify any inaccuracies or have queries about any of the published 
+        profiles then please contact us using the following email address: 
+        <a href='mailto:szer.surveillanceprofiles@defra.gsi.gov.uk'>szer.surveillanceprofiles@defra.gsi.gov.uk</a>
+        </asp:Panel>
+        <asp:Panel ID="pnlDraftPageText" runat="server" Width="90%" Visible="false">
+        Below is a list of profiles that you have been specifically granted access to, for the purpose of drafting or 
+        reviewing content. There may be other profiles that are currently being drafted by other authors that may not 
+        appear here.
+        <br /><br />
+        You may draft content over a number of sessions and save progress at any time. When you have completed a section 
+        then press 'Validate' to check that all the data is complete.       
+        </asp:Panel>
+    </div>
+   
+    <div style="width:100%;float:left;margin-top:10px;">
+        <asp:UpdatePanel runat="server" ID="pnlUpdate">
+            <ContentTemplate>
+                <DIV style="WIDTH: 100%; TEXT-ALIGN: right">&nbsp;</DIV><pwc:GridView id="grdProfileVersionList" runat="server" DefaultSortExpression="Title" CssClass="gridview" GridLines="None" AllowSorting="True" Width="100%" DataSourceID="dsProfileVersionInfoList" AutoGenerateColumns="False" AllowPaging="True">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Title" SortExpression="Title">
+                            <ItemStyle Width="300px" />
+                            <ItemTemplate>                                 
+                                <asp:HyperLink ID="lnkEditProfileVersion" runat="server" Text='<%# Eval("Title") %>'></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="AffectedSpecies" HeaderText="Species" SortExpression="AffectedSpecies" />
+                        <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="VersionSortValue" >
+                                             <ItemStyle Width="0px" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="UserRole" HeaderText="Role" SortExpression="UserRole" />
+                        <asp:HyperLinkField Text="History"  />
+                        <asp:HyperLinkField Text="Draft history"  />
+                        <asp:HyperLinkField Text="Clone"  />
+                        <asp:HyperLinkField Text="New draft version"  />
+                        <asp:HyperLinkField Text="Manage"  />
+                    </Columns>
+                    <HeaderStyle CssClass="gridviewHeader" />
+                    <RowStyle CssClass="gridviewRow" />
+                    <AlternatingRowStyle CssClass="gridviewAltRow" />
+                    
+                </pwc:GridView> <br /><asp:Label id="lblGridEmpty" runat="server" Visible="False" Text="There are no profiles to display."></asp:Label> <csla:CslaDataSource id="dsProfileVersionInfoList" runat="server" TypeName="ProfilesLibrary.ProfileVersionInfoList" TypeAssemblyName="ProfilesLibrary">
+                </csla:CslaDataSource> <asp:Label id="lblDesc" runat="server" CssClass="ErrorLabel" EnableViewState="False"></asp:Label> <DIV></DIV>
+</ContentTemplate>
+        </asp:UpdatePanel>        
+    </div>       
+</asp:Content>
+

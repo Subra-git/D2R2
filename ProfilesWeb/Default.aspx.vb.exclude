@@ -1,0 +1,142 @@
+Imports ProfilesLibrary
+
+Partial Class _Default
+    Inherits System.Web.UI.Page
+
+    Protected Sub dsProfileVersionInfoList_SelectObject(ByVal sender As Object, ByVal e As Csla.Web.SelectObjectArgs) Handles dsProfileVersionInfoList.SelectObject
+
+        Dim profileVersionList As ProfileVersionInfoList
+
+        If Request.QueryString("Draft") = "True" Then
+            profileVersionList = GetCurrentDraftProfiles()
+        Else
+            profileVersionList = GetCurrentPublishedProfiles()
+
+        End If
+
+        If String.IsNullOrEmpty(e.SortExpression) Then
+            e.BusinessObject = profileVersionList
+        Else
+            Dim sortedProfileVersionList As New Csla.SortedBindingList(Of ProfileVersionInfo)(profileVersionList)
+            sortedProfileVersionList.ApplySort(e.SortProperty, e.SortDirection)
+
+            e.BusinessObject = sortedProfileVersionList
+
+        End If
+
+    End Sub
+
+
+    Private Function GetCurrentPublishedProfiles() As ProfileVersionInfoList
+
+        Dim publishedProfileList As Object = Cache("PublishedProfileList")
+        If publishedProfileList Is Nothing OrElse (Not TypeOf (publishedProfileList) Is ProfileVersionInfoList) Then
+            publishedProfileList = ProfileVersionInfoList.GetCurrentPublished()
+            Cache("PublishedProfileList") = publishedProfileList
+        End If
+
+        Return DirectCast(publishedProfileList, ProfileVersionInfoList)
+
+    End Function
+
+    Private Function GetCurrentDraftProfiles() As ProfileVersionInfoList
+
+        Dim draftProfileList As Object = Session("DraftProfileList")
+        If draftProfileList Is Nothing OrElse (Not TypeOf (draftProfileList) Is ProfileVersionInfoList) Then
+            draftProfileList = ProfileVersionInfoList.GetCurrentDraft()
+            Session("DraftProfileList") = draftProfileList
+        End If
+
+        Return DirectCast(draftProfileList, ProfileVersionInfoList)
+
+    End Function
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Not Page.IsPostBack Then
+
+            If Request.QueryString("Draft") = "True" Then
+                Page.Title = "Draft profiles"
+                Session("DraftProfileList") = ProfileVersionInfoList.GetCurrentDraft()
+                pnlDraftPageText.Visible = True
+                pnlPublishedPageText.Visible = False
+
+            Else
+                Page.Title = "Published profiles"
+                pnlPublishedPageText.Visible = True
+                pnlDraftPageText.Visible = False
+                'if looking at the Published Profile list, hide the "Role" column
+                grdProfileVersionList.Columns(3).Visible = False
+            End If
+
+        End If
+
+    End Sub
+
+    Protected Sub grdProfileVersionList_DataBound(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdProfileVersionList.DataBound
+
+        If grdProfileVersionList.Rows.Count = 0 Then
+            'grid is empty; display 'grid is empty' label
+            lblGridEmpty.Visible = True
+        End If
+
+    End Sub
+
+    Protected Sub grdProfileVersionList_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles grdProfileVersionList.RowDataBound
+
+        'set up the menu options for this row of the grid
+        If e.Row.RowType = DataControlRowType.DataRow Then
+
+            Dim lnkEditProfileVersion As HyperLink = DirectCast(e.Row.Cells(0).FindControl("lnkEditProfileVersion"), HyperLink)
+            Dim lnkHistory As HyperLink = DirectCast(e.Row.Cells(4).Controls(0), HyperLink)
+            Dim lnkDraftHistory As HyperLink = DirectCast(e.Row.Cells(5).Controls(0), HyperLink)
+            Dim lnkClone As HyperLink = DirectCast(e.Row.Cells(6).Controls(0), HyperLink)
+            Dim lnkNewVersion As HyperLink = DirectCast(e.Row.Cells(7).Controls(0), HyperLink)
+            Dim lnkManage As HyperLink = DirectCast(e.Row.Cells(8).Controls(0), HyperLink)
+
+            Dim profileVersionInfo As ProfileVersionInfo = DirectCast(e.Row.DataItem, ProfileVersionInfo)
+
+            lnkHistory.NavigateUrl = "ProfileHistory.aspx?Draft=" & Request.QueryString("Draft") & "&ProfileId=" & profileVersionInfo.ProfileId.ToString()
+            lnkHistory.Visible = True
+
+            'If published profile 
+            If Request.QueryString("Draft") <> "True" Then
+
+                lnkEditProfileVersion.NavigateUrl = "ProfileReports.aspx?ProfileVersionId=" & profileVersionInfo.Id.ToString()
+
+                If ProfileVersionInfoList.CanGetDraft(profileVersionInfo.ProfileId) AndAlso profileVersionInfo.IsLatestVersion Then
+                    lnkDraftHistory.NavigateUrl = "ProfileHistory.aspx?Draft=True&ProfileId=" & profileVersionInfo.ProfileId.ToString()
+                    lnkDraftHistory.Visible = True
+                Else
+                    lnkDraftHistory.Visible = False
+                End If
+
+                If ProfileVersion.CanCreateProfileVersion AndAlso profileVersionInfo.IsLatestVersion Then
+                    lnkNewVersion.Visible = True
+                    lnkNewVersion.NavigateUrl = "NewProfileVersion.aspx?ProfileVersionId=" & profileVersionInfo.Id.ToString()
+                Else
+                    lnkNewVersion.Visible = False
+                End If
+
+                lnkClone.NavigateUrl = "ProfileProperties.aspx?CloneProfileVersionId=" & profileVersionInfo.Id.ToString()
+                lnkClone.Visible = ProfileVersion.CanCreateProfileVersion
+
+                lnkManage.Visible = False
+
+            Else
+
+                lnkEditProfileVersion.NavigateUrl = "EditProfileQuestions.aspx?ProfileVersionId=" & profileVersionInfo.Id.ToString()
+                lnkDraftHistory.Visible = False
+                lnkClone.Visible = False
+                lnkNewVersion.Visible = False
+
+                lnkManage.Visible = ProfileVersion.CanCreateProfileVersion
+                lnkManage.NavigateUrl = "ManageProfileVersion.aspx?ProfileVersionId=" & profileVersionInfo.Id.ToString()
+
+            End If
+
+        End If
+
+    End Sub
+
+End Class

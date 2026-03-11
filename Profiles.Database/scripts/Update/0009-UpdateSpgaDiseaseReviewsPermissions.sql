@@ -1,0 +1,1 @@
+﻿GRANT EXECUTE ON [dbo].[spgaDiseaseReviews] TO [VLAProfilesUser]

@@ -1,0 +1,253 @@
+Imports ProfilesLibrary
+
+Partial Class EditProfile
+    Inherits System.Web.UI.Page
+
+    Private mEditProfileVersion As ProfileVersion
+    Private WithEvents mProfileMaster As ProfilesTemplate
+
+#Region "Section links"
+
+    Private Property CurrentProfileSectionId() As Guid
+        Get
+            If Not Session("CurrentProfileSectionId") Is Nothing Then
+                Return DirectCast(Session("CurrentProfileSectionId"), Guid)
+            Else
+                Return Guid.Empty
+            End If
+        End Get
+        Set(ByVal value As Guid)
+            Session("CurrentProfileSectionId") = value
+        End Set
+    End Property
+
+    Protected Sub ctlSectionLinks_Save(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ctlSectionLinks.Save
+
+        PersistSectionInfo(e)
+
+    End Sub
+
+    Private Sub PersistSectionInfo(Optional ByVal e As System.ComponentModel.CancelEventArgs = Nothing)
+
+        If Not mEditProfileVersion.IsCurrent OrElse Not mEditProfileVersion.CanEditDescription Then
+            Exit Sub
+        End If
+
+        'User must be allowed to edit description and profile must be current to execute following
+        mEditProfileVersion.Description = txtDescription.Text
+
+        Try
+            mEditProfileVersion.Save()
+            lblErrorDesc.Text = "Description save succeeded"
+        Catch ex As Csla.DataPortalException
+            lblErrorDesc.Text = "Description save failed: " + ex.BusinessException.Message
+            If e IsNot Nothing Then
+                e.Cancel = True
+            End If
+            Dim currentprofileVersionId As Guid = mEditProfileVersion.Id
+            mEditProfileVersion = ProfileVersion.GetProfileVersion(currentprofileVersionId)
+            Session("EditProfileVersion") = mEditProfileVersion
+
+            txtDescription.Text = mEditProfileVersion.Description
+            lblDescription.Text = mEditProfileVersion.Description
+        End Try
+
+    End Sub
+#End Region
+
+    Protected Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+
+        Dim master As ProfilesTemplate = DirectCast(Me.Master, ProfilesTemplate)
+        mProfileMaster = master
+
+        If Not Page.IsPostBack Then
+
+            If Not IsValidGuid(Request.QueryString("ProfileVersionId")) Then
+                Throw New InvalidOperationException("There was an invalid or missing profile version id passed to the page.")
+            End If
+
+            Dim profileVersionId As Guid = New Guid(Request.QueryString("ProfileVersionId"))
+            mEditProfileVersion = ProfileVersion.GetProfileVersion(profileVersionId)
+            Session("EditProfileVersion") = mEditProfileVersion
+
+            master.ProfileTitle = mEditProfileVersion.ToString()
+            InitializeDescriptionPanel(master)
+
+            DisplayTopRightButtons()
+
+        Else
+            mEditProfileVersion = Session("EditProfileVersion")
+        End If
+
+    End Sub
+
+    Private Sub DisplayTopRightButtons()
+
+        btnSave.Visible = mEditProfileVersion.CanEditDescription()
+        btnSave2.Visible = mEditProfileVersion.CanEditDescription()
+
+    End Sub
+
+    Private Sub InitializeDescriptionPanel(ByVal master As ProfilesTemplate)
+
+        master.PageTitle = "1 Description"
+
+        'Show the profile description either in an editable textbox or a read-only label
+        If Not mEditProfileVersion.IsCurrent OrElse Not mEditProfileVersion.CanEditDescription Then
+            lblDescription.Visible = True
+            lblDescription.Text = mEditProfileVersion.Description
+            lblDescription.Text = Replace(mEditProfileVersion.Description, ControlChars.NewLine, "<br/>")
+            txtDescription.Visible = False
+        Else
+            txtDescription.Visible = True
+            txtDescription.Text = mEditProfileVersion.Description
+            lblDescription.Visible = False
+        End If
+
+        pnlContributionDates.Visible = CommonUI.IncludeRelease2Functionality()
+
+        CurrentProfileVersionUserList = ProfileVersionUserList.GetProfileVersionUserList(mEditProfileVersion.Id)
+        grdContributionDates.DataBind()
+
+    End Sub
+
+    Protected Sub ctlSectionLinks_NavigateHome(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles ctlSectionLinks.NavigateHome
+
+        ' if navigating away from profile then save changes to profile object   
+        If mEditProfileVersion.IsCurrent AndAlso mEditProfileVersion.CanEditDescription Then
+            mEditProfileVersion.Description = txtDescription.Text
+            e.Cancel = mEditProfileVersion.IsDirty
+        End If
+
+    End Sub
+
+
+    Protected Sub mProfileMaster_NavigateHome(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles mProfileMaster.NavigateHome
+
+        ' if navigating away from profile then save changes to profile object   
+        If mEditProfileVersion.IsCurrent AndAlso mEditProfileVersion.CanEditDescription Then
+            mEditProfileVersion.Description = txtDescription.Text
+            e.Cancel = mEditProfileVersion.IsDirty
+        End If
+
+    End Sub
+
+    Protected Sub btnSave_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSave.Click, btnSave2.Click
+        PersistSectionInfo()
+    End Sub
+
+#Region "Contribution dates"
+
+    Private Property CurrentProfileVersionUserList() As ProfileVersionUserList
+        Get
+            Return DirectCast(Session("ProfileVersionUserList"), ProfileVersionUserList)
+        End Get
+
+        Set(ByVal value As ProfileVersionUserList)
+            Session("ProfileVersionUserList") = value
+        End Set
+    End Property
+
+    Private Property CurrentProfileVersionUser() As ProfileVersionUser
+        Get
+            Return DirectCast(Session("ProfileVersionUser"), ProfileVersionUser)
+        End Get
+        Set(ByVal value As ProfileVersionUser)
+            Session("ProfileVersionUser") = value
+        End Set
+    End Property
+
+    Protected Sub dsProfileVersionUserList_SelectObject(ByVal sender As Object, ByVal e As Csla.Web.SelectObjectArgs) Handles dsProfileVersionUserList.SelectObject
+
+        If String.IsNullOrEmpty(e.SortExpression) Then
+            e.BusinessObject = CurrentProfileVersionUserList
+        Else
+            Dim sortedProfileVersionUserList As New Csla.SortedBindingList(Of ProfileVersionUser)(CurrentProfileVersionUserList)
+            Dim sortExpressionParts As String() = e.SortExpression.Split(" ")
+            Dim sortProperty As String = sortExpressionParts(0).Trim
+            Dim direction As SortDirection = SortDirection.Ascending
+            If sortExpressionParts.Length > 1 Then
+                direction = IIf(sortExpressionParts(1).Trim = "ASC", SortDirection.Ascending, SortDirection.Descending)
+            End If
+            sortedProfileVersionUserList.ApplySort(sortProperty, direction)
+
+            e.BusinessObject = sortedProfileVersionUserList
+        End If
+
+    End Sub
+
+    <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")> _
+    Protected Sub grdContributionDates_RowCommand(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewCommandEventArgs) Handles grdContributionDates.RowCommand
+
+        If e.CommandName = "EditProfileVersionUser" Then
+            ' Switch to edit view
+            ' cancel any pending edit that the user might have "cancelled" using the back button
+            CurrentProfileVersionUserList.CancelEdit()
+            CurrentProfileVersionUserList.BeginEdit()
+            grdContributionDates.DataBind()
+            SwitchToProfileVersionUserEditView(CurrentProfileVersionUserList.GetById(New Guid(e.CommandArgument.ToString())))
+        End If
+
+    End Sub
+
+    Private Sub SwitchToProfileVersionUserEditView(ByVal user As ProfileVersionUser)
+
+        ' save the further information to be edited in a member variable, to be picked up by the
+        ' data binding event of the data control
+        CurrentProfileVersionUser = user
+        txtContributionDate.Text = user.ContributionDate
+        pnlContributionDate.Visible = True
+
+    End Sub
+
+    Protected Sub btnSaveContributionDate_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSaveContributionDate.Click
+
+        CurrentProfileVersionUser.ContributionDate = txtContributionDate.Text
+        CurrentProfileVersionUserList.ApplyEdit()
+        Try
+            CurrentProfileVersionUserList.Save()
+            lblContributionError.Text = "Contribution date save succeeded"
+        Catch ex As Csla.DataPortalException
+            lblContributionError.Text = "Contribution date save failed: " + ex.BusinessException.Message
+        End Try
+        CurrentProfileVersionUser = Nothing
+        pnlContributionDate.Visible = False
+
+        ' get the dataset data from the database and save it in session
+        CurrentProfileVersionUserList = ProfileVersionUserList.GetProfileVersionUserList(mEditProfileVersion.Id)
+        grdContributionDates.DataBind()
+
+    End Sub
+
+    Protected Sub btnCancelContributionDate_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancelContributionDate.Click
+
+        CurrentProfileVersionUserList.CancelEdit()
+        CurrentProfileVersionUser = Nothing
+        pnlContributionDate.Visible = False
+        grdContributionDates.DataBind()
+
+    End Sub
+
+    Protected Sub grdContributionDates_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles grdContributionDates.RowDataBound
+
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim user As ProfileVersionUser = DirectCast(e.Row.DataItem, ProfileVersionUser)
+            Dim canEditProfileVersionUser As Boolean = user.CanEditProfileVersionUser()
+            For Each cell As TableCell In e.Row.Cells
+                For Each cellControl As Control In cell.Controls
+                    Dim buttonField As LinkButton = TryCast(cellControl, LinkButton)
+                    If buttonField IsNot Nothing Then
+                        If buttonField.CommandName = "EditProfileVersionUser" Then
+                            buttonField.CommandArgument = user.Id.ToString()
+                            buttonField.Visible = canEditProfileVersionUser
+                        End If
+                    End If
+                Next
+            Next
+        End If
+
+    End Sub
+
+#End Region
+
+End Class

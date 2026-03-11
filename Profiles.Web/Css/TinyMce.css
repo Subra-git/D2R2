@@ -1,0 +1,25 @@
+﻿.HiddenInput
+{
+    display: none;
+}
+
+#divProfileTitle {
+    border: 0.1px solid #0b0c0c;
+    height: auto;
+    width: 90%;
+}
+
+.mceInlineEditor {
+    border: 0.1px solid #0b0c0c;
+    height: 20px;
+    width: 90%;
+}
+
+.tox .tox-toolbar__primary {
+    background: none !important;
+    border-bottom: 1px solid black;
+}
+
+.tox .tox-pop.tox-pop--top::before {
+    border-color: transparent transparent #000 transparent !important;
+}

@@ -1,0 +1,100 @@
+<%@ Page Language="VB" MasterPageFile="~/ProfilesTemplate.master" AutoEventWireup="false" CodeFile="EditProfile.aspx.vb" Inherits="EditProfile" title="View/edit profile" %>
+<%@ Register Src="SectionLinks.ascx" TagName="SectionLinks" TagPrefix="sec" %>
+
+<asp:Content ID="navContent" ContentPlaceHolderID="cphNavigation" Runat="Server">
+    <sec:SectionLinks ID="ctlSectionLinks" runat="server" />
+</asp:Content>
+
+<asp:Content ID="mainContent" ContentPlaceHolderID="cphMain" Runat="Server">
+        
+    <table style="width:100%">
+                <tr>
+                    <td>
+                    <div align="right">
+                        <asp:Button ID="btnSave" runat="server" Text="Save" />                      
+                    </div>     
+                    </td>
+                </tr>
+            </table>  &nbsp;
+    
+    <pwc:TabStrip ID="tabStrip" runat="server" >
+			<pwc:TabItem IsActive="true" Text="Description" />
+    </pwc:TabStrip>
+	<div class="TabBody">
+	    <p><asp:Label ID="lblErrorDesc" runat="server" cssClass="ErrorLabel" EnableViewState="false"></asp:Label></p>
+        <asp:TextBox runat="server" ID="txtDescription" TextMode="MultiLine" Rows="15" Width="95%"></asp:TextBox>
+        <asp:Label ID="lblDescription" runat="server" Width="95%" Visible="false" cssClass="TabBody" Font-Size="80%" BorderColor="#466a93" ></asp:Label>
+    <br />
+   <br /> 
+   <!-- contribution dates -->
+   <asp:UpdatePanel runat="server" ID="updContributionDates" UpdateMode="Conditional" ChildrenAsTriggers="true">
+            <ContentTemplate>
+                <asp:Panel ID="pnlContributionDates" runat="server" Visible="true">
+                    <div class="collapsePanelHeader">Contribution dates</div>  
+                    <div class="collapsePanel">
+                    <br />
+                    <asp:ValidationSummary id="valContributionSummary" DisplayMode="BulletList" runat="server" HeaderText="The following errors have occurred:" CssClass="ErrorLabel"/> 
+                    <p><asp:Label ID="lblContributionError" runat="server" cssClass="ErrorLabel" EnableViewState="false"></asp:Label></p>
+                        
+                        <pwc:GridView ID="grdContributionDates" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+            DataSourceID="dsProfileVersionUserList" Width="100%" AllowSorting="True" GridLines="None" CssClass="gridview"
+            PagerSettings-Mode="NextPreviousFirstLast" PageSize="8" DefaultSortExpression="ContributionDate" EmptyDataText="There are no contributors to this profile version">
+                            <Columns>
+                                <asp:BoundField DataField="UserName" HeaderText="User name" SortExpression="UserName" />
+                                <asp:BoundField DataField="UserFullName" HeaderText="Full name" SortExpression="UserFullName" />
+                               <asp:BoundField DataField="ContributionDate" HeaderText="Contribution date" SortExpression="ContributionDate" /> 
+                                <asp:ButtonField CommandName="EditProfileVersionUser" Text="Edit" ItemStyle-HorizontalAlign="NotSet" ItemStyle-VerticalAlign="NotSet" ItemStyle-Width="70" />
+                            </Columns>
+                            <HeaderStyle CssClass="gridviewHeader" />
+                            <RowStyle CssClass="gridviewRow" />
+                            <AlternatingRowStyle CssClass="gridviewAltRow" />
+                            <PagerSettings Position="TopAndBottom" LastPageImageUrl="~/Images/LastPage.gif"
+                                PreviousPageImageUrl="~/Images/PreviousPage.gif" NextPageImageUrl="~/Images/NextPage.gif" Mode="NextPreviousFirstLast" />
+                            <PagerStyle HorizontalAlign="Right" />
+                            <PagerTemplate>
+                                <div class="gridviewPage">
+                                    <asp:ImageButton runat="server" ID="lnkPagerFirst" ImageUrl="~/Images/FirstPage.gif" CommandArgument="First" CommandName="Page" />
+                                    <asp:ImageButton runat="server" ID="lnkPagerPrev" ImageUrl="~/Images/PreviousPage.gif" CommandArgument="Prev" CommandName="Page" />
+                                    <asp:Label runat="server" ID="CurrentPageLabel"></asp:Label>
+                                    <asp:ImageButton runat="server" ID="lnkPagerNext" ImageUrl="~/Images/NextPage.gif" CommandArgument="Next" CommandName="Page" />
+                                    <asp:ImageButton runat="server" ID="lnkPagerLast" ImageUrl="~/Images/LastPage.gif" CommandArgument="Last" CommandName="Page" />
+                                </div>
+                            </PagerTemplate>
+                        </pwc:GridView>
+                        <br />
+                        <asp:Panel ID="pnlContributionDate" runat="server" Visible="false">
+                            <div class="collapsePanelHeader">Edit contribution date</div>  
+                            <div class="collapsePanel">
+                               <asp:TextBox ID="txtContributionDate" runat="server" style="width:150px"></asp:TextBox>
+                               &nbsp;<asp:Image  ID="imgCalendar" ImageUrl="~/Images/Calendar.gif" runat="server" />
+                               <pwc:DateValidator id="valContributionDate" ControlToValidate="txtContributionDate" runat="server" ErrorMessage="The contribution date must be a valid date" ToolTip="Please enter a valid date">*</pwc:DateValidator>
+                               <br />
+                                <p style="text-align:right">
+                                    <asp:Button ID="btnSaveContributionDate" runat="server" Text="OK" />
+                                    <asp:Button ID="btnCancelContributionDate" runat="server" Text="Cancel" CausesValidation="False"/>
+                                </p>
+                            </div>
+                        </asp:Panel>
+                        <act:CalendarExtender runat="server" ID="cleContributionDate" CssClass="ProfilesCalendar" TargetControlID="txtContributionDate" Format="d MMMM yyyy" PopupButtonID="imgCalendar"></act:CalendarExtender>
+                               <pwc:DateValidator id="valContributionDate2" ControlToValidate="txtContributionDate" runat="server" ErrorMessage="" ToolTip=""></pwc:DateValidator>
+                                
+                        <csla:CslaDataSource ID="dsProfileVersionUserList" runat="server" TypeAssemblyName="ProfilesLibrary" TypeName="ProfilesLibrary.ProfileVersionUserList">
+                        </csla:CslaDataSource>
+                </div>
+                </asp:Panel>
+               
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        
+    </div>
+    <table style="width:100%">
+                <tr>
+                    <td>
+                    <div align="right">
+                        <asp:Button ID="btnSave2" runat="server" Text="Save" OnClick="btnSave_Click" />                      
+                    </div>     
+                    </td>
+                </tr>
+            </table>   
+</asp:Content>
+

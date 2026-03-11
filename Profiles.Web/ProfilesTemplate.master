@@ -1,0 +1,267 @@
+<%@ Master Language="VB" CodeBehind="ProfilesTemplate.master.vb" Inherits="Profiles.Web.ProfilesTemplate" AutoEventWireup="false" %>
+
+<%@ Register Src="Footer.ascx" TagName="Footer" TagPrefix="footer" %>
+<%@ Register Src="NavigationLinks.ascx" TagName="NavigationLinks" TagPrefix="nav" %>
+<%@ Register Src="ConfirmDialog.ascx" TagName="ConfirmDialog" TagPrefix="auc" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1" runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+
+    <title>Surveillance Profiles</title>
+
+    <script src="Javascript/jquery-1.10.2.js"></script>
+    <script src="Javascript/jquery-ui.min.js"></script>
+    <script src="Javascript/profiles-template.js"></script>
+    <script src="Javascript/asp-to-gds-styling.js"></script>
+    <script src="Javascript/modal.js"></script>
+
+    <link rel="stylesheet" href="Css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="Css/jquery-ui.css" />
+    <link rel="stylesheet" href="Css/TinyMce.css" />
+    <link rel="stylesheet" href="Css/govuk-frontend-5.0.0-stripped.css" />
+    <link rel="Stylesheet" type="text/css" href="Css/Layout.css" />
+    <link rel="Stylesheet" type="text/css" href="Css/CorpGreen.css" />
+    <link rel="Stylesheet" type="text/css" href="Css/Profiles.css" />
+    <link rel="Stylesheet" type="text/css" href="Css/Layout-V2.css" />
+
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/Main.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/RadSpell.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/RadSpellCommon.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/SpellDialog.css" />
+    <link rel="stylesheet" type="text/css" href="Css/fonts.css" media="all" />
+
+    <script type="text/javascript">
+        function noenter() {
+            return !(window.event && window.event.keyCode == 13);
+        }
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61089193-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+<body>
+
+    <div class="container-fluid m-0 p-0">
+        <div class="row m-0 p-0 g-0">
+            <form id="frmProfiles" runat="server">
+                <div class="profiles-header d-flex">
+                    <div class="header-navigation" style="display: none;">
+                        <div class="container">
+                            <nav:NavigationLinks ID="navLinks" runat="server" />
+                            <span class="header-line-limeGreen open"></span>
+                        </div>
+                    </div>               
+                    <div class="container">
+                        <div class="d-flex align-items-center">
+                            <div class="col">
+                                <div class="d-flex align-items-center">
+                                    <a href="Home.aspx" title="Link to home page"
+                                        class="check-draft-saved profile-header-home-link header-height white-underline-link d-flex align-items-center flex-column justify-content-center govuk-link govuk-link--no-visited-state govuk-link--no-underline force-white no-underline-hover">
+                                        D2R2
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <asp:Label id="lblVersionName" runat="server" style="font-weight: 700; font-size: 36px" />
+                            </div>                   
+
+                            <div class="float-end d-flex align-items-center">
+                                <div class="button-container d-flex align-items-center">
+                                    <div class="menu-button-parent white-underline-link header-height d-flex align-items-center">
+                                        <a href="#" id="menu-button" class="govuk-element-focus menu-button force-white" aria-expanded="false">
+                                            <i id="arrow-hook" alt="An arrow indicating whether the menu is expanded or collapsed" class="arrow down"></i>
+                                            Menu
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="header-divider"></div>
+                                <div class="d-flex align-items-center">
+                                    <div class="white-underline-link header-height d-flex align-items-center">
+                                        <a class="govuk-element-focus d-flex align-items-center flex-column justify-content-center" href="StaticReports.aspx?UserManual=1">
+                                            <img alt="Help using D2R2" title="Help using D2R2" src="Images/icon-questionMark.svg"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ajaxToolkit:ToolkitScriptManager ID="scrManager" runat="Server" EnablePartialRendering="true">
+                </ajaxToolkit:ToolkitScriptManager>
+
+                <div class="container">
+                    <span class="container header-line-limeGreen closed"></span>
+
+                    <div class="border-bottom border-dark mb-3">
+                        <div class="row header-height">
+                            <div class="w-100">
+                                <div class="left-header-logo float-start">
+                                    <a runat="server" id="defralogoN" class="profile-header-home-link header-height d-flex align-items-center flex-column justify-content-center govuk-link 
+                                        govuk-link--no-visited-state govuk-link--no-underline" href="https://defra.sharepoint.com/sites/APHAIntranet">
+                                        <img 
+                                            class="apha-logo" 
+                                            src="Images/apha-headerlogo.png" 
+                                            width="100%" 
+                                            height="auto" 
+                                            alt="This is the Animal & Plant Health Agency logo, this is hyperlinked to navigate you towards the APHA Intranet (https://defra.sharepoint.com/sites/APHAIntranet)"
+                                            title="This is the Animal & Plant Health Agency logo, this is hyperlinked to navigate you towards the APHA Intranet (https://defra.sharepoint.com/sites/APHAIntranet)"/>
+                                    </a>
+                                </div>    
+                            <div class="me-sm-0">
+                                <div class="float-end pt-1">
+                                    <div class="float-start">
+                                        <span>Signed in as: </span>
+                                        <strong><asp:Label ID="lblUsername" runat="server"></asp:Label></strong>
+                                    </div>
+                                    <div>
+                                        <div class="float-end govuk-body">
+                                            <asp:LinkButton runat="server" ID="lnkLogout" CssClass="govuk-link apha-font-size-19">Sign out</asp:LinkButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                
+                            </div>
+
+                            <asp:LinkButton runat="server" OnClick="keepSessionAlive" ID="ServerCallbtn" Style="display: none">Svc</asp:LinkButton>
+                        </div>
+                    </div>
+
+                    <div role="navigation" aria-label="Breadcrumb" aria-orientation="horizontal">
+                        <asp:SiteMapPath class="govuk-breadcrumbs" ID="breadcrumbs" PathSeparator=" > " RenderCurrentNodeAsLink="false" runat="server" SkipLinkText=""></asp:SiteMapPath>
+                    </div>
+
+                    <div class="master-page-title row">
+                        <div class="float-start">
+                            <h2 class="govuk-heading-xl mt-4">
+                                <asp:Label ID="lblPageTitle" runat="server"></asp:Label>
+                            </h2>
+                        </div>
+                    </div>
+                    <main>
+                        <asp:ContentPlaceHolder runat="server" ID="cphMain"></asp:ContentPlaceHolder>
+                    </main>
+                    
+                </div>
+
+                <auc:ConfirmDialog
+                    runat="server"
+                    ID="confirm"
+                    ContentText="Changes made to the profile will not be saved. Do you want to continue?"
+                    HeaderText="Confirm"
+                    ClientHook="apha.modal.confirm"
+                    OkText="Ok"></auc:ConfirmDialog>
+            </form>
+        </div>
+        <div class="row mt-5 m-0 p-0 g-0">
+            <footer:Footer ID="Footer" runat="server" />
+        </div>
+    </div>
+    <div class="dialog-confirm" id="dialog-confirm" title="Session Warning" style="z-index: 3000; display: none">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 10px 0;"></span></p>
+        <p>Your session is about to expire.</p>
+        <p>Any unsaved work will be lost.</p>
+        <p>Do you want to extend?</p>
+    </div>
+
+    <div class="dialog-sessionTimedOut" id="dialog-sessionTimedOut" title="Session Expired" style="z-index: 3000; display: none">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 10px 0;"></span></p>
+        <p>Session has expired. Please log in again</p>
+
+    </div>
+</body>
+
+<script type="text/javascript">
+    var defaultTimeOut = parseInt("<%=Session.Timeout%>");
+    var sessionTimeout = defaultTimeOut;
+    var logoutUser = false;
+    ManageSessionTimeout();
+
+
+    function ManageSessionTimeout() {
+        if (sessionTimeout == 0) {
+            closeWarningDialog();
+            showSessionTimedOut();
+        }
+        else if (sessionTimeout == 5) {
+            ShowTimeoutWarning();
+            sessionTimeout = sessionTimeout - 1;
+        }
+        else {
+            window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+            sessionTimeout = sessionTimeout - 1;
+        }
+
+    }
+
+    function ShowTimeoutWarning() {
+        logoutUser = true;
+        ShowPopUp();
+        window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+    }
+
+    function ShowPopUp() {
+        $(function () {
+            $("#dialog-confirm").dialog({
+                resizable: false,
+                modal: true,
+                title: 'Extend Session?',
+                draggable: false,
+                zIndex: 3000,
+                buttons: [
+                    {
+                        text: 'Yes',
+                        click: function () {
+                            sessionTimeout = defaultTimeOut;
+                            logoutUser = false;
+                            document.getElementById("<%=ServerCallbtn.ClientID%>").click()
+                            window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+                            $(this).dialog('close');
+                        }
+                    }
+                ]
+            });
+        });
+    }
+    function closeWarningDialog() {
+        if ($("#dialog-confirm").dialog('isOpen') === true) {
+            $("#dialog-confirm").dialog('close');
+        }
+    }
+
+    function showSessionTimedOut() {
+        $(function () {
+            $("#dialog-sessionTimedOut").dialog({
+                resizable: false,
+                modal: true,
+                title: 'Session Expired',
+                draggable: false,
+                zIndex: 3000,
+                buttons: [
+                    {
+                        text: 'Ok',
+                        click: function () {
+                            sessionTimeout = defaultTimeOut;
+                            logoutUser = false;
+                            $(this).dialog('close');
+                        }
+                    }
+
+                ]
+            });
+        });
+    }
+
+</script>
+    
+</html>

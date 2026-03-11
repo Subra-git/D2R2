@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{17FD4164-5F42-4520-8A0F-DD30F0DBF90B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ProfilesLibrary</RootNamespace>
+    <AssemblyName>ProfilesLibrary</AssemblyName>
+    <MyType>Windows</MyType>
+    <OptionStrict>On</OptionStrict>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 2-tier|AnyCPU'">
+    <OutputPath>bin\Local 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Local 3-tier|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Local 3-tier\</OutputPath>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningsAsErrors>41998,41999,42004,42016,42017,42018,42019,42020,42021,42022,42024,42025,42026,42029,42030,42031,42032,42036,42104,42105,42106,42107,42108,42109</WarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 3-tier|AnyCPU'">
+    <OutputPath>bin\UAT 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT 2-tier|AnyCPU'">
+    <OutputPath>bin\UAT 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 2-tier|AnyCPU'">
+    <OutputPath>bin\Live 2-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live 3-tier|AnyCPU'">
+    <OutputPath>bin\Live 3-tier\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UAT Azure|AnyCPU'">
+    <OutputPath>bin\UAT Azure\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live Azure|AnyCPU'">
+    <OutputPath>bin\Live Azure\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net35\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla, Version=3.0.5.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL" />
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net35\HtmlSanitizationLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnswerData\Field\FieldGroupFieldValue.vb" />
+    <Compile Include="AnswerData\Field\BooleanFieldValue.vb" />
+    <Compile Include="AnswerData\Field\DateFieldValue.vb" />
+    <Compile Include="AnswerData\Field\DecimalFieldValue.vb" />
+    <Compile Include="AnswerData\Field\FieldValueBase.vb" />
+    <Compile Include="AnswerData\Field\ListFieldValue.vb" />
+    <Compile Include="AnswerData\Field\LongTextFieldValue.vb" />
+    <Compile Include="AnswerData\Field\MultiValueListFieldValue.vb" />
+    <Compile Include="AnswerData\Field\ProfileVersionDataFieldValue.vb" />
+    <Compile Include="AnswerData\Field\TextFieldValue.vb" />
+    <Compile Include="AnswerData\Question\PerSpecies\PerSpeciesQuestion.vb" />
+    <Compile Include="AnswerData\Section\ProfileVersion\ProfiledSpecies.vb" />
+    <Compile Include="AnswerData\Section\ProfileVersion\ProfileVersionSection.vb" />
+    <Compile Include="AnswerData\Section\ProfileVersion\ProfileVersionSectionList.vb" />
+    <Compile Include="AnswerData\Question\QuestionBase.vb" />
+    <Compile Include="AnswerData\Question\Repeating\RepeatingQuestion.vb" />
+    <Compile Include="AnswerData\Section\SectionBase.vb" />
+    <Compile Include="AnswerData\Section\SectionListBase.vb" />
+    <Compile Include="AnswerData\Section\Species\SpeciesSection.vb" />
+    <Compile Include="AnswerData\Section\Species\SpeciesSectionList.vb" />
+    <Compile Include="AnswerData\Question\Standard\StandardQuestion.vb" />
+    <Compile Include="DiseaseRanking\DiseaseEditValues.vb" />
+    <Compile Include="DiseaseRanking\DiseaseFilterValues.vb" />
+    <Compile Include="DiseaseRanking\DiseaseRakingValues.vb" />
+    <Compile Include="DiseaseRanking\DiseaseReviewsInfoList.vb" />
+    <Compile Include="DiseaseReviews\DiseaseReviewsFilterInfo.vb" />
+    <Compile Include="DiseaseReviews\DiseaseReviewsFilterInfoList.vb" />
+    <Compile Include="DiseaseReviews\DiseaseReviewsInfo.vb" />
+    <Compile Include="DiseaseReviews\GetProfileDiseaseReviewsReportCommand.vb" />
+    <Compile Include="Metadata\EditorFieldType.vb" />
+    <Compile Include="Metadata\ProfileMetadata\GetProfileGuidanceReportCommand.vb" />
+    <Compile Include="Prioritisation\PrioritisationGuidanceData.vb" />
+    <Compile Include="Prioritisation\ScoreData\CommonAnswerData.vb" />
+    <Compile Include="Prioritisation\ScoreData\CommonAnswerDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\CommonQuestionData.vb" />
+    <Compile Include="Prioritisation\ScoreData\CommonQuestionDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationCategoryData.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationAnswerDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationAnswerData.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationCategoryDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationQuestionData.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationQuestionDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationScoreData.vb" />
+    <Compile Include="Prioritisation\ScoreData\PrioritisationScoreDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\ProfileData.vb" />
+    <Compile Include="Prioritisation\ScoreData\ProfileDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\ProfiledSpeciesData.vb" />
+    <Compile Include="Prioritisation\ScoreData\ProfiledSpeciesDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\ProfileVersionData.vb" />
+    <Compile Include="Prioritisation\ScoreData\ProfileVersionDataList.vb" />
+    <Compile Include="Prioritisation\ScoreData\ScoreData.vb" />
+    <Compile Include="ProfileReporting\GetProfileRankingReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetProfileRankingRFIReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetProfileVersionBespokeReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetSummaryProfileReportCommand.vb" />
+    <Compile Include="Prioritisation\RankData\RankProfileInfo.vb" />
+    <Compile Include="Prioritisation\RankData\RankProfileInfoList.vb" />
+    <Compile Include="ProfileSearching\ProfileInfoEffectiveDateComparer.vb" />
+    <Compile Include="ProfileSearching\ProfileVersionAffectedSpecies.vb" />
+    <Compile Include="Metadata\ProfileQuestionInfo.vb" />
+    <Compile Include="Metadata\ProfileQuestionInfoList.vb" />
+    <Compile Include="ProfileSearching\ProfileVersionNote.vb" />
+    <Compile Include="ProfileSearching\ProfileVersionAnswer.vb" />
+    <Compile Include="ProfileSearching\ProfileVersionSearchResult.vb" />
+    <Compile Include="ProfileSearching\SearchAppearsInTypeEnum.vb" />
+    <Compile Include="ProfileSearching\SortByTypeEnum.vb" />
+    <Compile Include="ProfileSearching\SearchForTypeEnum.vb" />
+    <Compile Include="ProfileSearching\WordProcessor.vb" />
+    <Compile Include="Profiles\ProfileInfoViewModel.vb" />
+    <Compile Include="Profiles\ProfileScenarioViewModel.vb" />
+    <Compile Include="Profiles\ProfileStatusCommand.vb" />
+    <Compile Include="Profiles\DeleteAllReviewCommentsCommand.vb" />
+    <Compile Include="Profiles\ProfileStatusTypeInfo.vb" />
+    <Compile Include="Profiles\ProfileStatusTypeInfoList.vb" />
+    <Compile Include="Profiles\QuestionReference.vb" />
+    <Compile Include="Profiles\QuestionReferenceList.vb" />
+    <Compile Include="Profiles\ReviewStatusType.vb" />
+    <Compile Include="Profiles\ReviewStatusTypeList.vb" />
+    <Compile Include="PdfDownloadHelper.vb" />
+    <Compile Include="StaticReporting\StaticReportWebHelper.vb" />
+    <Compile Include="StringExtensions.vb" />
+    <Compile Include="Species\SelectedDiseaseSpeciesInfo.vb" />
+    <Compile Include="Species\SelectedDiseaseSpeciesInfoList.vb" />
+    <Compile Include="StaticReporting\StaticReportData.vb" />
+    <Compile Include="Metadata\FieldMetadataBase.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\ProfileMetadata\ProfileFieldGroupMetadata.vb" />
+    <Compile Include="Metadata\MetadataWrapper\ProfileFieldGroupMetadataWrapper.vb" />
+    <Compile Include="Metadata\MetadataWrapper\FieldMetadataListWrapper.vb" />
+    <Compile Include="Metadata\MetadataWrapper\FieldMetadataWrapper.vb" />
+    <Compile Include="Metadata\MetadataWrapper\QuestionMetadataListWrapper.vb" />
+    <Compile Include="Metadata\MetadataWrapper\QuestionMetadataWrapper.vb" />
+    <Compile Include="Metadata\MetadataWrapper\SectionMetadataListWrapper.vb" />
+    <Compile Include="Metadata\MetadataWrapper\SectionMetadataWrapper.vb" />
+    <Compile Include="Metadata\ProfileMetadata\ProfileSectionMetadataList.vb" />
+    <Compile Include="Metadata\SectionMetadataListBase.vb" />
+    <Compile Include="Metadata\SpeciesMetadata\SpeciesSectionMetadataList.vb" />
+    <Compile Include="TinyMCEHelper.vb" />
+    <Compile Include="UserAuthentication\LogoutCommand.vb" />
+    <Compile Include="UserAuthentication\RoleInfo\ContributorRoleInfo.vb" />
+    <Compile Include="UserAuthentication\RoleInfo\ProfileRoleInfo.vb" />
+    <Compile Include="Profiles\SetProfileVersionPublicAccessCommand.vb" />
+    <Compile Include="StaticReporting\SetStaticReportPublicAccessCommand.vb" />
+    <Compile Include="UserMaintenance\DeleteSsoUserCommand.vb" />
+    <Compile Include="ErrorLogEntry.vb" />
+    <Compile Include="GlobalCommon.vb" />
+    <Compile Include="GlobalSettings.vb" />
+    <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="Prioritisation\PrioritisationMetadataBase.vb" />
+    <Compile Include="Prioritisation\PrioritisationCategoryBase.vb" />
+    <Compile Include="Prioritisation\PrioritisationCategoryListBase.vb" />
+    <Compile Include="Metadata\FieldMetadataListBase.vb" />
+    <Compile Include="Metadata\ProfileMetadata\ProfileFieldMetadata.vb" />
+    <Compile Include="Metadata\ProfileMetadata\ProfileFieldMetadataList.vb" />
+    <Compile Include="Metadata\ProfileMetadata\ProfileQuestionMetadata.vb" />
+    <Compile Include="Metadata\ProfileMetadata\ProfileQuestionMetadataList.vb" />
+    <Compile Include="Metadata\ProfileMetadata\ProfileSectionMetadata.vb" />
+    <Compile Include="Metadata\QuestionMetadataBase.vb" />
+    <Compile Include="Metadata\QuestionMetadataListBase.vb" />
+    <Compile Include="Metadata\SectionMetadataBase.vb" />
+    <Compile Include="Metadata\SpeciesMetadata\SpeciesFieldMetadata.vb" />
+    <Compile Include="Metadata\SpeciesMetadata\SpeciesFieldMetadataList.vb" />
+    <Compile Include="Metadata\SpeciesMetadata\SpeciesQuestionMetadata.vb" />
+    <Compile Include="Metadata\SpeciesMetadata\SpeciesQuestionMetadataList.vb" />
+    <Compile Include="Metadata\SpeciesMetadata\SpeciesSectionMetadata.vb" />
+    <Compile Include="Prioritisation\PrioritisationCategoryScore.vb" />
+    <Compile Include="Prioritisation\PrioritisationCategoryScoreList.vb" />
+    <Compile Include="Prioritisation\PrioritisationCriterionBase.vb" />
+    <Compile Include="Prioritisation\PrioritisationCriterionListBase.vb" />
+    <Compile Include="Prioritisation\PrioritisationCriterionScore.vb" />
+    <Compile Include="Prioritisation\PrioritisationCriterionScoreList.vb" />
+    <Compile Include="Prioritisation\PrioritisationCriterionValueBase.vb" />
+    <Compile Include="Prioritisation\PrioritisationCriterionValueListBase.vb" />
+    <Compile Include="Prioritisation\PrioritisedSpeciesList.vb" />
+    <Compile Include="Prioritisation\PrioritiseProfileCommand.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationCategory.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationCategoryList.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationCriterion.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationCriterionList.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationCriterionValue.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationCriterionValueList.vb" />
+    <Compile Include="Prioritisation\Profiles\ProfilePrioritisationMetadata.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationCategory.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationCategoryList.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationCriterion.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationCriterionList.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationCriterionValue.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationCriterionValueList.vb" />
+    <Compile Include="Prioritisation\Species\SpeciesPrioritisationMetadata.vb" />
+    <Compile Include="ProfileReporting\CreateProfileReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetContributionsReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetProfilePrintVersionCommand.vb" />
+    <Compile Include="ProfileReporting\GetProfileReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetProfileVersionComparisonReportCommand.vb" />
+    <Compile Include="ProfileReporting\GetSummaryPrioritisationReportCommand.vb" />
+    <Compile Include="ProfileReporting\ProfileVersionReportInfo.vb" />
+    <Compile Include="ProfileReporting\ProfileVersionReportInfoList.vb" />
+    <Compile Include="ProfileSearching\ProfileScenarioInfo.vb" />
+    <Compile Include="ProfileSearching\ProfileScenarioInfoList.vb" />
+    <Compile Include="ProfileSearching\ProfileVersionSummaryInfo.vb" />
+    <Compile Include="ProfileSearching\ProfileVersionSummaryInfoList.vb" />
+    <Compile Include="Metadata\ProfileQuestion.vb" />
+    <Compile Include="Profiles\AffectedSpecies.vb" />
+    <Compile Include="Profiles\AffectedSpeciesList.vb" />
+    <Compile Include="Profiles\NoteTypeInfo.vb" />
+    <Compile Include="Profiles\NoteTypeInfoList.vb" />
+    <Compile Include="Profiles\DeleteProfileVersionCommand.vb" />
+    <Compile Include="Profiles\NewProfileVersionCommand.vb" />
+    <Compile Include="Profiles\Profile.vb" />
+    <Compile Include="Profiles\ProfileContributionInfo.vb" />
+    <Compile Include="Profiles\ProfileContributionInfoList.vb" />
+    <Compile Include="AnswerData\InvalidReason.vb" />
+    <Compile Include="Profiles\LookupList.vb" />
+    <Compile Include="ProfileSearching\ProfileInfo.vb" />
+    <Compile Include="ProfileSearching\ProfileInfoList.vb" />
+    <Compile Include="Profiles\Note.vb" />
+    <Compile Include="Profiles\NoteList.vb" />
+    <Compile Include="AnswerData\Field\FieldValueList.vb" />
+    <Compile Include="Profiles\ProfileVersionInfo.vb" />
+    <Compile Include="Profiles\ProfileVersionInfoList.vb" />
+    <Compile Include="AnswerData\Question\QuestionList.vb" />
+    <Compile Include="AnswerData\Question\Repeating\QuestionRow.vb" />
+    <Compile Include="AnswerData\Question\Repeating\QuestionRowList.vb" />
+    <Compile Include="AnswerData\Question\PerSpecies\QuestionSpeciesList.vb" />
+    <Compile Include="Profiles\ReviewComment.vb" />
+    <Compile Include="Profiles\ReviewCommentList.vb" />
+    <Compile Include="ReferenceData\GetReferenceTableNameCommand.vb" />
+    <Compile Include="ReferenceData\ReferenceDataAuditTrailInfo.vb" />
+    <Compile Include="ReferenceData\ReferenceDataAuditTrailInfoList.vb" />
+    <Compile Include="ReferenceData\ReferenceTableInfoList.vb" />
+    <Compile Include="ReferenceData\ReferenceValueChange.vb" />
+    <Compile Include="ReferenceData\ReferenceValueInfo.vb" />
+    <Compile Include="ReferenceData\ReferenceValueInfoList.vb" />
+    <Compile Include="RegExPatterns.vb" />
+    <Compile Include="AnswerData\Question\PerSpecies\QuestionSpecies.vb" />
+    <Compile Include="Profiles\SectionReviewFrequencyList.vb" />
+    <Compile Include="Species\ChangeSpeciesPositionCommand.vb" />
+    <Compile Include="Species\SpeciesDataChange.vb" />
+    <Compile Include="Species\SpeciesDataAuditTrailInfo.vb" />
+    <Compile Include="Species\SpeciesDataAuditTrailInfoList.vb" />
+    <Compile Include="Species\SpeciesInfo.vb" />
+    <Compile Include="Species\SpeciesInfoList.vb" />
+    <Compile Include="Species\SpeciesValidParentList.vb" />
+    <Compile Include="SpellCheck\CustomWord.vb" />
+    <Compile Include="SpellCheck\CustomWordList.vb" />
+    <Compile Include="StaticReporting\StaticReport.vb" />
+    <Compile Include="StaticReporting\StaticReportList.vb" />
+    <Compile Include="StaticReporting\UploadStaticReportCommand.vb" />
+    <Compile Include="UserAuthentication\AuthenticationModule.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UserAuthentication\ProfilesIdentity.vb" />
+    <Compile Include="UserAuthentication\ProfilesPrincipal.vb" />
+    <Compile Include="UserMaintenance\ProfileContributorList.vb" />
+    <Compile Include="UserMaintenance\ProfileContributor.vb" />
+    <Compile Include="UserMaintenance\GlobalUser.vb" />
+    <Compile Include="UserMaintenance\GlobalUserList.vb" />
+    <Compile Include="UserMaintenance\ProfileUserRole.vb" />
+    <Compile Include="UserMaintenance\ProfileUserRoleList.vb" />
+    <Compile Include="UserMaintenance\SsoUserMaintenance.vb" />
+    <Compile Include="UserMaintenance\SsoProfileInfo.vb" />
+    <Compile Include="UserMaintenance\SsoProfileInfoList.vb" />
+    <Compile Include="UserMaintenance\SsoUser.vb" />
+    <Compile Include="UserMaintenance\SsoUserList.vb" />
+    <Compile Include="UserMaintenance\SsoUserProfile.vb" />
+    <Compile Include="UserMaintenance\SsoUserProfileList.vb" />
+    <Compile Include="UserMaintenance\UpdateSsoUserCommand.vb" />
+    <Compile Include="UserMaintenance\VerifyDatabaseUserCommand.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxExtensions\System.Web.Extensions.Design.dll" />
+    <Content Include="AjaxExtensions\System.Web.Extensions.dll" />
+    <Content Include="Csla\Csla.dll" />
+    <Content Include="Csla\Csla.XmlSerializers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Profiles.Contracts\Profiles.Contracts.vbproj">
+      <Project>{6319A445-4296-4D9F-ACDB-2EC882AA090F}</Project>
+      <Name>Profiles.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Profiles.Infrastructure\Profiles.Infrastructure.csproj">
+      <Project>{9ae09297-f86a-464a-8c8d-2a96a1a902bf}</Project>
+      <Name>Profiles.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

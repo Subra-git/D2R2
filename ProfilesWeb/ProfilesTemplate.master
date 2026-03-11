@@ -1,0 +1,235 @@
+<%@ Master Language="VB" CodeFile="ProfilesTemplate.master.vb" Inherits="ProfilesTemplate" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+    <title>Surveillance Profiles</title>
+    <link rel="Stylesheet" type="text/css" href="Css/Layout.css" />
+    <link rel="Stylesheet" type="text/css" href="Css/CorpGreen.css" />
+    <link rel="Stylesheet" type="text/css" href="Css/Profiles.css" />
+    <link rel="stylesheet" type="text/css" href="Css/IntraHP.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/Main.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/RadSpell.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/RadSpellCommon.css" />
+    <link rel="stylesheet" type="text/css" href="RadControls/Spell/Skins/Custom/SpellDialog.css" />
+
+
+    <script type="text/javascript">
+        function noenter() {
+            return !(window.event && window.event.keyCode == 13);
+        }
+
+    </script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61089193-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+    <form id="frmProfiles" runat="server">
+        <asp:ScriptManager ID="scrManager" runat="Server" EnablePartialRendering="true">
+        </asp:ScriptManager>
+        <div style="position: absolute; top: 44px; background-color: Transparent; z-index: 1000; width: 100%; text-align: right; left: 0px;">
+        </div>
+        <a name="top"></a>
+        <div id="container">
+            <div id="footerdiv">
+                <div id="footercontent">
+                    <table id="footer" width="100%" cellspacing="0" cellpadding="4">
+                        <tr>
+                            <td>
+                                <span class="hidden">|</span>
+                                <a href="#top">
+                                    <img style="width: 11; height: 16; vertical-align: middle;" src="Images/GoToTop.gif" alt="Go to top of page" />
+                                </a>
+                                <a href="#top">Top</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="content">
+                <table id="layout" width="100%" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td id="banner">
+                                <img id="logo" width="90" height="49" style="margin-right: 10px" src="Images/DefraOnline.gif" alt="Defra online" />
+                                <img id="D2R2Logo" height="50" src="Images/D2R2LogoSmall.jpg" alt="D2R2" />
+                                <div id="console" align="right">
+                                    <b>Logged in as: </b>
+                                    <asp:Label ID="lblUsername" runat="server"></asp:Label><br />
+                                    <asp:Label ID="lblUserRole" runat="server"></asp:Label>
+                                    <asp:LinkButton runat="server" ID="lnkLogout">Logout</asp:LinkButton>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="title" class="content">
+                                <asp:LinkButton runat="Server" ID="lnkHome" CommandName="GoSection" CommandArgument='Home' CausesValidation="False">D2R2 - Surveillance profiles</asp:LinkButton>
+                                <span class="versionNumber">Version 1.3.0</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="topnav">
+                                <table width="100%" cellspacing="0" cellpadding="0">
+
+                                    <tbody>
+                                        <tr valign="top">
+                                            <td id="breadcrumb" style="width: 100%; height: 13px;" valign="bottom">
+                                                <a name="breadcrumb" />
+                                                <asp:Label ID="lblProfileTitle" runat="server"></asp:Label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr style="vertical-align: top;">
+                            <td>
+                                <table id="innerlayout" width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td id="navigation" style="width: 25%">
+                                            <a name="site_navigation" />
+                                            <asp:ContentPlaceHolder runat="server" ID="cphNavigation"></asp:ContentPlaceHolder>
+                                        </td>
+                                        <td id="mainContent" style="width: 74%">
+                                            <div style="width: 100%">
+                                                <div style="float: left; text-align: left">
+                                                    <h1>
+                                                        <asp:Label ID="lblPageTitle" runat="server"></asp:Label></h1>
+                                                </div>
+                                            </div>
+                                            <div style="clear: both" />
+                                            <asp:ContentPlaceHolder runat="server" ID="cphMain"></asp:ContentPlaceHolder>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+            </div>
+        </div>
+    </form>
+
+    <div class="dialog-confirm" id="dialog-confirm" title="Session Warning" style="display: none">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 10px 0;"></span></p>
+        <p>Your session is about to expire.</p>
+        <p>Any unsaved work will be lost.</p>
+        <p>Do you want to extend?</p>
+    </div>
+
+     <div class="dialog-sessionTimedOut" id="dialog-sessionTimedOut" title="Session Expired" style="display: none">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 10px 0;"></span></p>
+        <p>Session has expired. Please log in again</p>
+        
+    </div>
+
+
+
+    <script type="text/javascript">
+        var defaultTimeOut = parseInt("<%=Session.Timeout%>");
+        var sessionTimeout = defaultTimeOut;
+        var logoutUser = false;        
+        ManageSessionTimeout();
+        
+
+        function ManageSessionTimeout() {
+            if (sessionTimeout == 0) {
+                closeWarningDialog();
+                showSessionTimedOut();
+            }
+            else if (sessionTimeout == 5) {
+                ShowTimeoutWarning();
+                sessionTimeout = sessionTimeout - 1;
+            }
+            else {                
+                window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+                sessionTimeout = sessionTimeout - 1;
+            }
+            
+        }
+
+        function ShowTimeoutWarning() {
+            logoutUser = true;            
+            ShowPopUp();
+            window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+        }
+
+        function ShowPopUp() {
+            $(function () {
+                $("#dialog-confirm").dialog({
+                    resizable: false,
+                    modal: true,
+                    title: 'Extend Session?',
+                    draggable: false,
+                    buttons: [
+                        {
+                            text: 'Ok',
+                            click: function () {
+                                sessionTimeout = defaultTimeOut;
+                                logoutUser = false;
+                                window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+                                $(this).dialog('close');
+                            }
+                        },
+                        {
+                            text: 'No',
+                            click: function () {                                
+                                window.setTimeout(function () { ManageSessionTimeout() }, 60000);
+                                $(this).dialog('close');
+                            }
+                        }
+
+                    ]
+                });
+            });
+        }
+        function closeWarningDialog() {
+            if ($("#dialog-confirm").dialog('isOpen') === true) {
+                $("#dialog-confirm").dialog('close');
+            }
+        }
+
+        function showSessionTimedOut() {
+            $(function () {          
+                $("#dialog-sessionTimedOut").dialog({
+                    resizable: false,
+                    modal: true,
+                    title: 'Session Expired',
+                    draggable: false,
+                    buttons: [
+                        {
+                            text: 'Ok',
+                            click: function () {
+                                sessionTimeout = defaultTimeOut;
+                                logoutUser = false;
+                                $(this).dialog('close');
+                            }
+                        }
+
+                    ]
+                });
+            });
+        }
+
+    </script>
+</body>
+</html>

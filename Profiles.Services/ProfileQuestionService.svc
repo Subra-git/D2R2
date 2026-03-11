@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="Profiles.Services.ProfileQuestionService" CodeBehind="ProfileQuestionService.svc.vb" %>

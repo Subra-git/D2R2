@@ -1,0 +1,113 @@
+Imports ProfilesLibrary
+
+Partial Class ProfileHistory
+    Inherits System.Web.UI.Page
+
+    Protected Sub dsProfileVersionInfoList_SelectObject(ByVal sender As Object, ByVal e As Csla.Web.SelectObjectArgs) Handles dsProfileVersionInfoList.SelectObject
+
+        Dim profileVersionList As ProfileVersionInfoList
+
+        If Request.QueryString("Draft") = "True" Then
+            profileVersionList = GetDraftHistory()
+        Else
+            profileVersionList = GetPublishedHistory()
+        End If
+
+        If profileVersionList Is Nothing Then
+            e.BusinessObject = Nothing
+        ElseIf String.IsNullOrEmpty(e.SortExpression) Then
+            e.BusinessObject = profileVersionList
+        Else
+            Dim sortedProfileVersionList As New Csla.SortedBindingList(Of ProfileVersionInfo)(profileVersionList)
+            sortedProfileVersionList.ApplySort(e.SortProperty, e.SortDirection)
+            e.BusinessObject = sortedProfileVersionList
+        End If
+
+    End Sub
+
+    Private Function GetPublishedHistory() As ProfileVersionInfoList
+
+        If Request.QueryString("ProfileId") Is Nothing Then
+            Return Nothing
+        End If
+
+        If Not IsValidGuid(Request.QueryString("ProfileId")) Then
+            Return Nothing
+        End If
+
+
+            Dim publishedProfileList As Object = Cache("PublishedHistory|" & Request.QueryString("ProfileId"))
+            If publishedProfileList Is Nothing OrElse (Not TypeOf (publishedProfileList) Is ProfileVersionInfoList) Then
+                publishedProfileList = ProfileVersionInfoList.GetPublishedHistory(New Guid(Request.QueryString("ProfileId")))
+                Cache("PublishedHistory|" & Request.QueryString("ProfileId")) = publishedProfileList
+            End If
+
+
+            Return CType(publishedProfileList, ProfileVersionInfoList)
+
+    End Function
+
+    Private Function GetDraftHistory() As ProfileVersionInfoList
+
+        If Request.QueryString("ProfileId") Is Nothing Then
+            Return Nothing
+        End If
+
+        If Not IsValidGuid(Request.QueryString("ProfileId")) Then
+            Return Nothing
+        End If
+
+        Dim draftProfileList As Object = Session("DraftHistory|" & Request.QueryString("ProfileId"))
+        If draftProfileList Is Nothing OrElse (Not TypeOf (draftProfileList) Is ProfileVersionInfoList) Then
+            draftProfileList = ProfileVersionInfoList.GetDraftHistory(New Guid(Request.QueryString("ProfileId")))
+            Session("DraftHistory|" & Request.QueryString("ProfileId")) = draftProfileList
+        End If
+
+        Return CType(draftProfileList, ProfileVersionInfoList)
+
+    End Function
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Dim profileHistoryList As ProfileVersionInfoList
+
+        If Request.QueryString("Draft") = "True" Then
+            profileHistoryList = GetDraftHistory()
+            If profileHistoryList Is Nothing OrElse profileHistoryList.Count = 0 Then
+                Throw New InvalidOperationException("There was an invalid or missing Profile Id passed to the page.")
+            Else
+                Page.Title = "Draft profile history for " & profileHistoryList(0).Title
+            End If
+        Else
+            profileHistoryList = GetPublishedHistory()
+            If profileHistoryList Is Nothing OrElse profileHistoryList.Count = 0 Then
+                Throw New InvalidOperationException("There was an invalid or missing Profile Id passed to the page.")
+            Else
+                Page.Title = "Published profile history for " & profileHistoryList(0).Title
+            End If
+        End If
+
+    End Sub
+
+    Protected Sub grdProfileVersionList_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles grdProfileVersionList.RowDataBound
+
+        If e.Row.RowType = DataControlRowType.DataRow Then
+
+            Dim lnkEditProfileVersion As HyperLink = DirectCast(e.Row.Cells(0).FindControl("lnkEditProfileVersion"), HyperLink)
+            Dim profileVersionInfo As ProfileVersionInfo = DirectCast(e.Row.DataItem, ProfileVersionInfo)
+
+            If Request.QueryString("Draft") <> "True" Then
+
+                lnkEditProfileVersion.NavigateUrl = "ProfileReports.aspx?ProfileVersionId=" & profileVersionInfo.Id.ToString()
+
+            Else
+                lnkEditProfileVersion.NavigateUrl = "EditProfileQuestions.aspx?ProfileVersionId=" & profileVersionInfo.Id.ToString()
+            End If
+
+            Dim lnkClone As HyperLink = DirectCast(e.Row.Cells(4).Controls(0), HyperLink)
+            lnkClone.Visible = ProfileVersion.CanCreateProfileVersion
+            lnkClone.NavigateUrl = "ProfileProperties.aspx?CloneProfileVersionId=" & profileVersionInfo.Id.ToString()
+        End If
+
+    End Sub
+End Class

@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserResult" type="tns:VlaUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VlaUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="TokenId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PasscodeIndex1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PasscodeIndex2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAllocatedOnePointFiveSystems" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLoginFixed" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Systems" type="tns:ArrayOfVlaSystem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVlaSystem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VlaSystem" type="tns:VlaSystem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VlaSystem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Roles" type="tns:ArrayOfVlaRole" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiresOnePointFive" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfVlaRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VlaRole" type="tns:VlaRole" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VlaRole">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindUsersByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUsersByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindUsersByEmailResult" type="tns:ArrayOfVlaPartialUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfVlaPartialUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VlaPartialUser" type="tns:VlaPartialUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VlaPartialUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLockedOut" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindUserByLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUserByLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FindUserByLoginResult" type="tns:VlaPartialUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUserByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUserByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FindUserByUserIdResult" type="tns:VlaPartialUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolesByLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolesByLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolesByLoginResult" type="tns:ArrayOfVlaRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolesBySystem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRolesBySystemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRolesBySystemResult" type="tns:ArrayOfVlaRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckRoleExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="roleName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckRoleExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckRoleExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnePointFiveUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tokenId" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="passcodeChar1" type="s1:char" />
+            <s:element minOccurs="1" maxOccurs="1" name="passcodeChar2" type="s1:char" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnePointFiveUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOnePointFiveUserResult" type="tns:VlaUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByTokenId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tokenId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByTokenIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserByTokenIdResult" type="tns:VlaUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="user" type="tns:VlaUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthoriseUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tokenId" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="roleId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthoriseUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AuthoriseUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tokenId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogOutResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserOnePointFiveAuthenticated">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tokenId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserOnePointFiveAuthenticatedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUserOnePointFiveAuthenticatedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResetPasswordResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasscode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPasscode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPasscode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasscodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangePasscodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasscode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasscodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResetPasscodeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxLoginAttempts">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMaxLoginAttemptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMaxLoginAttemptsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestDatabaseAccess">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestDatabaseAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TestDatabaseAccessResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessage">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUsersByEmail" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUsersByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUserByLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUserByLogin" />
+  </wsdl:message>
+  <wsdl:message name="FindUserByLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUserByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUserByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUserByUserId" />
+  </wsdl:message>
+  <wsdl:message name="FindUserByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUserByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesByLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRolesByLogin" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesByLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolesByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesBySystemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRolesBySystem" />
+  </wsdl:message>
+  <wsdl:message name="GetRolesBySystemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRolesBySystemResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckRoleExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckRoleExists" />
+  </wsdl:message>
+  <wsdl:message name="CheckRoleExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckRoleExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnePointFiveUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnePointFiveUser" />
+  </wsdl:message>
+  <wsdl:message name="GetOnePointFiveUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnePointFiveUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByTokenIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByTokenId" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByTokenIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByTokenIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthoriseUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthoriseUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthoriseUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthoriseUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogOutSoapIn">
+    <wsdl:part name="parameters" element="tns:LogOut" />
+  </wsdl:message>
+  <wsdl:message name="LogOutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUserOnePointFiveAuthenticatedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUserOnePointFiveAuthenticated" />
+  </wsdl:message>
+  <wsdl:message name="IsUserOnePointFiveAuthenticatedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUserOnePointFiveAuthenticatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasscodeSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePasscode" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasscodeSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasscodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasscodeSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetPasscode" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasscodeSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetPasscodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxLoginAttemptsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaxLoginAttempts" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxLoginAttemptsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaxLoginAttemptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestDatabaseAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:TestDatabaseAccess" />
+  </wsdl:message>
+  <wsdl:message name="TestDatabaseAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:TestDatabaseAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <wsdl:input message="tns:FindUsersByEmailSoapIn" />
+      <wsdl:output message="tns:FindUsersByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByLogin">
+      <wsdl:input message="tns:FindUserByLoginSoapIn" />
+      <wsdl:output message="tns:FindUserByLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByUserId">
+      <wsdl:input message="tns:FindUserByUserIdSoapIn" />
+      <wsdl:output message="tns:FindUserByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByLogin">
+      <wsdl:input message="tns:GetRolesByLoginSoapIn" />
+      <wsdl:output message="tns:GetRolesByLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesBySystem">
+      <wsdl:input message="tns:GetRolesBySystemSoapIn" />
+      <wsdl:output message="tns:GetRolesBySystemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRoleExists">
+      <wsdl:input message="tns:CheckRoleExistsSoapIn" />
+      <wsdl:output message="tns:CheckRoleExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePointFiveUser">
+      <wsdl:input message="tns:GetOnePointFiveUserSoapIn" />
+      <wsdl:output message="tns:GetOnePointFiveUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByTokenId">
+      <wsdl:input message="tns:GetUserByTokenIdSoapIn" />
+      <wsdl:output message="tns:GetUserByTokenIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input message="tns:UpdateUserSoapIn" />
+      <wsdl:output message="tns:UpdateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthoriseUser">
+      <wsdl:input message="tns:AuthoriseUserSoapIn" />
+      <wsdl:output message="tns:AuthoriseUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input message="tns:LogOutSoapIn" />
+      <wsdl:output message="tns:LogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserOnePointFiveAuthenticated">
+      <wsdl:input message="tns:IsUserOnePointFiveAuthenticatedSoapIn" />
+      <wsdl:output message="tns:IsUserOnePointFiveAuthenticatedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input message="tns:ResetPasswordSoapIn" />
+      <wsdl:output message="tns:ResetPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasscode">
+      <wsdl:input message="tns:ChangePasscodeSoapIn" />
+      <wsdl:output message="tns:ChangePasscodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasscode">
+      <wsdl:input message="tns:ResetPasscodeSoapIn" />
+      <wsdl:output message="tns:ResetPasscodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxLoginAttempts">
+      <wsdl:input message="tns:GetMaxLoginAttemptsSoapIn" />
+      <wsdl:output message="tns:GetMaxLoginAttemptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestDatabaseAccess">
+      <wsdl:input message="tns:TestDatabaseAccessSoapIn" />
+      <wsdl:output message="tns:TestDatabaseAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageSoapIn" />
+      <wsdl:output message="tns:GetMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <soap:operation soapAction="http://tempuri.org/FindUsersByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByLogin">
+      <soap:operation soapAction="http://tempuri.org/FindUserByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByUserId">
+      <soap:operation soapAction="http://tempuri.org/FindUserByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByLogin">
+      <soap:operation soapAction="http://tempuri.org/GetRolesByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesBySystem">
+      <soap:operation soapAction="http://tempuri.org/GetRolesBySystem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRoleExists">
+      <soap:operation soapAction="http://tempuri.org/CheckRoleExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePointFiveUser">
+      <soap:operation soapAction="http://tempuri.org/GetOnePointFiveUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByTokenId">
+      <soap:operation soapAction="http://tempuri.org/GetUserByTokenId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthoriseUser">
+      <soap:operation soapAction="http://tempuri.org/AuthoriseUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap:operation soapAction="http://tempuri.org/LogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserOnePointFiveAuthenticated">
+      <soap:operation soapAction="http://tempuri.org/IsUserOnePointFiveAuthenticated" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://tempuri.org/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasscode">
+      <soap:operation soapAction="http://tempuri.org/ChangePasscode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasscode">
+      <soap:operation soapAction="http://tempuri.org/ResetPasscode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxLoginAttempts">
+      <soap:operation soapAction="http://tempuri.org/GetMaxLoginAttempts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestDatabaseAccess">
+      <soap:operation soapAction="http://tempuri.org/TestDatabaseAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://tempuri.org/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByEmail">
+      <soap12:operation soapAction="http://tempuri.org/FindUsersByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByLogin">
+      <soap12:operation soapAction="http://tempuri.org/FindUserByLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUserByUserId">
+      <soap12:operation soapAction="http://tempuri.org/FindUserByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByLogin">
+      <soap12:operation soapAction="http://tempuri.org/GetRolesByLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesBySystem">
+      <soap12:operation soapAction="http://tempuri.org/GetRolesBySystem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRoleExists">
+      <soap12:operation soapAction="http://tempuri.org/CheckRoleExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePointFiveUser">
+      <soap12:operation soapAction="http://tempuri.org/GetOnePointFiveUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByTokenId">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByTokenId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthoriseUser">
+      <soap12:operation soapAction="http://tempuri.org/AuthoriseUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap12:operation soapAction="http://tempuri.org/LogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserOnePointFiveAuthenticated">
+      <soap12:operation soapAction="http://tempuri.org/IsUserOnePointFiveAuthenticated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap12:operation soapAction="http://tempuri.org/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasscode">
+      <soap12:operation soapAction="http://tempuri.org/ChangePasscode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasscode">
+      <soap12:operation soapAction="http://tempuri.org/ResetPasscode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxLoginAttempts">
+      <soap12:operation soapAction="http://tempuri.org/GetMaxLoginAttempts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestDatabaseAccess">
+      <soap12:operation soapAction="http://tempuri.org/TestDatabaseAccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://tempuri.org/GetMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost/UserManagement/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost/UserManagement/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

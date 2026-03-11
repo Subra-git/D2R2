@@ -1,0 +1,13 @@
+﻿<%@ Page Title="View profile data" Language="VB" MasterPageFile="~/ProfilesPublicTemplate.master"
+    AutoEventWireup="false" CodeFile="ViewProfileData.aspx.vb" Inherits="ViewProfileData" %>
+
+<%@ OutputCache CacheProfile="CacheInfrequentChanges" %>
+
+<asp:Content ID="navContent" ContentPlaceHolderID="cphNavigation" runat="Server">
+    <nav:SectionLinks ID="sectionLinks" runat="server" />
+</asp:Content>
+
+<asp:Content ID="mainContent" ContentPlaceHolderID="cphMain" runat="Server">
+    <h4><asp:Label ID="lblSectionName" runat="server" /></h4>
+    <pwc:SectionPanel ID="pwcSection" runat="server" />
+</asp:Content>

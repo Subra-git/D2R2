@@ -1,0 +1,10 @@
+DBRefFolders found in your dbp file
+Connect String: Data Source=coconut;Initial Catalog=VLA_SurveillanceProfiles_Support;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=coconut;Initial Catalog=VLA_SurveillanceProfilesP2R3;Integrated Security=True
+Provider: Microsoft SQL Server
+
+Connect String: Data Source=coconut;Initial Catalog=VLA_SurveillanceProfilesSysTest;Integrated Security=True
+Provider: Microsoft SQL Server
+

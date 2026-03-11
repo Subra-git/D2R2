@@ -1,0 +1,65 @@
+Imports ProfilesLibrary
+
+Partial Class NewProfileVersion
+    Inherits System.Web.UI.Page
+
+    Private Property NewProfileVersion() As ProfileVersion
+        Get
+            Return DirectCast(Session("NewProfileVersion"), ProfileVersion)
+        End Get
+        Set(ByVal value As ProfileVersion)
+            Session("NewProfileVersion") = value
+        End Set
+    End Property
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Not Page.IsPostBack Then
+
+            If Not IsValidGuid(Request.QueryString("ProfileVersionId")) Then
+                Throw New InvalidOperationException("There was an invalid or missing profile version id passed to the page.")
+            End If
+            Dim profileVersionId As Guid = New Guid(Request.QueryString("ProfileVersionId"))
+            Dim newVersion As ProfileVersion = ProfileVersion.NewProfileVersion(profileVersionId)
+
+            lblProfileTitle.Text = newVersion.Title
+
+            If newVersion.VersionMajor > 0 Then
+                lblProfilePublishedVersion.Text = newVersion.VersionMajor.ToString() & ".0"
+            Else
+                lblProfilePublishedVersion.Text = "- none -"
+            End If
+
+            If newVersion.VersionMinor = 1 Then
+                lblProfileDraftVersion.Text = "- none -"
+            Else
+                lblProfileDraftVersion.Text = newVersion.VersionMajor.ToString() & "." & (newVersion.VersionMinor - CByte(1)).ToString()
+            End If
+
+            btnCreate.Text &= newVersion.Version
+            NewProfileVersion = newVersion
+
+            Page.Title = "Create new draft profile version for " & newVersion.Title
+
+        End If
+
+    End Sub
+
+    Protected Sub btnCreate_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCreate.Click
+
+        Dim newVersion As ProfileVersion = NewProfileVersion
+        If newVersion Is Nothing Then
+            lblError.Text = "Profile version creation failed: You may have used the back button or your session timed out"
+            Exit Sub
+        End If
+
+        Try
+            newVersion.Save()
+            NewProfileVersion = Nothing
+            Cache.Remove("PublishedProfileList")
+            Session.Remove("DraftHistory|" & newVersion.ProfileId.ToString())
+            Response.Redirect("EditProfileQuestions.aspx?ProfileVersionId=" + newVersion.Id.ToString)
+        Catch ex As Csla.DataPortalException
+            lblError.Text = "Profile Version Creation Failed: " + ex.BusinessException.Message
+        End Try
+    End Sub
+End Class

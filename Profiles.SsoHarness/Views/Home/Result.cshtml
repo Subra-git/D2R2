@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Login result";
+}
+@model Profiles.SsoHarness.Models.LoginModel
+
+<div class="jumbotron">
+
+    @if (ViewBag.UserIsAuthenticated)
+    {
+        <p class="lead">Successful login</p>
+
+        <a href="http://localhost:64891">Click here to access Profiles</a>
+    }
+    else
+    {
+        <p class="lead">Unsuccessful login</p>
+
+        <p>Could not set a cookie for the specified user</p>
+    }
+</div>

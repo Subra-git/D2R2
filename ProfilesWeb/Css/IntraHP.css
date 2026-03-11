@@ -1,0 +1,213 @@
+BODY {
+	/*FONT-WEIGHT: normal; FONT-SIZE: 40%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif*/
+}
+FORM {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+H1 {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 4px; BORDER-TOP: 0px; PADDING-LEFT: 4px; FONT-WEIGHT: normal; FONT-SIZE: 150%; PADDING-BOTTOM: 4px; MARGIN: 0px; BORDER-LEFT: 0px; COLOR: #466a93; PADDING-TOP: 4px; BORDER-BOTTOM: 0px; FONT-FAMILY: Arial
+}
+H3 {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 110%; PADDING-BOTTOM: 2px; MARGIN: 0px; BORDER-LEFT: 0px; COLOR: #7a3245; PADDING-TOP: 2px; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #f1ede9
+}
+H4 {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 100%; PADDING-BOTTOM: 2px; MARGIN: 5px 0px 0px; BORDER-LEFT: 0px; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #cccc99
+}
+H5 {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 100%; PADDING-BOTTOM: 2px; MARGIN: 0px; BORDER-LEFT: 0px; COLOR: #ffffff; PADDING-TOP: 2px; BORDER-BOTTOM: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: 0.2em; BACKGROUND-COLOR: #6699cc
+}
+H6 {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 100%; PADDING-BOTTOM: 2px; MARGIN: 0px; BORDER-LEFT: 0px; COLOR: #ffffff; PADDING-TOP: 2px; BORDER-BOTTOM: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; LETTER-SPACING: 0.2em; BACKGROUND-COLOR: #cc6600
+}
+A:link {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+A:visited {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+A:hover {
+	COLOR: gray; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+A:active {
+	FONT-FAMILY: Verdana, Arial, sans-serif
+}
+P.right {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 2px 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; TEXT-ALIGN: right
+}
+DIV.search {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 8px; MARGIN: 0px; WIDTH: 100%; PADDING-TOP: 7px; BORDER-BOTTOM: #ffffff 5px solid; BACKGROUND-COLOR: #ffcc33
+}
+A.headerlinks:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: none
+}
+A.headerlinks:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: none
+}
+A.headerlinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.headerlinks:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 70%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: none
+}
+A.navlinks:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: none
+}
+A.navlinks:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: none
+}
+A.navlinks:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.navlinks:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: none
+}
+DIV.intragreenline {
+	PADDING-BOTTOM: 5px; BORDER-BOTTOM: #cccc99 1px solid
+}
+DIV.lhn {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 0px; PADDING-TOP: 5px; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #f1ede9
+}
+DIV.intrapadding {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px
+}
+P.news {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 4px 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+A.newslinks:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #466a93; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.newslinks:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #466a93; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.newslinks:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #666666; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.newslinks2:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 72%; COLOR: #466a93; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.newslinks2:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 72%; COLOR: #466a93; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.newslinks2:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 72%; COLOR: #666666; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.newslinks:active {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #466a93; FONT-FAMILY: Verdana, Arial, sans-serif; TEXT-DECORATION: underline
+}
+A.previousnews:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #666666
+}
+A.previousnews:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #666666
+}
+A.previousnews:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%; COLOR: #b2b2b2; TEXT-DECORATION: underline
+}
+.intranewsdate {
+	FONT-SIZE: 60%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+.intranewstext {
+	FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: Verdana, Arial, sans-serif
+}
+P.intranews {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 8px 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+A.atozlink {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 75%; PADDING-BOTTOM: 0px; COLOR: #000000; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+A.atozlink:visited {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FONT-SIZE: 75%; PADDING-BOTTOM: 0px; COLOR: #000000; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+A.atozlink:hover {
+	FONT-SIZE: 75%; COLOR: #000000; TEXT-DECORATION: underline
+}
+.oliveborder {
+	BORDER-RIGHT: #cccc99 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #cccc99 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; BORDER-LEFT: #cccc99 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #cccc99 1px solid
+}
+#defraweb UL {
+	MARGIN-TOP: 30px
+}
+.defraredborder {
+	BORDER-RIGHT: #cc6600 1px solid; BORDER-TOP: #cc6600 1px solid; BORDER-LEFT: #cc6600 1px solid; BORDER-BOTTOM: #cc6600 1px solid
+}
+.blueborder {
+	BORDER-RIGHT: #6699cc 1px solid; BORDER-TOP: #6699cc 1px solid; BORDER-LEFT: #6699cc 1px solid; BORDER-BOTTOM: #6699cc 1px solid
+}
+.brownborder {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #f1ede9
+}
+.paddingfive {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BACKGROUND-COLOR: #f1ede9
+}
+.circleborder {
+	BORDER-RIGHT: #f1ede9 1px solid; BORDER-TOP: #f1ede9 1px solid; BORDER-LEFT: #f1ede9 1px solid; BORDER-BOTTOM: #f1ede9 1px solid
+}
+.spotlighttext {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; FONT-SIZE: 80%; PADDING-BOTTOM: 0px; MARGIN: 8px 4px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+P.right {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 2px 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; TEXT-ALIGN: right
+}
+#footerold {
+	PADDING-RIGHT: 5px; BORDER-TOP: #cccc66 1px solid; MARGIN-TOP: 10px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; WIDTH: 100%; PADDING-TOP: 5px
+}
+.paddingright {
+	PADDING-RIGHT: 5px
+}
+#news UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-IMAGE: url(/graphics/chevrons/chev_blue.gif); PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 1.5em; PADDING-TOP: 0px
+}
+#news LI {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 0.5em; PADDING-LEFT: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+#news A:link {
+	FONT-WEIGHT: normal; COLOR: #466a93
+}
+#news A:visited {
+	FONT-WEIGHT: normal; COLOR: #466a93
+}
+#news A:hover {
+	FONT-WEIGHT: normal; COLOR: #6e6358
+}
+#defraweb UL {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; MARGIN-TOP: 8px; PADDING-LEFT: 0px; LIST-STYLE-IMAGE: url(/graphics/chevrons/chev_green.gif); PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#defraweb LI {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0em 0px 0.25em; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#defraweb {
+	BORDER-RIGHT: #cccc99 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #cccc99 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #cccc99 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #cccc99 1px solid; BACKGROUND-COLOR: #ffffff
+}
+#defraweb A:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%
+}
+#defraweb A:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%
+}
+#defraweb A:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 80%
+}
+.lhnav {
+	BACKGROUND-COLOR: #f1ede9
+}
+#headlines {
+	BACKGROUND-COLOR: #f3f6f9
+}
+#headlines UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-IMAGE: url(/graphics/chevrons/chev_blue.gif); PADDING-BOTTOM: 0.5em; MARGIN: 0px 0px 0px 1.5em; PADDING-TOP: 0px
+}
+#headlines LI {
+	PADDING-RIGHT: 0px; MARGIN-TOP: 0.5em; PADDING-LEFT: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.chevron {
+	MARGIN-TOP: 10px
+}
+UL#spotlight {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; MARGIN-TOP: 10px; PADDING-LEFT: 0px; FONT-SIZE: 80%; LIST-STYLE-IMAGE: url(/graphics/chevrons/chev_blue.gif); PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+UL#spotlight_new {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; MARGIN-TOP: 10px; PADDING-LEFT: 0px; FONT-SIZE: 80%; LIST-STYLE-IMAGE: url(/graphics/chevrons/chev_def_red.gif); PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#spotlight LI {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 5px 0.5em 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
