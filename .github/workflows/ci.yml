@@ -1,0 +1,103 @@
+# CI/CD Pipeline for BST Modern Application
+name: BST Continuous Integration
+
+# Trigger CI on pull requests and pushes to main branch
+on:
+  push:
+    branches: [ main, develop, 'feature/**' ]
+  pull_request:
+    branches: [ main, develop ]
+
+# Ensure only one CI run per PR to avoid conflicts
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build and Test BST Modern
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET 10.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore BSTModern.slnx
+    
+    - name: Build
+      run: dotnet build BSTModern.slnx --no-restore --configuration Release
+    
+    - name: Run unit tests
+      run: dotnet test BSTModern.slnx --no-build --configuration Release --filter "Category!=Integration" --logger "trx;LogFileName=test-results.trx" --verbosity normal
+    
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results
+        path: '**/test-results.trx'
+    
+    - name: Build Docker image
+      run: docker build -t bst-app:${{ github.sha }} .
+    
+    - name: Test Docker image
+      run: |
+        docker run -d --name bst-test -p 8080:8080 bst-app:${{ github.sha }}
+        sleep 10
+        curl --fail http://localhost:8080/health || (docker logs bst-test && exit 1)
+        curl --fail http://localhost:8080/ || (docker logs bst-test && exit 1)
+        docker stop bst-test
+        docker rm bst-test
+
+  code-quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Check Documentation
+      run: |
+        echo "📚 Checking documentation completeness..."
+        
+        required_docs=(
+          "docs/HLD.md"
+          "docs/LLD.md"
+          "docs/Test-Strategy.md"
+          "docs/Target-Architecture.md"
+          "docs/Migration-Plan.md"
+          "docs/Runbook.md"
+          "docs/Intelligent-Migration-Plan.md"
+          "docs/Risk-and-Governance.md"
+          "docs/Intelligent-Team-Model.md"
+          "docs/ROI-and-Budget.md"
+        )
+        
+        missing_docs=0
+        for doc in "${required_docs[@]}"; do
+          if [ ! -f "$doc" ]; then
+            echo "❌ Missing: $doc"
+            missing_docs=$((missing_docs + 1))
+          else
+            size=$(stat -c%s "$doc" 2>/dev/null || stat -f%z "$doc" 2>/dev/null)
+            if [ "$size" -lt 1024 ]; then
+              echo "⚠️  $doc exists but appears incomplete ($size bytes)"
+            else
+              echo "✅ $doc exists ($size bytes)"
+            fi
+          fi
+        done
+        
+        if [ $missing_docs -gt 0 ]; then
+          echo "❌ $missing_docs required documentation file(s) missing"
+          exit 1
+        else
+          echo "✅ All required documentation present"
+        fi

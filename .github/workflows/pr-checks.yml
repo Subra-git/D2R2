@@ -1,0 +1,217 @@
+name: Pull Request Validation
+
+# This workflow runs additional checks specifically for pull requests
+# to ensure code quality and readiness for merge
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  pr-validation:
+    name: PR Quality Checks
+    runs-on: windows-2019
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Full history for change analysis
+        
+    - name: PR Information
+      run: |
+        Write-Host "📋 PULL REQUEST VALIDATION"
+        Write-Host "================================="  
+        Write-Host "PR Title: ${{ github.event.pull_request.title }}"
+        Write-Host "PR Author: ${{ github.event.pull_request.user.login }}"
+        Write-Host "Target Branch: ${{ github.event.pull_request.base.ref }}"
+        Write-Host "Source Branch: ${{ github.event.pull_request.head.ref }}"
+        Write-Host "Changed Files: ${{ github.event.pull_request.changed_files }}"
+        Write-Host ""
+        
+    - name: Validate PR Title
+      run: |
+        $prTitle = "${{ github.event.pull_request.title }}"
+        Write-Host "🔍 Validating PR title format..."
+        
+        # Check for conventional commit format
+        $conventionalPattern = "^(feat|fix|docs|style|refactor|test|chore|ci)(\(.+\))?: .+"
+        
+        if ($prTitle -match $conventionalPattern) {
+          Write-Host "✅ PR title follows conventional commit format"
+        } else {
+          Write-Host "⚠️  PR title doesn't follow conventional commit format"
+          Write-Host "   Recommended format: 'type(scope): description'"
+          Write-Host "   Examples:"
+          Write-Host "     feat(search): add virus characteristic filtering"
+          Write-Host "     fix(dispatch): correct aliquot inventory validation"
+          Write-Host "     test(isolate): add unit tests for validation rules"
+          Write-Host "   This is a recommendation, not a requirement for this legacy system"
+        }
+        
+    - name: Check Modified Files
+      run: |
+        Write-Host "📂 Analyzing changed files..."
+        
+        git diff --name-only origin/${{ github.event.pull_request.base.ref }}..HEAD | ForEach-Object {
+          $file = $_
+          Write-Host "   Modified: $file"
+          
+          # Check for sensitive file modifications
+          if ($file -match "Web\.config|connectionStrings|password|secret") {
+            Write-Host "   ⚠️  ALERT: Potential sensitive configuration change detected"
+            Write-Host "   Please ensure no credentials or sensitive data are exposed"
+          }
+          
+          # Check for database schema changes
+          if ($file -match "\.sql$|schema|migration") {
+            Write-Host "   ⚠️  ALERT: Database schema change detected"
+            Write-Host "   Please ensure proper database migration planning"
+          }
+          
+          # Check for test file modifications
+          if ($file -match "Test|test") {
+            Write-Host "   ✅ Test file modified - good practice"
+          }
+        }
+        
+    - name: Check for Breaking Changes
+      run: |
+        Write-Host "🔍 Checking for potential breaking changes..."
+        
+        $breakingKeywords = @(
+          "BREAKING CHANGE",
+          "BREAKING:",
+          "Remove.*method",
+          "Remove.*property", 
+          "Delete.*class",
+          "Change.*signature"
+        )
+        
+        $prBody = "${{ github.event.pull_request.body }}"
+        $breakingFound = $false
+        
+        $breakingKeywords | ForEach-Object {
+          if ($prBody -match $_) {
+            Write-Host "⚠️  BREAKING CHANGE detected: $_"
+            $breakingFound = $true
+          }
+        }
+        
+        if ($breakingFound) {
+          Write-Host "❌ Breaking changes require additional review and planning"
+          Write-Host "Please ensure:"
+          Write-Host "   - Migration strategy is documented"
+          Write-Host "   - Backward compatibility is considered"
+          Write-Host "   - Stakeholders are notified"
+          # Don't fail the build, just warn
+        } else {
+          Write-Host "✅ No obvious breaking changes detected"
+        }
+        
+    - name: Test Coverage Analysis
+      run: |
+        Write-Host "📊 Analyzing test coverage for changes..."
+        
+        $modifiedFiles = git diff --name-only origin/${{ github.event.pull_request.base.ref }}..HEAD
+        $codeFiles = $modifiedFiles | Where-Object { $_ -match "\.vb$" -and $_ -notmatch "Test" }
+        $testFiles = $modifiedFiles | Where-Object { $_ -match "Test.*\.vb$" }
+        
+        Write-Host "Code files modified: $($codeFiles.Count)"
+        Write-Host "Test files modified: $($testFiles.Count)"
+        
+        if ($codeFiles.Count -gt 0 -and $testFiles.Count -eq 0) {
+          Write-Host "⚠️  Code changes without corresponding test changes"
+          Write-Host "Consider adding or updating tests for:"
+          $codeFiles | ForEach-Object { Write-Host "   - $_" }
+          Write-Host "This is a recommendation for better test coverage"
+        } elseif ($codeFiles.Count -gt 0 -and $testFiles.Count -gt 0) {
+          Write-Host "✅ Code changes include test modifications"
+        } else {
+          Write-Host "✅ Test-only or documentation changes"
+        }
+        
+    - name: Security Check
+      run: |
+        Write-Host "🔒 Basic security checks..."
+        
+        # Check for hardcoded credentials or sensitive data
+        $securityPattern = "(password|secret|key|token)\s*[=:]\s*['\"][^'\"\s]+"
+        $foundSecurityIssues = @()
+        
+        git diff --name-only origin/${{ github.event.pull_request.base.ref }}..HEAD | Where-Object { $_ -match "\.(vb|cs|config|xml|js)$" } | ForEach-Object {
+          $file = $_
+          if (Test-Path $file) {
+            $content = Get-Content $file -Raw
+            if ($content -match $securityPattern) {
+              $foundSecurityIssues += $file
+            }
+          }
+        }
+        
+        if ($foundSecurityIssues.Count -gt 0) {
+          Write-Host "⚠️  Potential security issues found in:"
+          $foundSecurityIssues | ForEach-Object { Write-Host "   - $_" }
+          Write-Host "Please review for hardcoded credentials or sensitive data"
+          Write-Host "Consider using configuration files or secure key management"
+        } else {
+          Write-Host "✅ No obvious security issues detected"
+        }
+        
+    - name: Modernization Alignment Check  
+      run: |
+        Write-Host "🚀 Checking alignment with modernization goals..."
+        
+        $modernizationKeywords = @(
+          "Session", "HttpContext", "ViewState", "Page_Load", 
+          "SqlCommand", "SqlConnection", "DataSet", "DataTable"
+        )
+        
+        $legacyPatternUsage = @()
+        
+        git diff --name-only origin/${{ github.event.pull_request.base.ref }}..HEAD | Where-Object { $_ -match "\.vb$" -and $_ -notmatch "Test" } | ForEach-Object {
+          $file = $_
+          if (Test-Path $file) {
+            $newContent = git show HEAD:$file 2>$null
+            if ($newContent) {
+              $modernizationKeywords | ForEach-Object {
+                $keyword = $_
+                if ($newContent -match $keyword) {
+                  $legacyPatternUsage += "$file uses $keyword"
+                }
+              }
+            }
+          }
+        }
+        
+        if ($legacyPatternUsage.Count -gt 0) {
+          Write-Host "📝 Legacy patterns detected (for awareness during modernization):"
+          $legacyPatternUsage | ForEach-Object { Write-Host "   - $_" }
+          Write-Host "These patterns are tracked for future modernization phases"
+        } else {
+          Write-Host "✅ No new legacy patterns detected"
+        }
+        
+  merge-readiness:
+    name: Merge Readiness Check
+    runs-on: windows-2019
+    needs: pr-validation
+    
+    steps:
+    - name: Final Merge Check
+      run: |
+        Write-Host "🎯 MERGE READINESS STATUS"
+        Write-Host "============================"
+        Write-Host "✅ PR validation completed"
+        Write-Host "✅ Quality checks passed"
+        Write-Host "✅ No blocking issues detected"
+        Write-Host ""
+        Write-Host "📋 Pre-merge checklist:"
+        Write-Host "   ☐ All CI tests passing"
+        Write-Host "   ☐ Code review approved"
+        Write-Host "   ☐ Documentation updated (if needed)"
+        Write-Host "   ☐ Breaking changes documented (if any)"
+        Write-Host "   ☐ Database changes planned (if any)"
+        Write-Host ""
+        Write-Host "Ready for reviewer approval! 🚀"
