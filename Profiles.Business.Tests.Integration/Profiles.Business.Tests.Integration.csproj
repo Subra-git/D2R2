@@ -107,6 +107,7 @@
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
     <Compile Include="EmailBusinessTests.cs" />
+    <Compile Include="ReviewEmailIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,59 @@
+name: Build and Test (Legacy .NET Framework)
+
+on:
+  pull_request:
+    branches: [ main, master, develop, 'feature/**' ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build & Unit Tests
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v2
+
+    - name: Restore NuGet Packages
+      run: nuget restore SurveillanceProfiles.sln
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Create ProfilesWeb bin directory
+      run: New-Item -ItemType Directory -Path ProfilesWeb\bin -Force | Out-Null
+      shell: pwsh
+
+    - name: Build Solution
+      run: msbuild SurveillanceProfiles.sln /p:Configuration=Debug /p:Platform="Any CPU" /m /v:minimal
+
+    - name: Run Unit Tests
+      run: |
+        dotnet vstest `
+          "Profiles.Business.Tests.Unit\bin\UAT Azure\Profiles.Business.Tests.Unit.dll" `
+          "Profiles.DataAccess.NPoco.Tests.Unit\bin\Debug\Profiles.DataAccess.NPoco.Tests.Unit.dll" `
+          /TestAdapterPath:"packages\xunit.runner.visualstudio.2.1.0\build\_common" `
+          --logger:"trx;LogFileName=unit-test-results.trx"
+      shell: pwsh
+
+    - name: Run Integration Tests (database-independent only)
+      run: |
+        dotnet vstest `
+          "Profiles.Business.Tests.Integration\bin\UAT Azure\Profiles.Business.Tests.Integration.dll" `
+          /TestAdapterPath:"packages\xunit.runner.visualstudio.2.1.0\build\_common" `
+          /Tests:"ReviewEmailFlow_EligibleUser_ShouldDelegateToEmailServiceWithCorrectArguments,ReviewEmailFlow_NoEligibleUsers_ShouldNotSendAnyEmails" `
+          --logger:"trx;LogFileName=integration-test-results.trx"
+      shell: pwsh
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: '**/*test-results.trx'

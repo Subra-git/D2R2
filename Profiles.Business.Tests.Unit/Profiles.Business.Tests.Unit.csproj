@@ -58,6 +58,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Csla, Version=3.0.5.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Csla.dll</HintPath>
+    </Reference>
     <Reference Include="NPoco, Version=4.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NPoco.4.0.2\lib\net45\NPoco.dll</HintPath>
     </Reference>
@@ -92,7 +96,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="BespokeReport\BespokeReportTemplateServiceTests.cs" />
+    <Compile Include="EmailBusiness\EmailBusinessMultiUserTests.cs" />
     <Compile Include="EmailBusiness\EmailBusinessTests.cs" />
+    <Compile Include="EmailBusiness\EmailServiceTests.cs" />
+    <Compile Include="EmailBusiness\HtmlTagHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +130,10 @@
     <ProjectReference Include="..\Profiles.Infrastructure\Profiles.Infrastructure.csproj">
       <Project>{9ae09297-f86a-464a-8c8d-2a96a1a902bf}</Project>
       <Name>Profiles.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProfilesLibrary\ProfilesLibrary.vbproj">
+      <Project>{17fd4164-5f42-4520-8a0f-dd30f0dbf90b}</Project>
+      <Name>ProfilesLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
